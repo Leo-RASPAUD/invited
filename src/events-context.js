@@ -11,8 +11,8 @@ export const events = [
         name: 'Leo',
         notes: '',
         phone: '+6112345678',
-      }
-    ]
+      },
+    ],
     host: 'Garth',
     introduction: 'Together with friends',
     location: "LP's quality meats",
