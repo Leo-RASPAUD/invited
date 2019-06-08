@@ -1,24 +1,29 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Amplify from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react';
-import logo from './logo.svg';
-import './App.css';
 import config from './config';
+import { events, EventsContext } from './events-context';
+import Events from './Events';
+import EventsRoutes from './EventsRoutes';
+import Navigation from './Navigation';
+
+import './App.css';
 
 Amplify.configure(config);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Invite.me
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+      <EventsContext.Provider value={events}>
+        <Router>
+          <div>
+            <Navigation />
+            <Route exact path="/events" component={Events} />
+            <EventsRoutes />
+          </div>
+        </Router>
+      </EventsContext.Provider>
     </div>
   );
 }
