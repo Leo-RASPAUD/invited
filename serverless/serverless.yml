@@ -20,3 +20,5 @@ provider:
 functions:
   getEvents:
     handler: events/getEvents.handler
+  deleteEvent:
+    handler: events/deleteEvent.handler

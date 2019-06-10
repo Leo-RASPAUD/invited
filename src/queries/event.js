@@ -2,8 +2,8 @@ import event from '../types/event';
 
 const getEvents = {
   name: 'getEvents',
-  query: `query getEvents($userId: String!) {
-    getEvents(userId: $userId) {
+  query: `query getEvents {
+    getEvents {
       ${event}
     }
 }`,

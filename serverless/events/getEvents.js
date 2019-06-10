@@ -1,4 +1,4 @@
-const utils = require('../utils/db.utils');
+const utils = require('./events.db.utils');
 
 module.exports.handler = async event => {
   const { userId } = event;
