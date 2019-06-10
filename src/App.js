@@ -6,7 +6,9 @@ import config from './config';
 import { events, EventsContext } from './events-context';
 import Events from './Events';
 import EventsRoutes from './EventsRoutes';
-import Navigation from './Navigation';
+import Navigation from './components/Navigation';
+import Home from './pages/Home';
+import Create from './pages/Create';
 
 import './App.css';
 
@@ -20,6 +22,8 @@ function App() {
           <div>
             <Navigation />
             <Route exact path="/events" component={Events} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/new" component={Create} />
             <EventsRoutes />
           </div>
         </Router>
@@ -27,5 +31,7 @@ function App() {
     </div>
   );
 }
+
+// export default App;
 
 export default withAuthenticator(App);

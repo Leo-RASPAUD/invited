@@ -49,3 +49,7 @@ button {
   padding: 0;
   text-decoration: underline;
 }
+
+li {
+  padding: 0 10px;
+}
