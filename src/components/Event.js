@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import graphql from '../utils/graphql';
 import styles from './Event.module.scss';
+import graphql from '../utils/graphql';
 import eventMutations from '../mutations/event';
 
 export default event => {
