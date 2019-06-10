@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'; //eslint-disable-line
 import { API, graphqlOperation } from 'aws-amplify';
-export default ({ query, name, params = {}, withUser = false }) => {
+export default ({ query, name, params = {} }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isSubscribed, setSubscribed] = useState(true);

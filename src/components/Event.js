@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import graphql from '../utils/graphql';
 import styles from './Event.module.scss';
+import eventMutations from '../mutations/event';
 
 export default event => {
+  const [loading, setLoading] = useState(false);
+
   const { id, name } = event;
-  const deleteEvent = () => {
-    console.log('delete');
+  const deleteEvent = async id => {
+    setLoading(true);
+    await graphql.mutation({ ...eventMutations.deleteEvent, params: { id } });
+    setLoading(false);
   };
 
   return (
     <div key={id} className={styles['event-container']}>
       <h1>{name}</h1>
-      <button onClick={() => deleteEvent()}>X</button>
+      {loading && <div>loading</div>}
+      <button onClick={() => deleteEvent(id)}>Delete</button>
     </div>
   );
 };

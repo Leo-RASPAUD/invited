@@ -17,8 +17,3 @@ provider:
         - 'lambda:InvokeFunction'
         - 'lambda:InvokeAsync'
       Resource: '*'
-functions:
-  getEvents:
-    handler: events/getEvents.handler
-  deleteEvent:
-    handler: events/deleteEvent.handler
