@@ -1,6 +1,7 @@
 export const actions = {
   deleteEventLoading: 'deleteEventLoading',
   deleteEventSuccess: 'deleteEventSuccess',
+  deleteEventError: 'deleteEventError',
   updateEvents: 'updateEvents',
   createEvent: 'createEvent',
 };
@@ -14,6 +15,15 @@ export const reducer = (state, { payload, type }) => {
         ...state,
         events: state.events.map(event => {
           if (event.id === payload.id) return { ...event, loading: true };
+          return event;
+        }),
+      };
+    }
+    case actions.deleteEventError: {
+      return {
+        ...state,
+        events: state.events.map(event => {
+          if (event.id === payload.id) return { ...event, loading: false };
           return event;
         }),
       };

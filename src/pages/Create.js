@@ -7,10 +7,10 @@ import { actions } from '../reducers/eventReducer';
 
 export default () => {
   const { register, handleSubmit } = useForm();
-  const { state, dispatchEvents } = useContext(Context);
+  const { dispatchEvents } = useContext(Context);
   const onSubmit = async data => {
-    await graphql.mutation({ ...eventMutations.createEvent, params: { name: data.name } });
-    dispatchEvents({ type: actions.createEvent, payload: { event: data } });
+    const result = await graphql.mutation({ ...eventMutations.createEvent, params: { name: data.name } });
+    dispatchEvents({ type: actions.createEvent, payload: { event: result } });
   };
 
   return (
