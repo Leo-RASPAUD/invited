@@ -13,7 +13,18 @@ import './App.css';
 
 Amplify.configure(config);
 
-function App() {
+const PrivateRoutes = () => {
+  return (
+    <>
+      <Route exact path="/app" component={Home} />
+      <Route exact path="/app/new" component={Create} />
+    </>
+  );
+};
+
+const Wrapped = withAuthenticator(PrivateRoutes);
+
+const App = () => {
   const [state, dispatchEvents] = useReducer(eventReducer, initialState);
 
   return (
@@ -21,12 +32,19 @@ function App() {
       <Context.Provider value={{ state, dispatchEvents }}>
         <Router>
           <Navigation />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/new" component={Create} />
+          <Route
+            exact
+            path="/public"
+            component={() => {
+              return <div>hello</div>;
+            }}
+          />
+          <Wrapped />
+          {/* <Route exact path="/app" component={<Wrapped />} /> */}
         </Router>
       </Context.Provider>
     </div>
   );
-}
+};
 
-export default withAuthenticator(App);
+export default App;

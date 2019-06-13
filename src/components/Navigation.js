@@ -28,7 +28,7 @@ export default () => {
       <Logo>Invite.me</Logo>
       <Ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/app">Home</Link>
         </li>
       </Ul>
     </Navigation>
