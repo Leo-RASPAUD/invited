@@ -7,7 +7,7 @@ export default () => {
   const [loading, state] = useFetcher(getEvents);
   return (
     <div>
-      <Link to="/new">New event</Link>
+      <Link to="/app/new">New event</Link>
       <div>
         <h1>My events</h1>
         {loading && <div>Loading ...</div>}
