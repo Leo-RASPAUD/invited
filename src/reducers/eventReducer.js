@@ -2,6 +2,7 @@ export const actions = {
   deleteEventLoading: 'deleteEventLoading',
   deleteEventSuccess: 'deleteEventSuccess',
   updateEvents: 'updateEvents',
+  createEvent: 'createEvent',
 };
 
 export const dispatchName = 'dispatchEvents';
@@ -27,6 +28,12 @@ export const reducer = (state, { payload, type }) => {
       return {
         ...state,
         events: payload,
+      };
+    }
+    case actions.createEvent: {
+      return {
+        ...state,
+        events: state.events.concat(payload.event),
       };
     }
     default: {

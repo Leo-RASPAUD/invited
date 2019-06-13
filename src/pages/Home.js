@@ -5,7 +5,6 @@ import useFetcher from '../hooks/useFetcher';
 import Event from '../components/Event';
 export default () => {
   const [loading, state] = useFetcher(getEvents);
-
   return (
     <div>
       <Link to="/new">New event</Link>
