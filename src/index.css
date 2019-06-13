@@ -53,3 +53,15 @@ button {
 li {
   padding: 0 10px;
 }
+
+label {
+  display: block;
+}
+
+input {
+  display: block;
+  font-size: inherit;
+  line-height: 1;
+  padding: 4px;
+  width: 100%;
+}
