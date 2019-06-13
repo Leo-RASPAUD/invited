@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react'; //eslint-disable-line
+import React, { useState, useEffect, useContext } from 'react'; //eslint-disable-line
 import { API, graphqlOperation } from 'aws-amplify';
-export default ({ query, name, params = {} }) => {
+import { Context } from '../AppContext';
+
+export default ({ query, name, params = {}, action = null, dispatch = '' }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isSubscribed, setSubscribed] = useState(true);
+  const { state, ...rest } = useContext(Context);
 
   const getData = async () => {
     const {
@@ -12,6 +15,9 @@ export default ({ query, name, params = {} }) => {
     if (isSubscribed) {
       setData(result);
       setLoading(false);
+      if (action) {
+        rest[dispatch]({ type: action, payload: result });
+      }
     }
   };
 
@@ -22,5 +28,5 @@ export default ({ query, name, params = {} }) => {
     };
   }, []); // eslint-disable-line
 
-  return [loading, data];
+  return [loading, state];
 };

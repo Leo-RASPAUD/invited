@@ -28,9 +28,6 @@ export default () => {
       <Logo>Invite.me</Logo>
       <Ul>
         <li>
-          <Link to="/events">Events</Link>
-        </li>
-        <li>
           <Link to="/">Home</Link>
         </li>
       </Ul>

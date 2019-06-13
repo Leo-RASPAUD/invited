@@ -1,37 +1,32 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Amplify from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react';
 import config from './config';
-import { events, EventsContext } from './events-context';
-import Events from './Events';
-import EventsRoutes from './EventsRoutes';
 import Navigation from './components/Navigation';
 import Home from './pages/Home';
 import Create from './pages/Create';
+import { Context, initialState } from './AppContext';
+import { reducer as eventReducer } from './reducers/eventReducer';
 
 import './App.css';
 
 Amplify.configure(config);
 
 function App() {
+  const [state, dispatchEvents] = useReducer(eventReducer, initialState);
+
   return (
     <div className="App">
-      <EventsContext.Provider value={events}>
+      <Context.Provider value={{ state, dispatchEvents }}>
         <Router>
-          <div>
-            <Navigation />
-            <Route exact path="/events" component={Events} />
-            <Route exact path="/" component={Home} />
-            <Route exact path="/new" component={Create} />
-            <EventsRoutes />
-          </div>
+          <Navigation />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/new" component={Create} />
         </Router>
-      </EventsContext.Provider>
+      </Context.Provider>
     </div>
   );
 }
-
-// export default App;
 
 export default withAuthenticator(App);
