@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import styles from './Event.module.scss';
-import { deleteEvent as deleteEventMutation } from '../mutations/event';
+import { deleteEvent as deleteEventMutation } from '../mutations/eventMutations';
 import { Context } from '../AppContext';
-import { actions } from '../reducers/events';
+import { actions } from '../reducers/eventsReducer';
 import { Link } from 'react-router-dom';
 import useFetcher from '../hooks/useFetcher';
 

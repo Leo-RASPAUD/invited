@@ -1,6 +1,6 @@
-import { lightEvent, event } from '../types/event';
-import { actions, dispatchName } from '../reducers/events';
-import { actions as actionsGuests, dispatchName as dispatchGuest } from '../reducers/guests';
+import { lightEvent, event } from '../types/eventType';
+import { actions, dispatchName } from '../reducers/eventsReducer';
+import { actions as actionsGuests, dispatchName as dispatchGuest } from '../reducers/guestsReducer';
 
 const getEvents = {
   name: 'getEvents',

@@ -1,5 +1,5 @@
-import { actions, dispatchName } from '../reducers/events';
-import { lightEvent } from '../types/event';
+import { actions, dispatchName } from '../reducers/eventsReducer';
+import { lightEvent } from '../types/eventType';
 
 const deleteEvent = {
   name: 'deleteEvent',

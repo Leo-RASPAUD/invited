@@ -1,5 +1,5 @@
-import { actions, dispatchName } from '../reducers/guests';
-import guest from '../types/guest';
+import { actions, dispatchName } from '../reducers/guestsReducer';
+import guest from '../types/guestType';
 
 const addGuest = {
   name: 'addGuest',

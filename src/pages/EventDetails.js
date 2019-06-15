@@ -1,10 +1,10 @@
 import React, { useEffect, useContext } from 'react';
 import useForm from 'react-hook-form';
-import { getEvent } from '../queries/event';
-import { addGuest, deleteGuest as deleteGuestMutation } from '../mutations/guest';
+import { getEvent } from '../queries/eventQueries';
+import { addGuest, deleteGuest as deleteGuestMutation } from '../mutations/guestMutations';
 import { Context } from '../AppContext';
 import useFetcher from '../hooks/useFetcher';
-import { actions } from '../reducers/guests';
+import { actions } from '../reducers/guestsReducer';
 import { withRouter } from 'react-router';
 
 const EventDetails = ({ location, match }) => {

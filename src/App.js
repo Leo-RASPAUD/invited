@@ -8,8 +8,8 @@ import Home from './pages/Home';
 import Create from './pages/Create';
 import EventDetails from './pages/EventDetails';
 import { Context, initialStateEvents, initialStateGuests } from './AppContext';
-import { reducer as eventsReducer } from './reducers/events';
-import { reducer as guestReducer } from './reducers/guests';
+import { reducer as eventsReducer } from './reducers/eventsReducer';
+import { reducer as guestReducer } from './reducers/guestsReducer';
 
 import './App.css';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import useForm from 'react-hook-form';
-import { createEvent } from '../mutations/event';
+import { createEvent } from '../mutations/eventMutations';
 import useFetcher from '../hooks/useFetcher';
 
 export default () => {

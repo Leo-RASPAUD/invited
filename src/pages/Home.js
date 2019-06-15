@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getEvents } from '../queries/event';
+import { getEvents } from '../queries/eventQueries';
 import useFetcher from '../hooks/useFetcher';
 import Event from '../components/Event';
 

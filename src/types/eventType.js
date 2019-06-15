@@ -1,4 +1,4 @@
-import guest from './guest';
+import guest from './guestType';
 
 export const lightEvent = 'name id';
 export const event = `
