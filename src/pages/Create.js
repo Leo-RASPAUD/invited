@@ -1,16 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import useForm from 'react-hook-form';
-import graphql from '../utils/graphql';
-import { Context } from '../AppContext';
-import eventMutations from '../mutations/event';
-import { actions } from '../reducers/eventReducer';
+import { createEvent } from '../mutations/eventMutations';
+import useFetcher from '../hooks/useFetcher';
 
 export default () => {
   const { handleSubmit, register, watch } = useForm();
-  const { dispatchEvents } = useContext(Context);
+  const { fetcher } = useFetcher();
+
   const onSubmit = async data => {
-    const result = await graphql.mutation({ ...eventMutations.createEvent, params: data });
-    dispatchEvents({ type: actions.createEvent, payload: { event: result } });
+    fetcher({ ...createEvent, params: data });
   };
   const fields = watch();
   return (

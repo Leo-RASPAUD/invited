@@ -16,4 +16,8 @@ provider:
         - 'dynamodb:*'
         - 'lambda:InvokeFunction'
         - 'lambda:InvokeAsync'
+        - 'secretsmanager:Get*'
       Resource: '*'
+functions:
+  addGuest:
+    handler: guests/addGuest.handler

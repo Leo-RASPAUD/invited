@@ -4,6 +4,7 @@ export const actions = {
   deleteEventError: 'deleteEventError',
   updateEvents: 'updateEvents',
   createEvent: 'createEvent',
+  getEvent: 'getEvent',
 };
 
 export const dispatchName = 'dispatchEvents';
@@ -31,7 +32,7 @@ export const reducer = (state, { payload, type }) => {
     case actions.deleteEventSuccess: {
       return {
         ...state,
-        events: state.events.filter(event => event.id !== payload.id),
+        events: state.events.filter(event => event.id !== payload),
       };
     }
     case actions.updateEvents: {
@@ -43,7 +44,13 @@ export const reducer = (state, { payload, type }) => {
     case actions.createEvent: {
       return {
         ...state,
-        events: state.events.concat(payload.event),
+        events: state.events.concat(payload),
+      };
+    }
+    case actions.getEvent: {
+      return {
+        ...state,
+        event: payload,
       };
     }
     default: {

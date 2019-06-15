@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getEvents } from '../queries/event';
+import { getEvents } from '../queries/eventQueries';
 import useFetcher from '../hooks/useFetcher';
 import Event from '../components/Event';
+
 export default () => {
-  const [loading, state] = useFetcher(getEvents);
+  const { loading, state, fetcher } = useFetcher();
+
+  useEffect(() => {
+    fetcher(getEvents);
+  }, []); //eslint-disable-line
+
   return (
     <div>
       <Link to="/app/new">New event</Link>

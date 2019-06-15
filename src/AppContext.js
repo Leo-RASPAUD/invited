@@ -1,7 +1,12 @@
 import React from 'react';
 
-export const initialState = {
-  events: [],
+export const initialStateGuests = {
+  guests: [],
 };
 
-export const Context = React.createContext({ state: initialState });
+export const initialStateEvents = {
+  events: [],
+  event: {},
+};
+
+export const Context = React.createContext({ state: { ...initialStateGuests, initialStateEvents } });
