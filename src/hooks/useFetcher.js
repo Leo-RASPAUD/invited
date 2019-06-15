@@ -28,5 +28,5 @@ export default () => {
     };
   }, []);
 
-  return [loading, state, getData];
+  return { loading, state, getData };
 };

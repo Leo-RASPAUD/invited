@@ -1,22 +1,18 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { getEvent } from '../queries/event';
 import useFetcher from '../hooks/useFetcher';
-import Event from '../components/Event';
 import { withRouter } from 'react-router';
-import guest from '../types/guest';
 
 const EventDetails = ({ location, match }) => {
-  // const [loading, state] = useFetcher(getEvents);
   const eventId = match.params.id;
-  const [loading, state, getData] = useFetcher();
+  const { loading, state, getData } = useFetcher();
   const {
     event: { name, id, guests = [] },
   } = state;
 
   useEffect(() => {
     getData({ ...getEvent, params: { id: eventId } });
-  }, []);
+  }, []); // eslint-disable-line
 
   return (
     <div>
