@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Navigation = styled.div`
-  background: #fefefe;
-  border-bottom: 1px solid coral;
+  background: whitesmoke;
   margin: -16px -32px 0 -32px;
   padding: 0 16px;
   display: flex;
@@ -25,10 +24,10 @@ const Logo = styled.div`
 export default () => {
   return (
     <Navigation className="Navigation">
-      <Logo>Invite.me</Logo>
+      <Logo>Invite</Logo>
       <Ul>
         <li>
-          <Link to="/app">Home</Link>
+          <Link to="/app">Event list</Link>
         </li>
       </Ul>
     </Navigation>

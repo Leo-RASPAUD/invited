@@ -44,7 +44,7 @@ export default () => {
           <input name="date" type="text" ref={register} />
         </div>
       </div>
-      <input type="submit" />
+      <input className="button" type="submit" />
     </form>
   );
 };

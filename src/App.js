@@ -4,8 +4,9 @@ import Amplify from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react';
 import config from './config';
 import Navigation from './components/Navigation';
-import Home from './pages/Home';
 import Create from './pages/Create';
+import Event from './pages/Event';
+import EventList from './pages/EventList';
 import EventDetails from './pages/EventDetails';
 import { Context, initialStateEvents, initialStateGuests } from './AppContext';
 import { reducer as eventsReducer } from './reducers/eventsReducer';
@@ -18,7 +19,7 @@ Amplify.configure(config);
 const PrivateRoutes = () => {
   return (
     <>
-      <Route exact path="/app" component={Home} />
+      <Route exact path="/app" component={EventList} />
       <Route exact path="/app/new" component={Create} />
       <Route exact path="/app/event/:id" component={EventDetails} />
     </>
@@ -45,10 +46,15 @@ const App = () => {
           <Navigation />
           <Route
             exact
-            path="/public"
+            path="/"
             component={() => {
-              return <div>hello</div>;
+              return <div>Home page</div>;
             }}
+          />
+          <Route
+            exact
+            path="/event/:id"
+            component={Event}
           />
           <Wrapped />
         </Router>
