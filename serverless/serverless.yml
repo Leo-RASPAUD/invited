@@ -17,3 +17,6 @@ provider:
         - 'lambda:InvokeFunction'
         - 'lambda:InvokeAsync'
       Resource: '*'
+functions:
+  addGuest:
+    handler: events/addGuest.handler

@@ -2,13 +2,13 @@ import React, { useState, useEffect, useContext } from 'react'; //eslint-disable
 import { API, graphqlOperation } from 'aws-amplify';
 import { Context } from '../AppContext';
 
-export default ({ query, name, params = {}, action = null, dispatch = '' }) => {
+export default () => {
   const [, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isSubscribed, setSubscribed] = useState(true);
   const { state, ...rest } = useContext(Context);
 
-  const getData = async () => {
+  const getData = async ({ query, name, params = {}, action = null, dispatch = '' }) => {
     const {
       data: { [name]: result },
     } = await API.graphql(graphqlOperation(query, params));
@@ -23,11 +23,10 @@ export default ({ query, name, params = {}, action = null, dispatch = '' }) => {
   };
 
   useEffect(() => {
-    getData(query);
     return () => {
       setSubscribed(false);
     };
-  }, []); // eslint-disable-line
+  }, []);
 
-  return [loading, state];
+  return [loading, state, getData];
 };

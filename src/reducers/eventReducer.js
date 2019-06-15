@@ -4,6 +4,7 @@ export const actions = {
   deleteEventError: 'deleteEventError',
   updateEvents: 'updateEvents',
   createEvent: 'createEvent',
+  getEvent: 'getEvent',
 };
 
 export const dispatchName = 'dispatchEvents';
@@ -44,6 +45,12 @@ export const reducer = (state, { payload, type }) => {
       return {
         ...state,
         events: state.events.concat(payload.event),
+      };
+    }
+    case actions.getEvent: {
+      return {
+        ...state,
+        event: payload,
       };
     }
     default: {

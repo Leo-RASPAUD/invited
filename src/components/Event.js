@@ -4,6 +4,7 @@ import graphql from '../utils/graphql';
 import eventMutations from '../mutations/event';
 import { Context } from '../AppContext';
 import { actions } from '../reducers/eventReducer';
+import { Link } from 'react-router-dom';
 
 export default event => {
   const [loading, setLoading] = useState(false);
@@ -27,6 +28,7 @@ export default event => {
       <h1>{name}</h1>
       {loading && <div>loading</div>}
       <button onClick={() => deleteEvent(id)}>Delete</button>
+      <Link to={`/app/event/${id}`}>Details</Link>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import config from './config';
 import Navigation from './components/Navigation';
 import Home from './pages/Home';
 import Create from './pages/Create';
+import EventDetails from './pages/EventDetails';
 import { Context, initialState } from './AppContext';
 import { reducer as eventReducer } from './reducers/eventReducer';
 
@@ -18,6 +19,7 @@ const PrivateRoutes = () => {
     <>
       <Route exact path="/app" component={Home} />
       <Route exact path="/app/new" component={Create} />
+      <Route exact path="/app/event/:id" component={EventDetails} />
     </>
   );
 };
@@ -40,7 +42,6 @@ const App = () => {
             }}
           />
           <Wrapped />
-          {/* <Route exact path="/app" component={<Wrapped />} /> */}
         </Router>
       </Context.Provider>
     </div>
