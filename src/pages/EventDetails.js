@@ -1,22 +1,37 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import useForm from 'react-hook-form';
 import { getEvent } from '../queries/event';
+import { addGuest, deleteGuest as deleteGuestMutation } from '../mutations/guest';
+import { Context } from '../AppContext';
 import useFetcher from '../hooks/useFetcher';
+import { actions } from '../reducers/guests';
 import { withRouter } from 'react-router';
 
 const EventDetails = ({ location, match }) => {
   const eventId = match.params.id;
-  const { loading, state, getData } = useFetcher();
-  const { handleSubmit, register, watch } = useForm();
+  const { loading, state, fetcher } = useFetcher();
+  const { handleSubmit, register } = useForm();
+  const { dispatchEvents } = useContext(Context);
   const {
-    event: { name, id, guests = [] },
+    event: { name, type, place, date, host },
+    guests = [],
   } = state;
 
   const onSubmit = async data => {
-    console.log(data);
+    fetcher({ ...addGuest, params: { ...data, eventId } });
   };
+
+  const deleteGuest = async id => {
+    dispatchEvents({ type: actions.deleteGuestLoading, payload: { id } });
+    try {
+      fetcher({ ...deleteGuestMutation, params: { id } });
+    } catch (error) {
+      dispatchEvents({ type: actions.deleteGuestError, payload: { id } });
+    }
+  };
+
   useEffect(() => {
-    getData({ ...getEvent, params: { id: eventId } });
+    fetcher({ ...getEvent, params: { id: eventId } });
   }, []); // eslint-disable-line
 
   return (
@@ -24,12 +39,20 @@ const EventDetails = ({ location, match }) => {
       {!loading && (
         <>
           <h1>{name}</h1>
-          <div>{id}</div>
+          <div>Id: {eventId}</div>
+          <div>Type: {type}</div>
+          <div>Place: {place}</div>
+          <div>Date: {date}</div>
+          <div>Host: {host}</div>
+
+          <h3>Guests</h3>
           {guests.map(guest => (
             <div key={guest.id}>
+              {guest.loading && <div>Loading</div>}
               <div>{guest.firstName}</div>
               <div>{guest.lastName}</div>
               <div>{guest.email}</div>
+              <button onClick={() => deleteGuest(guest.id)}>Delete</button>
             </div>
           ))}
           <h3>Add guest</h3>

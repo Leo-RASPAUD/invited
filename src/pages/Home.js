@@ -5,10 +5,10 @@ import useFetcher from '../hooks/useFetcher';
 import Event from '../components/Event';
 
 export default () => {
-  const { loading, state, getData } = useFetcher();
+  const { loading, state, fetcher } = useFetcher();
 
   useEffect(() => {
-    getData(getEvents);
+    fetcher(getEvents);
   }, []); //eslint-disable-line
 
   return (

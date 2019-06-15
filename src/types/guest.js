@@ -3,4 +3,5 @@ export default `
     lastName
     email
     id
+    eventId
 `;

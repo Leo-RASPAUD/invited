@@ -8,17 +8,18 @@ export default () => {
   const [isSubscribed, setSubscribed] = useState(true);
   const { state, ...rest } = useContext(Context);
 
-  const getData = async ({ query, name, params = {}, action = null, dispatch = '' }) => {
+  const fetcher = async ({ query, name, params = {}, actions = [] }) => {
     const {
       data: { [name]: result },
     } = await API.graphql(graphqlOperation(query, params));
-
     if (isSubscribed) {
       setData(result);
       setLoading(false);
-      if (action) {
-        rest[dispatch]({ type: action, payload: result });
-      }
+      actions.forEach(({ name, dispatch, field = null }) => {
+        if (name) {
+          rest[dispatch]({ type: name, payload: field ? result[field] : result });
+        }
+      });
     }
   };
 
@@ -28,5 +29,5 @@ export default () => {
     };
   }, []);
 
-  return { loading, state, getData };
+  return { loading, state, fetcher };
 };

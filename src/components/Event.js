@@ -1,23 +1,20 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import styles from './Event.module.scss';
-import graphql from '../utils/graphql';
-import eventMutations from '../mutations/event';
+import { deleteEvent as deleteEventMutation } from '../mutations/event';
 import { Context } from '../AppContext';
-import { actions } from '../reducers/eventReducer';
+import { actions } from '../reducers/events';
 import { Link } from 'react-router-dom';
+import useFetcher from '../hooks/useFetcher';
 
 export default event => {
-  const [loading, setLoading] = useState(false);
   const { dispatchEvents } = useContext(Context);
+  const { fetcher } = useFetcher();
 
-  const { id, name } = event;
+  const { id, name, loading } = event;
   const deleteEvent = async id => {
     dispatchEvents({ type: actions.deleteEventLoading, payload: { id } });
-    setLoading(true);
     try {
-      await graphql.mutation({ ...eventMutations.deleteEvent, params: { id } });
-      setLoading(false);
-      dispatchEvents({ type: actions.deleteEventSuccess, payload: { id } });
+      fetcher({ ...deleteEventMutation, params: { id } });
     } catch (error) {
       dispatchEvents({ type: actions.deleteEventError, payload: { id } });
     }

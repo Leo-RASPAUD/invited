@@ -7,8 +7,9 @@ import Navigation from './components/Navigation';
 import Home from './pages/Home';
 import Create from './pages/Create';
 import EventDetails from './pages/EventDetails';
-import { Context, initialState } from './AppContext';
-import { reducer as eventReducer } from './reducers/eventReducer';
+import { Context, initialStateEvents, initialStateGuests } from './AppContext';
+import { reducer as eventsReducer } from './reducers/events';
+import { reducer as guestReducer } from './reducers/guests';
 
 import './App.css';
 
@@ -27,11 +28,19 @@ const PrivateRoutes = () => {
 const Wrapped = withAuthenticator(PrivateRoutes);
 
 const App = () => {
-  const [state, dispatchEvents] = useReducer(eventReducer, initialState);
+  const [stateEvents, dispatchEvents] = useReducer(eventsReducer, initialStateEvents);
+  const [stateGuests, dispatchGuests] = useReducer(guestReducer, initialStateGuests);
 
   return (
     <div className="App">
-      <Context.Provider value={{ state, dispatchEvents }}>
+      <Context.Provider
+        value={{
+          state: { ...stateEvents, ...stateGuests },
+          dispatchEvents,
+          dispatchGuests,
+          dispatchEvent,
+        }}
+      >
         <Router>
           <Navigation />
           <Route
