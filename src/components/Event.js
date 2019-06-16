@@ -11,6 +11,7 @@ export default event => {
   const { fetcher } = useFetcher();
 
   const { id, name, loading } = event;
+
   const deleteEvent = async id => {
     dispatchEvents({ type: actions.deleteEventLoading, payload: { id } });
     try {
@@ -24,6 +25,7 @@ export default event => {
     <div key={id} className={styles['event-container']}>
       <h1>{name}</h1>
       {loading && <div>loading</div>}
+      <div>{id}</div>
       <button onClick={() => deleteEvent(id)}>Delete</button>
       <Link to={`/app/event/${id}`}>Details</Link>
     </div>

@@ -21,3 +21,5 @@ provider:
 functions:
   addGuest:
     handler: guests/addGuest.handler
+  decrypt:
+    handler: crypto/decrypt.handler

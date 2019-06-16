@@ -51,11 +51,7 @@ const App = () => {
               return <div>Home page</div>;
             }}
           />
-          <Route
-            exact
-            path="/event/:id"
-            component={Event}
-          />
+          <Route exact path="/event/:id" component={Event} />
           <Wrapped />
         </Router>
       </Context.Provider>

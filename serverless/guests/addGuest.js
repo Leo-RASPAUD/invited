@@ -22,8 +22,9 @@ module.exports = {
 
 module.exports.handler = async ({ eventId, ...rest }) => {
   const key = await getSecretValue('publicPasswordSecret');
-  const encrypted = encrypt({ key, data: JSON.stringify(rest) });
-  const guest = { eventId, encrypted, id: uuidv4(), ...rest };
+  const guest = { eventId, id: uuidv4(), ...rest };
+  const encrypted = encrypt({ key, data: JSON.stringify(guest) });
+  guest.encrypted = encrypted;
   try {
     await createGuest(guest);
     return guest;
