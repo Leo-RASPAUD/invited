@@ -6,7 +6,7 @@ import { getEvent } from '../queries/eventQueries';
 import useFetcher from '../hooks/useFetcher';
 import { withRouter } from 'react-router';
 
-const EventDetails = ({ location, match }) => {
+const PublicEvent = ({ location, match }) => {
   const eventId = match.params.id;
   const { loading, state, fetcher } = useFetcher();
   const { handleSubmit, register } = useForm();
@@ -21,7 +21,7 @@ const EventDetails = ({ location, match }) => {
 
   useEffect(() => {
     fetcher({ ...getEvent, params: { id: eventId } });
-  }, []); // eslint-disable-line
+  }, []);
 
   return (
     <div>
@@ -51,4 +51,4 @@ const EventDetails = ({ location, match }) => {
   );
 };
 
-export default withRouter(EventDetails);
+export default withRouter(PublicEvent);

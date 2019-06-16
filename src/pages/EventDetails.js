@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import {Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import useForm from 'react-hook-form';
 import { getEvent } from '../queries/eventQueries';
 import { addGuest, deleteGuest as deleteGuestMutation } from '../mutations/guestMutations';
@@ -33,7 +33,7 @@ const EventDetails = ({ location, match }) => {
 
   useEffect(() => {
     fetcher({ ...getEvent, params: { id: eventId } });
-  }, []); // eslint-disable-line
+  }, []);
 
   return (
     <div>
@@ -45,7 +45,9 @@ const EventDetails = ({ location, match }) => {
           <div>Place: {place}</div>
           <div>Date: {date}</div>
           <div>Host: {host}</div>
-          <div><Link to={`/event/${eventId}`}>Public page</Link></div>
+          <div>
+            <Link to={`/event/${eventId}`}>Public page</Link>
+          </div>
 
           <h3>Guests</h3>
           {guests.map(guest => (

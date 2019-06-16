@@ -9,7 +9,7 @@ export default () => {
 
   useEffect(() => {
     fetcher(getEvents);
-  }, []); //eslint-disable-line
+  }, []);
 
   return (
     <div>

@@ -37,5 +37,17 @@
   },
   "devDependencies": {
     "prettier": "^1.18.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --config ./.prettierrc --write",
+      "eslint --fix --max-warnings=0",
+      "git add"
+    ]
   }
 }

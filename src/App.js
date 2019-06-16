@@ -5,7 +5,6 @@ import { withAuthenticator } from 'aws-amplify-react';
 import config from './config';
 import Navigation from './components/Navigation';
 import Create from './pages/Create';
-import Event from './pages/Event';
 import EventList from './pages/EventList';
 import EventDetails from './pages/EventDetails';
 import { Context, initialStateEvents, initialStateGuests } from './AppContext';
@@ -13,6 +12,7 @@ import { reducer as eventsReducer } from './reducers/eventsReducer';
 import { reducer as guestReducer } from './reducers/guestsReducer';
 
 import './App.css';
+import PublicEvent from './pages/PublicEvent';
 
 Amplify.configure(config);
 
@@ -51,7 +51,7 @@ const App = () => {
               return <div>Home page</div>;
             }}
           />
-          <Route exact path="/event/:id" component={Event} />
+          <Route exact path="/event/:id" component={PublicEvent} />
           <Wrapped />
         </Router>
       </Context.Provider>
