@@ -1,33 +1,36 @@
 import React, { useEffect } from 'react';
-// import { useContext } from 'react';
 import useForm from 'react-hook-form';
-import { getEvent } from '../queries/eventQueries';
-// import { Context } from '../AppContext';
+import { decrypt } from '../queries/guestQueries';
 import useFetcher from '../hooks/useFetcher';
 import { withRouter } from 'react-router';
 
 const PublicEvent = ({ location, match }) => {
-  const eventId = match.params.id;
+  const encrypted = match.params.encrypted;
   const { loading, state, fetcher } = useFetcher();
   const { handleSubmit, register } = useForm();
-  // const { dispatchEvents } = useContext(Context);
+
   const {
-    event: { name, type, place, date, host },
+    guest: { firstName, lastName, email, eventId },
+    event: { name, host, type, place, date },
   } = state;
 
   const onSubmit = async data => {
-    //fetcher({ ...acceptGuest, params: { ...data, eventId } });
+    // fetcher({ ...acceptGuest, params: { ...data, eventId } });
   };
 
   useEffect(() => {
-    fetcher({ ...getEvent, params: { id: eventId } });
+    fetcher({ ...decrypt, params: { encrypted } });
   }, []); // eslint-disable-line
 
   return (
     <div>
       {!loading && (
         <>
-          <h1>{name}</h1>
+          <h1>{firstName} you're invited to the following event:</h1>
+          <div>
+            {firstName} {lastName} {email}
+          </div>
+          <div style={{ fontSize: 32, color: 'purple', backgroundColor: 'coral' }}>{name}</div>
           <div>Id: {eventId}</div>
           <div>Type: {type}</div>
           <div>Place: {place}</div>

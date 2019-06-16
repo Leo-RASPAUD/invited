@@ -17,6 +17,7 @@ const getEvent = {
   actions: [
     { name: actions.getEvent, dispatch: dispatchName },
     { name: actionsGuests.updateGuests, dispatch: dispatchGuest, field: 'guests' },
+    { name: 'error', dispatch: dispatchName },
   ],
   query: `query getEvent($id: String!) {
     getEvent(id: $id) {

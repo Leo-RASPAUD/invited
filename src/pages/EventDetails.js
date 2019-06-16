@@ -45,9 +45,6 @@ const EventDetails = ({ location, match }) => {
           <div>Place: {place}</div>
           <div>Date: {date}</div>
           <div>Host: {host}</div>
-          <div>
-            <Link to={`/event/${eventId}`}>Public page</Link>
-          </div>
 
           <h3>Guests</h3>
           {guests.map(guest => (
@@ -56,7 +53,11 @@ const EventDetails = ({ location, match }) => {
               <div>{guest.firstName}</div>
               <div>{guest.lastName}</div>
               <div>{guest.email}</div>
+              <div>{guest.encrypted}</div>
               <button onClick={() => deleteGuest(guest.id)}>Delete</button>
+              <div>
+                <Link to={`/event/${guest.encrypted}`}>Public page</Link>
+              </div>
             </div>
           ))}
           <h3>Add guest</h3>

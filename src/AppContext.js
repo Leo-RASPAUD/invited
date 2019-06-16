@@ -2,6 +2,7 @@ import React from 'react';
 
 export const initialStateGuests = {
   guests: [],
+  guest: {},
 };
 
 export const initialStateEvents = {

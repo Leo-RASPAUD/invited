@@ -39,7 +39,6 @@ const App = () => {
           state: { ...stateEvents, ...stateGuests },
           dispatchEvents,
           dispatchGuests,
-          dispatchEvent,
         }}
       >
         <Router>
@@ -51,7 +50,7 @@ const App = () => {
               return <div>Home page</div>;
             }}
           />
-          <Route exact path="/event/:id" component={PublicEvent} />
+          <Route exact path="/event/:encrypted" component={PublicEvent} />
           <Wrapped />
         </Router>
       </Context.Provider>

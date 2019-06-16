@@ -4,6 +4,7 @@ export const actions = {
   deleteGuestError: 'deleteGuestError',
   deleteGuestLoading: 'deleteGuestLoading',
   deleteGuestSuccess: 'deleteGuestSuccess',
+  decrypt: 'decrypt',
 };
 
 export const dispatchName = 'dispatchGuests';
@@ -44,6 +45,20 @@ export const reducer = (state, { payload, type }) => {
       return {
         ...state,
         guests: state.guests.filter(guest => guest.id !== payload),
+      };
+    }
+    case actions.decrypt: {
+      return {
+        ...state,
+        guest: payload.guest,
+        event: payload.event,
+      };
+    }
+    case 'error': {
+      return {
+        ...state,
+        guests: [],
+        guest: {},
       };
     }
     default: {

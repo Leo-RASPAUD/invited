@@ -4,4 +4,5 @@ export default `
     email
     id
     eventId
+    encrypted
 `;

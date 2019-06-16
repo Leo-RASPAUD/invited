@@ -5,6 +5,7 @@ export const actions = {
   updateEvents: 'updateEvents',
   createEvent: 'createEvent',
   getEvent: 'getEvent',
+  getEventLoading: 'getEventLoading',
 };
 
 export const dispatchName = 'dispatchEvents';
@@ -50,7 +51,13 @@ export const reducer = (state, { payload, type }) => {
     case actions.getEvent: {
       return {
         ...state,
-        event: payload,
+        event: payload || {},
+      };
+    }
+    case 'error': {
+      return {
+        ...state,
+        event: {},
       };
     }
     default: {

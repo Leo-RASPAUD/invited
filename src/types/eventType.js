@@ -1,7 +1,7 @@
 import guest from './guestType';
 
 export const lightEvent = 'name id';
-export const event = `
+export const baseEvent = `
     name
     id
     userId
@@ -10,6 +10,9 @@ export const event = `
     place
     time
     date
+`;
+export const event = `
+    ${baseEvent}
     guests {
         ${guest}
     }
