@@ -3,7 +3,7 @@ import { actions, dispatchName } from '../reducers/eventsReducer';
 import { actions as actionsGuests, dispatchName as dispatchGuest } from '../reducers/guestsReducer';
 
 const getEvents = {
-  name: 'getEvents',
+  name: actions.getEvents,
   actions: [{ name: actions.updateEvents, dispatch: dispatchName }],
   query: `query getEvents {
     getEvents {
@@ -13,7 +13,7 @@ const getEvents = {
 };
 
 const getEvent = {
-  name: 'getEvent',
+  name: actions.getEvent,
   actions: [
     { name: actions.getEvent, dispatch: dispatchName },
     { name: actionsGuests.updateGuests, dispatch: dispatchGuest, field: 'guests' },

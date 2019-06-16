@@ -19,4 +19,14 @@ const deleteGuest = {
   }`,
 };
 
-export { addGuest, deleteGuest };
+const updateGuestInvitation = {
+  name: actions.updateGuestInvitation,
+  actions: [{ name: actions.updateGuestInvitation, dispatch: dispatchName }, { name: 'error', dispatch: dispatchName }],
+  query: `mutation updateGuestInvitation($id: String!, $notes: String!, $accepted: Boolean!) {
+    updateGuestInvitation(id: $id, notes: $notes, accepted: $accepted) {
+      ${guest}
+    }
+}`,
+};
+
+export { addGuest, deleteGuest, updateGuestInvitation };

@@ -5,6 +5,7 @@ export const actions = {
   deleteGuestLoading: 'deleteGuestLoading',
   deleteGuestSuccess: 'deleteGuestSuccess',
   decrypt: 'decrypt',
+  updateGuestInvitation: 'updateGuestInvitation',
 };
 
 export const dispatchName = 'dispatchGuests';
@@ -52,6 +53,20 @@ export const reducer = (state, { payload, type }) => {
         ...state,
         guest: payload.guest,
         event: payload.event,
+      };
+    }
+    case actions.updateGuestInvitation: {
+      return {
+        ...state,
+        guests: state.guests.map(guest => {
+          if (guest.id === payload.id) {
+            return {
+              ...guest,
+              ...payload,
+            };
+          }
+          return payload;
+        }),
       };
     }
     case 'error': {

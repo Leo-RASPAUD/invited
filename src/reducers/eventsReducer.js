@@ -5,6 +5,7 @@ export const actions = {
   updateEvents: 'updateEvents',
   createEvent: 'createEvent',
   getEvent: 'getEvent',
+  getEvents: 'getEvents',
   getEventLoading: 'getEventLoading',
 };
 

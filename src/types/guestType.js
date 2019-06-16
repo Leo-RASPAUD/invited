@@ -5,4 +5,6 @@ export default `
     id
     eventId
     encrypted
+    notes
+    accepted
 `;

@@ -26,7 +26,6 @@ const Logo = styled.div`
 
 const NavigationComponent = ({ history }) => {
   const userContext = useContext(contextUser);
-  console.log(userContext);
   const signOut = () => {
     Auth.signOut({ global: true })
       .then(data => {

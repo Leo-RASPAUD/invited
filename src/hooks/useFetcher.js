@@ -26,6 +26,7 @@ export default () => {
   const fetcher = async ({ query, name, params = {}, actions = [], authMode = 'AMAZON_COGNITO_USER_POOLS' }) => {
     try {
       const result = await fetchData({ query, params, name, authMode });
+      console.log(result);
       if (isSubscribed) {
         setLoading(false);
         actions

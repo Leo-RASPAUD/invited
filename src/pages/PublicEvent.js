@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import useForm from 'react-hook-form';
 import { decrypt } from '../queries/guestQueries';
+import { updateGuestInvitation } from '../mutations/guestMutations';
 import useFetcher from '../hooks/useFetcher';
 import { withRouter } from 'react-router';
 
@@ -10,12 +11,17 @@ const PublicEvent = ({ location, match }) => {
   const { handleSubmit, register } = useForm();
 
   const {
+    guest,
     guest: { firstName, lastName, email, eventId },
     event: { name, host, type, place, date },
   } = state;
+  console.log(guest);
 
   const onSubmit = async data => {
-    // fetcher({ ...acceptGuest, params: { ...data, eventId } });
+    fetcher({
+      ...updateGuestInvitation,
+      params: { ...guest, ...data, accepted: data.accepted === 'on' ? true : false },
+    });
   };
 
   useEffect(() => {
@@ -38,15 +44,11 @@ const PublicEvent = ({ location, match }) => {
           <div>Host: {host}</div>
           <h3>Accept</h3>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-              <label htmlFor="email">Email</label>
-              <input name="email" type="email" ref={register} />
-              <label htmlFor="notes">notes / dietary requirements</label>
-              <input name="notes" type="textarea" ref={register} />
-              <label htmlFor="accept">accept</label>
-              <input name="accept" type="checkbox" ref={register} />
-            </div>
-            <input type="submit" />
+            <label htmlFor="notes">notes / dietary requirements</label>
+            <input name="notes" type="textarea" ref={register} />
+            <label htmlFor="accepted">accept</label>
+            <input name="accepted" type="checkbox" ref={register} />
+            <input type="submit" className="button" />
           </form>
         </>
       )}
