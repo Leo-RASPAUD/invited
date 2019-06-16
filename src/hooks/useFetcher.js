@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'; //eslint-disable-line
-import { API, graphqlOperation } from 'aws-amplify';
+import { API } from 'aws-amplify';
 import { Context } from '../AppContext';
 
 export default () => {
@@ -16,16 +16,16 @@ export default () => {
     }
   };
 
-  const fetchData = async ({ query, params, name }) => {
+  const fetchData = async ({ query, params, name, authMode }) => {
     const {
       data: { [name]: result },
-    } = await API.graphql(graphqlOperation(query, params));
+    } = await API.graphql({ query, variables: params, authMode });
     return result;
   };
 
-  const fetcher = async ({ query, name, params = {}, actions = [] }) => {
+  const fetcher = async ({ query, name, params = {}, actions = [], authMode = 'AMAZON_COGNITO_USER_POOLS' }) => {
     try {
-      const result = await fetchData({ query, params, name });
+      const result = await fetchData({ query, params, name, authMode });
       if (isSubscribed) {
         setLoading(false);
         actions
@@ -43,9 +43,9 @@ export default () => {
 
   const batchFetcher = async requests => {
     await Promise.all(
-      requests.map(async ({ query, name, params = {}, actions = [] }) => {
+      requests.map(async ({ query, name, params = {}, actions = [], authMode = 'AMAZON_COGNITO_USER_POOLS' }) => {
         try {
-          const result = await fetchData({ query, params, name });
+          const result = await fetchData({ query, params, name, authMode });
           actions
             .filter(action => action.name !== 'error')
             .forEach(({ name = '', dispatch = '', field = null }) => {

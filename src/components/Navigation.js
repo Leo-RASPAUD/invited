@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Auth } from 'aws-amplify';
 import styled from 'styled-components';
+import contextUser from '../UserContext';
 
 const Navigation = styled.div`
   background: whitesmoke;
@@ -22,6 +24,13 @@ const Logo = styled.div`
 `;
 
 export default () => {
+  const userContext = useContext(contextUser);
+  const signOut = () => {
+    Auth.signOut({ global: true })
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
+  };
+
   return (
     <Navigation className="Navigation">
       <Logo>Invite</Logo>
@@ -29,6 +38,11 @@ export default () => {
         <li>
           <Link to="/app">Event list</Link>
         </li>
+        {userContext.isLoaded && userContext.user && (
+          <li>
+            <button onClick={signOut}>Signout</button>
+          </li>
+        )}
       </Ul>
     </Navigation>
   );
