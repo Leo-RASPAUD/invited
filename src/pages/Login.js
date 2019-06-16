@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import { Auth } from 'aws-amplify';
 import UserContext from '../UserContext';
 import useForm from 'react-hook-form';
-
 import { withRouter } from 'react-router-dom';
 
 const Login = ({ history }) => {

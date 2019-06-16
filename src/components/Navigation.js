@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 import contextUser from '../UserContext';
 
 const Navigation = styled.div`
@@ -23,27 +24,32 @@ const Logo = styled.div`
   flex: 1;
 `;
 
-export default () => {
+const NavigationComponent = ({ history }) => {
   const userContext = useContext(contextUser);
+  console.log(userContext);
   const signOut = () => {
     Auth.signOut({ global: true })
-      .then(data => console.log(data))
+      .then(data => {
+        history.push('/app');
+      })
       .catch(err => console.log(err));
   };
 
   return (
     <Navigation className="Navigation">
       <Logo>Invite</Logo>
-      <Ul>
-        <li>
-          <Link to="/app">Event list</Link>
-        </li>
-        {userContext.isLoaded && userContext.user && (
+      {userContext.isLoaded && userContext.user && (
+        <Ul>
+          <li>
+            <Link to="/app">Event list</Link>
+          </li>
           <li>
             <button onClick={signOut}>Signout</button>
           </li>
-        )}
-      </Ul>
+        </Ul>
+      )}
     </Navigation>
   );
 };
+
+export default withRouter(NavigationComponent);
