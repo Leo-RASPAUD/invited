@@ -33,7 +33,7 @@ const EventDetails = ({ location, match }) => {
 
   useEffect(() => {
     fetcher({ ...getEvent, params: { id: eventId } });
-  }, [eventId, fetcher]);
+  }, []); // eslint-disable-line
 
   return (
     <div>
