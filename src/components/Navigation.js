@@ -47,6 +47,13 @@ const NavigationComponent = ({ history }) => {
           </li>
         </Ul>
       )}
+      {userContext.isLoaded && !userContext.user && (
+        <Ul>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </Ul>
+      )}
     </Navigation>
   );
 };
