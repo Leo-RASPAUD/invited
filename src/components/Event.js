@@ -5,6 +5,7 @@ import { Context } from '../AppContext';
 import { actions } from '../reducers/eventsReducer';
 import { Link } from 'react-router-dom';
 import useFetcher from '../hooks/useFetcher';
+import Grid from './Grid';
 
 export default event => {
   const { dispatchEvents } = useContext(Context);
@@ -23,11 +24,17 @@ export default event => {
 
   return (
     <div key={id} className={styles['event-container']}>
-      <h1>{name}</h1>
-      {loading && <div>loading</div>}
-      <div>{id}</div>
-      <button onClick={() => deleteEvent(id)}>Delete</button>
-      <Link to={`/app/event/${id}`}>Details</Link>
+      <Grid>
+        <h1>{name}</h1>
+        {loading && <div>loading</div>}
+        <div>{id}</div>
+        <button className="button" onClick={() => deleteEvent(id)}>
+          Delete
+        </button>
+        <Link className="button" to={`/app/event/${id}`}>
+          Details
+        </Link>
+      </Grid>
     </div>
   );
 };

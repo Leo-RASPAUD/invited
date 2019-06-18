@@ -6,22 +6,25 @@ import { withRouter } from 'react-router-dom';
 import contextUser from '../UserContext';
 
 const Navigation = styled.div`
-  background: whitesmoke;
-  margin: -16px -32px 0 -32px;
-  padding: 0 16px;
-  display: flex;
-  align-items: center;
+  padding: 16px;
 `;
 
-const Ul = styled.ul`
-  display: flex;
-`;
+const List = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
-const Logo = styled.div`
-  font-size: 32px;
-  cursor: default;
-  user-select: none;
-  flex: 1;
+  > li {
+    margin: 4px 0;
+    padding: 0;
+  }
+
+  > li > a,
+  > li > button {
+    color: white;
+    padding: 4px;
+    text-decoration: none;
+  }
 `;
 
 const NavigationComponent = ({ history }) => {
@@ -36,16 +39,15 @@ const NavigationComponent = ({ history }) => {
 
   return (
     <Navigation className="Navigation">
-      <Logo>Invite</Logo>
       {userContext.isLoaded && userContext.user && (
-        <Ul>
+        <List>
           <li>
             <Link to="/app">Event list</Link>
           </li>
           <li>
             <button onClick={signOut}>Signout</button>
           </li>
-        </Ul>
+        </List>
       )}
     </Navigation>
   );
