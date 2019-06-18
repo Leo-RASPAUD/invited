@@ -15,12 +15,15 @@ const PublicEvent = ({ location, match }) => {
     guest: { firstName, lastName, email, eventId },
     event: { name, host, type, place, date },
   } = state;
-  console.log(guest);
 
   const onSubmit = async data => {
+    const copy = { ...data };
+    if (copy.notes === '') {
+      delete copy.notes;
+    }
     fetcher({
       ...updateGuestInvitation,
-      params: { ...guest, ...data, accepted: data.accepted === 'on' ? true : false },
+      params: { ...guest, ...copy, accepted: data.accepted === 'on' ? true : false },
     });
   };
 
