@@ -1,0 +1,32 @@
+%button {
+  appearance: none;
+  background: coral;
+  border: 0;
+  border-radius: 0;
+  color: white;
+  padding: 8px 4px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.button {
+  @extend %button;
+  flex: 1;
+}
+
+.confirm {
+  @extend %button;
+  background: lime;
+  flex: 1;
+}
+
+.cancel {
+  @extend %button;
+  background: tomato;
+  flex: 1;
+}

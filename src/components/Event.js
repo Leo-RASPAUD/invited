@@ -6,7 +6,7 @@ import { actions } from '../reducers/eventsReducer';
 import { Link } from 'react-router-dom';
 import useFetcher from '../hooks/useFetcher';
 import Grid from './Grid';
-import Button from './Button';
+import ButtonConfirm from './ButtonConfirm';
 
 export default event => {
   const { dispatchEvents } = useContext(Context);
@@ -29,9 +29,9 @@ export default event => {
         <h1>{name}</h1>
         {loading && <div>loading</div>}
         <div>{id}</div>
-        <Button className="button" onConfirm={() => deleteEvent(id)}>
+        <ButtonConfirm onConfirm={() => deleteEvent(id)}>
           Delete
-        </Button>
+        </ButtonConfirm>
         <Link className="button" to={`/app/event/${id}`}>
           Details
         </Link>
