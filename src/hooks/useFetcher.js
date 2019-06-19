@@ -38,6 +38,7 @@ export default () => {
       }
     } catch (error) {
       handleError({ actions, error });
+      return error;
     }
   };
 
