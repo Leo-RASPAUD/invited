@@ -2,9 +2,10 @@ import React from 'react';
 import useForm from 'react-hook-form';
 import { createEvent } from '../mutations/eventMutations';
 import useFetcher from '../hooks/useFetcher';
+import Input from '../components/Input';
 
 export default () => {
-  const { handleSubmit, register, watch } = useForm();
+  const { handleSubmit, register, watch, errors } = useForm();
   const {
     fetcher,
     state: { errorMessage },
@@ -22,30 +23,12 @@ export default () => {
             Invite from {fields.host} for a {fields.type} at {fields.place}, {fields.time} {fields.date}.
           </p>
         ) : null}
-        <div>
-          <label htmlFor="name">Name</label>
-          <input name="name" type="text" ref={register} />
-        </div>
-        <div>
-          <label htmlFor="host">Host</label>
-          <input name="host" type="text" ref={register} />
-        </div>
-        <div>
-          <label htmlFor="type">Type</label>
-          <input name="type" type="text" ref={register} />
-        </div>
-        <div>
-          <label htmlFor="place">Place</label>
-          <input name="place" type="text" ref={register} />
-        </div>
-        <div>
-          <label htmlFor="time">Time</label>
-          <input name="time" type="text" ref={register} />
-        </div>
-        <div>
-          <label htmlFor="date">Date</label>
-          <input name="date" type="text" ref={register} />
-        </div>
+        <Input required name="name" label="Name" type="text" register={register} errors={errors} />
+        <Input required name="host" label="Host" type="text" register={register} errors={errors} />
+        <Input required name="type" label="Type" type="text" register={register} errors={errors} />
+        <Input required name="place" label="Place" type="text" register={register} errors={errors} />
+        <Input required name="time" label="Time" type="text" register={register} errors={errors} />
+        <Input required name="date" label="Date" type="text" register={register} errors={errors} />
       </div>
       {errorMessage && <div>{errorMessage}</div>}
       <input className="button" type="submit" />
