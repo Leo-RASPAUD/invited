@@ -27,7 +27,7 @@ function Header({ children, theme }) {
   return (
     <Container>
       <Brand>
-        <Link to="/">Inviting</Link>
+        <Link to="/">Invited</Link>
       </Brand>
       <Children>{children}</Children>
     </Container>
