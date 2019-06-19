@@ -1,0 +1,23 @@
+.confirm {
+  background: red;
+}
+
+.with-confirm {
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+.cancel {
+  position: absolute;
+  left: 10px;
+  width: 100px;
+  color: white;
+  border-top-left-radius: 20%;
+  border-bottom-left-radius: 20%;
+  text-decoration: none;
+  margin-right: 25px;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    color: purple;
+  }
+}
