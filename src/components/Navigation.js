@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
@@ -22,7 +22,8 @@ const List = styled.ul`
   > li > a,
   > li > button {
     color: white;
-    padding: 4px;
+    display: block;
+    padding: 4px 8px;
     text-decoration: none;
   }
 `;
@@ -42,7 +43,12 @@ const NavigationComponent = ({ history }) => {
       {userContext.isLoaded && userContext.user && (
         <List>
           <li>
-            <Link to="/app">Event list</Link>
+            <NavLink activeStyle={{
+              background: 'rgba(255,255,255, 0.1)'
+            }} to="/app"
+            >
+              Event list
+            </NavLink>
           </li>
           <li>
             <button onClick={signOut}>Signout</button>
@@ -52,7 +58,12 @@ const NavigationComponent = ({ history }) => {
       {userContext.isLoaded && !userContext.user && (
         <List>
           <li>
-            <Link to="/login">Login</Link>
+            <NavLink activeStyle={{
+              background: 'rgba(255,255,255, 0.1)'
+            }} to="/login"
+            >
+              Login
+            </NavLink>
           </li>
         </List>
       )}

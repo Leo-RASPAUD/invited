@@ -21,13 +21,13 @@ function Sidebar({ children, theme = themeDefault }) {
     button: {
       appearance: 'none',
       border: 'none',
-      borderRadius: 2,
-      top: 14,
+      borderRadius: 0,
       display: 'block',
       fontSize: 24,
+      left: -56,
       padding: 15,
       position: 'absolute',
-      left: -56,
+      top: 14,
       ...theme,
     },
     collapse: {
