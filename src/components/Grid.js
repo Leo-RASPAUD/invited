@@ -6,6 +6,7 @@ function Sidebar({ children, theme }) {
     gap: 16,
     gridTemplateColumns: '1fr',
     gridTemplateRows: 'auto',
+    width: '100%'
   };
 
   return <div style={styles}>{children}</div>;

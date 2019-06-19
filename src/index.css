@@ -53,6 +53,7 @@ li {
 
 label {
   display: block;
+  margin: 0 0 8px;
 }
 
 input {
@@ -61,6 +62,7 @@ input {
   display: block;
   font-size: inherit;
   line-height: 1;
+  margin: 0 0 8px;
   padding: 4px;
   width: 100%;
 }

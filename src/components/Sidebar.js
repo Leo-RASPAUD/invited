@@ -6,7 +6,7 @@ const themeDefault = {
 };
 
 function Sidebar({ children, theme = themeDefault }) {
-  const [collapse, setCollapse] = React.useState(false);
+  const [collapse, setCollapse] = React.useState(true);
 
   const styles = {
     burger: {

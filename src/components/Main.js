@@ -8,7 +8,7 @@ function Sidebar({ children, theme }) {
     zIndex: 1,
   };
 
-  return <div style={styles}>{children}</div>;
+  return <main style={styles}>{children}</main>;
 }
 
 export default Sidebar;

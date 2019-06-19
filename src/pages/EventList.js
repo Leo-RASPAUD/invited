@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { getEvents } from '../queries/eventQueries';
 import useFetcher from '../hooks/useFetcher';
 import Event from '../components/Event';
+import Button from '../components/Button'
 
 export default () => {
   const { loading, state, fetcher } = useFetcher();
@@ -13,7 +13,7 @@ export default () => {
 
   return (
     <div>
-      <Link to="/app/new">New event</Link>
+      <Button to="/app/new">New event</Button>
       <div>
         <h1>My events</h1>
         {loading && <div>Loading ...</div>}
