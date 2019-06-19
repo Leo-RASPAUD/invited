@@ -10,4 +10,11 @@ export const initialStateEvents = {
   event: {},
 };
 
-export const Context = React.createContext({ state: { ...initialStateGuests, initialStateEvents } });
+export const initialGlobalState = {
+  errors: [],
+  errorMessage: '',
+};
+
+export const Context = React.createContext({
+  state: { ...initialStateGuests, initialStateEvents, ...initialGlobalState },
+});

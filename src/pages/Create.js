@@ -5,7 +5,10 @@ import useFetcher from '../hooks/useFetcher';
 
 export default () => {
   const { handleSubmit, register, watch } = useForm();
-  const { fetcher } = useFetcher();
+  const {
+    fetcher,
+    state: { errorMessage },
+  } = useFetcher();
 
   const onSubmit = async data => {
     fetcher({ ...createEvent, params: data });
@@ -44,6 +47,7 @@ export default () => {
           <input name="date" type="text" ref={register} />
         </div>
       </div>
+      {errorMessage && <div>{errorMessage}</div>}
       <input className="button" type="submit" />
     </form>
   );

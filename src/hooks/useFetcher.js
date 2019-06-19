@@ -8,9 +8,9 @@ export default () => {
   const { state, ...rest } = useContext(Context);
 
   const handleError = ({ actions, error }) => {
-    const isErrorAvailable = actions.find(action => action.name === 'error');
+    const isErrorAvailable = actions.find(action => action.name.startsWith('error'));
     if (isErrorAvailable) {
-      rest[isErrorAvailable.dispatch]({ type: isErrorAvailable.name, payload: isErrorAvailable.payload });
+      rest[isErrorAvailable.dispatch]({ type: isErrorAvailable.name, payload: error });
     } else {
       console.error(error);
     }
@@ -26,7 +26,6 @@ export default () => {
   const fetcher = async ({ query, name, params = {}, actions = [], authMode = 'AMAZON_COGNITO_USER_POOLS' }) => {
     try {
       const result = await fetchData({ query, params, name, authMode });
-      console.log(result);
       if (isSubscribed) {
         setLoading(false);
         actions

@@ -1,11 +1,11 @@
 import guest from '../types/guestType';
 import { baseEvent } from '../types/eventType';
-import { actions, dispatchName } from '../reducers/guestsReducer';
+import { actions, dispatchName as dispatch } from '../reducers/guestsReducer';
 
 const decrypt = {
   authMode: 'AWS_IAM',
   name: actions.decrypt,
-  actions: [{ name: actions.decrypt, dispatch: dispatchName }, { name: 'error', dispatch: dispatchName }],
+  actions: [{ name: actions.decrypt, dispatch }, { name: 'error', dispatch }],
   query: `query decrypt($encrypted: String!) {
     decrypt(encrypted: $encrypted) {
       guest {

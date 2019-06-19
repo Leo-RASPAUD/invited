@@ -1,10 +1,11 @@
 import React, { useReducer, useState, useEffect } from 'react';
 import Amplify, { Auth, Hub } from 'aws-amplify';
 import config from './config';
-import { Context, initialStateEvents, initialStateGuests } from './AppContext';
+import { Context, initialStateEvents, initialStateGuests, initialGlobalState } from './AppContext';
 import UserContext from './UserContext';
 import { reducer as eventsReducer } from './reducers/eventsReducer';
 import { reducer as guestReducer } from './reducers/guestsReducer';
+import { reducer as globalReducer } from './reducers/globalReducer';
 import Router from './Router';
 
 import './App.css';
@@ -14,6 +15,7 @@ Amplify.configure(config);
 const App = props => {
   const [stateEvents, dispatchEvents] = useReducer(eventsReducer, initialStateEvents);
   const [stateGuests, dispatchGuests] = useReducer(guestReducer, initialStateGuests);
+  const [stateGlobal, dispatchGlobal] = useReducer(globalReducer, initialGlobalState);
   const [user, setCurrentUser] = useState({});
   const [isLoaded, setLoaded] = useState(false);
 
@@ -44,9 +46,10 @@ const App = props => {
     <div className="App">
       <Context.Provider
         value={{
-          state: { ...stateEvents, ...stateGuests },
+          state: { ...stateEvents, ...stateGuests, ...stateGlobal },
           dispatchEvents,
           dispatchGuests,
+          dispatchGlobal,
         }}
       >
         <UserContext.Provider
