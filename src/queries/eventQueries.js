@@ -1,4 +1,4 @@
-import { lightEvent, event } from '../types/eventType';
+import { event } from '../types/eventType';
 import { actions, dispatchName as dispatch } from '../reducers/eventsReducer';
 import { actions as actionsGuests, dispatchName as dispatchGuest } from '../reducers/guestsReducer';
 
@@ -7,7 +7,7 @@ const getEvents = {
   actions: [{ name: actions.updateEvents, dispatch }],
   query: `query getEvents {
     getEvents {
-      ${lightEvent}
+      ${event}
     }
 }`,
 };
