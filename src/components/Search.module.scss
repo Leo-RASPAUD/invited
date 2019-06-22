@@ -9,6 +9,7 @@
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
   height: 1px;
+  line-height: 1;
   margin: -1px;
   overflow: hidden;
   padding: 0;
@@ -24,8 +25,10 @@
   border-bottom: $border-width solid $action-border-color;
   border-radius: 0;
   box-shadow: none;
+  box-sizing: border-box;
   flex: 1 1 auto;
   font-size: inherit;
+  line-height: inherit;
   margin: 0;
   padding: 8px 8px 6px;
 }
