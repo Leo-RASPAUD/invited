@@ -1,9 +1,7 @@
 export const actions = {
   addGuest: 'addGuest',
   updateGuests: 'updateGuests',
-  deleteGuestError: 'deleteGuestError',
-  deleteGuestLoading: 'deleteGuestLoading',
-  deleteGuestSuccess: 'deleteGuestSuccess',
+  deleteGuest: 'deleteGuest',
   decrypt: 'decrypt',
   updateGuestInvitation: 'updateGuestInvitation',
 };
@@ -24,25 +22,7 @@ export const reducer = (state, { payload, type }) => {
         guests: state.guests.concat(payload),
       };
     }
-    case actions.deleteGuestLoading: {
-      return {
-        ...state,
-        guests: state.guests.map(guest => {
-          if (guest.id === payload.id) return { ...guest, loading: true };
-          return guest;
-        }),
-      };
-    }
-    case actions.deleteGuestError: {
-      return {
-        ...state,
-        guests: state.guests.map(guest => {
-          if (guest.id === payload.id) return { ...guest, loading: false };
-          return guest;
-        }),
-      };
-    }
-    case actions.deleteGuestSuccess: {
+    case actions.deleteGuest: {
       return {
         ...state,
         guests: state.guests.filter(guest => guest.id !== payload),

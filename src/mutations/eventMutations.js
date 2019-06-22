@@ -4,9 +4,9 @@ import { lightEvent } from '../types/eventType';
 
 const deleteEvent = {
   name: 'deleteEvent',
-  actions: [{ name: actions.deleteEventSuccess, dispatch }],
+  actions: [{ name: actions.deleteEvent, dispatch }, { name: globalErrors.errorDeleteEvent, dispatch: dispatchGlobal }],
   query: `mutation deleteEvent($id: String!) {
-    deleteEvent(id: $id)
+    deleteEvent2(id: $id)
 }`,
 };
 

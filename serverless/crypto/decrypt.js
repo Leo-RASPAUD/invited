@@ -17,7 +17,10 @@ const getEvent = async eventId => {
 };
 
 module.exports.handler = async ({ encrypted }) => {
-  const key = await getSecretValue('publicPasswordSecret');
+  const key = await getSecretValue({
+    secretName: constants.SECRET_NAME,
+    key: constants.SECRET_KEYS.publicPasswordSecret,
+  });
   try {
     const decrypted = decrypt({ data: encrypted, key });
     const guest = JSON.parse(decrypted);

@@ -1,29 +1,18 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Event.module.scss';
 import { deleteEvent as deleteEventMutation } from '../mutations/eventMutations';
-import { Context } from '../AppContext';
-import { actions } from '../reducers/eventsReducer';
 import useFetcher from '../hooks/useFetcher';
 import Grid from './Grid';
 import { withRouter } from 'react-router-dom';
 
 const Event = ({ id, name, loading, date, host, place, type, history }) => {
-  const { dispatchEvents } = useContext(Context);
   const { fetcher } = useFetcher();
   const [imageUrl, setImageUrl] = useState(null);
 
   const src = 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/restaurant.jpg';
 
   const deleteEvent = async id => {
-    console.log('delete');
-    if (false) {
-      dispatchEvents({ type: actions.deleteEventLoading, payload: { id } });
-      try {
-        fetcher({ ...deleteEventMutation, params: { id } });
-      } catch (error) {
-        dispatchEvents({ type: actions.deleteEventError, payload: { id } });
-      }
-    }
+    fetcher({ ...deleteEventMutation, params: { id } });
   };
 
   useEffect(() => {

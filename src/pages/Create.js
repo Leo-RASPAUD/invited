@@ -5,6 +5,7 @@ import useFetcher from '../hooks/useFetcher';
 import Input from '../components/Input';
 import { withRouter } from 'react-router';
 import Error from '../components/Error';
+import stringUtils from '../utils/stringUtils';
 
 const Create = ({ history }) => {
   const { handleSubmit, register, watch, errors } = useForm();
@@ -15,7 +16,8 @@ const Create = ({ history }) => {
   const fields = watch();
 
   const onSubmit = async data => {
-    const isError = await fetcher({ ...createEvent, params: data });
+    const copy = stringUtils.removeEmptyValues(data);
+    const isError = await fetcher({ ...createEvent, params: copy });
     if (!isError) {
       history.push('/app');
     }

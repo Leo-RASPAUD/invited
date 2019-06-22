@@ -1,7 +1,5 @@
 export const actions = {
-  deleteEventLoading: 'deleteEventLoading',
-  deleteEventSuccess: 'deleteEventSuccess',
-  deleteEventError: 'deleteEventError',
+  deleteEvent: 'deleteEvent',
   updateEvents: 'updateEvents',
   createEvent: 'createEvent',
   getEvent: 'getEvent',
@@ -13,25 +11,7 @@ export const dispatchName = 'dispatchEvents';
 
 export const reducer = (state, { payload, type }) => {
   switch (type) {
-    case actions.deleteEventLoading: {
-      return {
-        ...state,
-        events: state.events.map(event => {
-          if (event.id === payload.id) return { ...event, loading: true };
-          return event;
-        }),
-      };
-    }
-    case actions.deleteEventError: {
-      return {
-        ...state,
-        events: state.events.map(event => {
-          if (event.id === payload.id) return { ...event, loading: false };
-          return event;
-        }),
-      };
-    }
-    case actions.deleteEventSuccess: {
+    case actions.deleteEvent: {
       return {
         ...state,
         events: state.events.filter(event => event.id !== payload),

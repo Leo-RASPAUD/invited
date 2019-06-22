@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'; //eslint-disable-line
 import { API } from 'aws-amplify';
 import { Context } from '../AppContext';
+import { actions as globalActions } from '../reducers/globalReducer';
 
 export default () => {
   const [loading, setLoading] = useState(true);
@@ -14,9 +15,11 @@ export default () => {
     } else {
       console.error(error);
     }
+    setLoading(false);
   };
 
   const fetchData = async ({ query, params, name, authMode }) => {
+    rest.dispatchGlobal({ type: globalActions.resetErrors });
     const {
       data: { [name]: result },
     } = await API.graphql({ query, variables: params, authMode });
@@ -29,7 +32,7 @@ export default () => {
       if (isSubscribed) {
         setLoading(false);
         actions
-          .filter(action => action.name !== 'error')
+          .filter(action => !action.name.startsWith('error'))
           .forEach(({ name = '', dispatch = '', field = null }) => {
             if (name) {
               rest[dispatch]({ type: name, payload: field ? result[field] : result });

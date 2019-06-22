@@ -12,7 +12,8 @@ export const initialStateEvents = {
 
 export const initialGlobalState = {
   errors: [],
-  errorMessage: '',
+  errorMessage: null,
+  errorType: null,
 };
 
 export const Context = React.createContext({

@@ -2,10 +2,15 @@ import React, { useEffect } from 'react';
 import { getEvents } from '../queries/eventQueries';
 import useFetcher from '../hooks/useFetcher';
 import Event from '../components/Event';
-import Button from '../components/Button'
+import Button from '../components/Button';
+import Error from '../components/Error';
 
 export default () => {
-  const { loading, state, fetcher } = useFetcher();
+  const {
+    loading,
+    state: { events, errorMessage },
+    fetcher,
+  } = useFetcher();
 
   useEffect(() => {
     fetcher(getEvents);
@@ -17,7 +22,8 @@ export default () => {
       <div>
         <h1>My events</h1>
         {loading && <div>Loading ...</div>}
-        {!loading && state.events.map(event => <Event key={event.id} {...event} />)}
+        {errorMessage && <Error errorMessage={errorMessage} />}
+        {!loading && events.map(event => <Event key={event.id} {...event} />)}
       </div>
     </div>
   );
