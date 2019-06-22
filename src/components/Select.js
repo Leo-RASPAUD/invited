@@ -4,7 +4,6 @@ import Error from './Error';
 import styles from './Select.module.scss';
 
 export default props => {
-  console.log(props);
   const { label, required, children, errors, name, errorMessage, register } = props;
   return (
     <div className={styles['select']}>
