@@ -4,9 +4,9 @@ import useFetcher from '../hooks/useFetcher';
 import Container from '../components/Container';
 import Grid from '../components/Grid';
 import GridItem from '../components/GridItem';
-import Item from '../components/Item';
 import Button from '../components/Button';
 import Tools from '../components/Tools';
+import Event from '../components/Event';
 import Search from '../components/Search';
 import Error from '../components/Error';
 
@@ -37,11 +37,11 @@ export default () => {
           <Grid>
             {events.map(event => (
               <GridItem>
-                <Item key={event.id} {...event} />
+                <Event key={event.id} {...event} />
               </GridItem>
             ))}
           </Grid>
-          ) : null}
+        ) : null}
       </div>
     </div>
   );

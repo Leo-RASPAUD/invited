@@ -5,7 +5,9 @@ import Error from './Error';
 export default ({ required, register, label, name, type, errors, errorMessage, defaultChecked }) => {
   return (
     <div className={styles['input']}>
-      <label className={styles['input-label']} htmlFor="name">{label}</label>
+      <label className={styles['input-label']} htmlFor="name">
+        {label}
+      </label>
       <input
         className={styles['input-input']}
         defaultChecked={defaultChecked}
