@@ -16,8 +16,10 @@
 
 .select-select {
   appearance: none;
-  width: 100%;
-  border: none;
-  padding: 8px 0;
   border-bottom: 2px solid coral;
+  border-radius: 0;
+  border: none;
+  font-size: inherit;
+  padding: 8px 0;
+  width: 100%;
 }
