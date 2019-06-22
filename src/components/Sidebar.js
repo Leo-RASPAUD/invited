@@ -1,12 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Button from './Button'
 
-const themeDefault = {
-  background: 'coral',
-  color: 'white',
-};
-
-function Sidebar({ children, theme = themeDefault }) {
+function Sidebar({ children }) {
   const [collapse, setCollapse] = useState(true);
   const node = useRef();
 
@@ -25,16 +20,16 @@ function Sidebar({ children, theme = themeDefault }) {
       right: 248  ,
       position: 'absolute',
       top: 8,
-      ...theme,
     },
     collapse: {
+      background: 'coral',
+      color: 'white',
       height: '100vh',
       position: 'fixed',
       top: 0,
       transition: `right .2s ease-in-out`,
       width: 240,
       zIndex: 2,
-      ...theme,
     },
   };
 
