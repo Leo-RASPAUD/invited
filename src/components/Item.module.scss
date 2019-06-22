@@ -1,0 +1,17 @@
+@import '../variables.scss';
+
+.item {
+  border: $border-width solid $border-color;
+  box-shadow: $box-shadow;
+  padding: 14px;
+}
+  
+.item-heading {
+  font-size: 40px;
+  line-height: 1;
+  margin: 0 0 8px;
+}
+
+.item-detail {
+  margin: 0 0 8px;
+}

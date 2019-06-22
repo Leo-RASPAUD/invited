@@ -1,0 +1,11 @@
+@import '../variables.scss';
+
+.grid-item {
+  box-sizing: border-box;
+  flex: 0 0 100%;
+  padding: 8px;
+
+  @media (min-width: 768px) {
+    flex: 0 0 50%;
+  }
+}

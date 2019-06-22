@@ -1,8 +1,13 @@
 import React, { useEffect } from 'react';
 import { getEvents } from '../queries/eventQueries';
 import useFetcher from '../hooks/useFetcher';
-import Event from '../components/Event';
+import Container from '../components/Container';
+import Grid from '../components/Grid';
+import GridItem from '../components/GridItem';
+import Item from '../components/Item';
 import Button from '../components/Button';
+import Tools from '../components/Tools';
+import Search from '../components/Search';
 import Error from '../components/Error';
 
 export default () => {
@@ -18,12 +23,25 @@ export default () => {
 
   return (
     <div>
-      <Button to="/app/new">New event</Button>
-      <div>
+      <Tools>
+        <Button to="/app/new">New event</Button>
+        <Search name="search" />
+      </Tools>
+      <Container>
         <h1>My events</h1>
+      </Container>
+      <div>
         {loading && <div>Loading ...</div>}
         {errorMessage && <Error errorMessage={errorMessage} />}
-        {!loading && events.map(event => <Event key={event.id} {...event} />)}
+        {!loading ? (
+          <Grid>
+            {events.map(event => (
+              <GridItem>
+                <Item key={event.id} {...event} />
+              </GridItem>
+            ))}
+          </Grid>
+          ) : null}
       </div>
     </div>
   );

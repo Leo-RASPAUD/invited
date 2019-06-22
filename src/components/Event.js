@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styles from './Event.module.scss';
 import { deleteEvent as deleteEventMutation } from '../mutations/eventMutations';
 import useFetcher from '../hooks/useFetcher';
-import Grid from './Grid';
 import { withRouter } from 'react-router-dom';
 
 const Event = ({ id, name, loading, date, host, place, type, history }) => {
@@ -25,7 +24,7 @@ const Event = ({ id, name, loading, date, host, place, type, history }) => {
   });
 
   return (
-    <Grid key={id}>
+    <div key={id}>
       <div className={styles['outer-div']} onClick={() => history.push(`/app/event/${id}`)}>
         <div className={styles['title']}>{name}</div>
         <div className={styles['delete-button']} onClick={() => deleteEvent(id)}>
@@ -39,7 +38,7 @@ const Event = ({ id, name, loading, date, host, place, type, history }) => {
           }}
         />
       </div>
-    </Grid>
+    </div>
   );
 };
 
