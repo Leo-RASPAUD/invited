@@ -7,4 +7,5 @@ export default {
   decrypt: 'decrypt',
   updateGuestInvitation: 'updateGuestInvitation',
   deleteEvent: 'deleteEvent',
+  sendInvites: 'sendInvites',
 };

@@ -23,5 +23,5 @@ functions:
     handler: guests/addGuest.handler
   decrypt:
     handler: crypto/decrypt.handler
-  sendEmail:
-    handler: mails/send.handler
+  sendEmails:
+    handler: mails/sendEmails.handler

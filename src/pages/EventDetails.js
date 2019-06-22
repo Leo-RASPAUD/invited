@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useForm from 'react-hook-form';
-import { getEvent } from '../queries/eventQueries';
+import { getEvent, sendInvites as sendInvitesQuery } from '../queries/eventQueries';
 import { addGuest, deleteGuest as deleteGuestMutation } from '../mutations/guestMutations';
 import useFetcher from '../hooks/useFetcher';
 import { withRouter } from 'react-router';
@@ -21,13 +21,20 @@ const EventDetails = ({ location, match }) => {
     errorType,
   } = state;
 
-  const onSubmit = async data => {
+  const onSubmit = data => {
     const copy = stringUtils.removeEmptyValues(data);
     fetcher({ ...addGuest, params: { ...copy, eventId } });
   };
 
-  const deleteGuest = async id => {
+  const deleteGuest = id => {
     fetcher({ ...deleteGuestMutation, params: { id } });
+  };
+
+  const sendInvites = () => {
+    fetcher({
+      ...sendInvitesQuery,
+      params: { name, type, place, date, host, eventId, guests: JSON.stringify(guests) },
+    });
   };
 
   useEffect(() => {
@@ -61,8 +68,12 @@ const EventDetails = ({ location, match }) => {
               <div>
                 <Link to={`/event/${guest.encrypted}`}>Public page</Link>
               </div>
+
+              {errorType === errorTypes.sendInvites && errorMessage && <Error errorMessage={errorMessage} />}
             </div>
           ))}
+          <h3>Send</h3>
+          <button onClick={sendInvites}>Send invites</button>
           <h3>Add guest</h3>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Input required name="firstName" label="First name" type="text" register={register} errors={errors} />

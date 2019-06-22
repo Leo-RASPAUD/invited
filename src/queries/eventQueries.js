@@ -27,4 +27,12 @@ const getEvent = {
 }`,
 };
 
-export { getEvents, getEvent };
+const sendInvites = {
+  name: actions.sendInvites,
+  actions: [{ name: globalErrors.errorSendInvites, dispatch: dispatchGlobal }],
+  query: `query sendInvites( $name: String!, $type: String!, $place: String!, $date: String!, $host: String!, $eventId: String!, $guests: String!) {
+    sendInvites(name: $name, type: $type, place: $place, date: $date, host: $host, eventId: $eventId, guests: $guests)
+}`,
+};
+
+export { getEvents, getEvent, sendInvites };

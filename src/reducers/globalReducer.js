@@ -10,6 +10,7 @@ export const actions = {
   errorDecrypt: 'errorDecrypt',
   errorUpdateGuestInvitation: 'errorUpdateGuestInvitation',
   errorDeleteEvent: 'errorDeleteEvent',
+  errorSendInvites: 'errorSendInvites',
 };
 
 export const dispatchName = 'dispatchGlobal';
@@ -85,6 +86,14 @@ export const reducer = (state, { payload, type }) => {
         ...state,
         errorType: errorTypes.deleteEvent,
         errorMessage: 'Error while trying to delete the event',
+        errors: payload.errors,
+      };
+    }
+    case actions.errorSendInvites: {
+      return {
+        ...state,
+        errorType: errorTypes.sendInvites,
+        errorMessage: 'Error while trying to send the invites',
         errors: payload.errors,
       };
     }

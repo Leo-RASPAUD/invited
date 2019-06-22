@@ -22,6 +22,8 @@ const PublicEvent = ({ location, match }) => {
     event: { name, host, type, place, date },
   } = state;
 
+  const isAccept = location.search.match(/accept=(.*)/) ? location.search.match(/accept=(.*)/)[1] === 'true' : false;
+
   const onSubmit = async data => {
     const copy = stringUtils.removeEmptyValues(data);
     fetcher({
@@ -33,7 +35,6 @@ const PublicEvent = ({ location, match }) => {
   useEffect(() => {
     fetcher({ ...decrypt, params: { encrypted } });
   }, []); // eslint-disable-line
-  console.log(state);
 
   return (
     <div>
@@ -53,7 +54,14 @@ const PublicEvent = ({ location, match }) => {
           <h3>Accept</h3>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Input required name="notes" label="Notes" type="text" register={register} errors={errors} />
-            <Input name="accepted" label="Accepted" type="checkbox" register={register} errors={errors} />
+            <Input
+              name="accepted"
+              label="Accepted"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              defaultChecked={isAccept}
+            />
             {errorType === errorTypes.updateGuestInvitation && errorMessage && <Error errorMessage={errorMessage} />}
             <input type="submit" className="button" />
           </form>
