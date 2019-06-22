@@ -5,6 +5,7 @@
   background: $action-background;
   border: $border-width solid $action-border-color;
   box-shadow: $action-box-shadow;
+  box-sizing: border-box;
   color: $action-color;
   display: block;
   font-size: inherit;
