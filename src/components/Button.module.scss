@@ -1,6 +1,7 @@
 @import '../variables.scss';
 
 .button {
+  appearance: none;
   background: $action-background;
   border: $border-width solid $action-border-color;
   box-shadow: $action-box-shadow;
