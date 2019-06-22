@@ -4,6 +4,7 @@ export const actions = {
   deleteGuest: 'deleteGuest',
   decrypt: 'decrypt',
   updateGuestInvitation: 'updateGuestInvitation',
+  getGuests: 'getGuests',
 };
 
 export const dispatchName = 'dispatchGuests';
@@ -20,6 +21,12 @@ export const reducer = (state, { payload, type }) => {
       return {
         ...state,
         guests: state.guests.concat(payload),
+      };
+    }
+    case actions.getGuests: {
+      return {
+        ...state,
+        guests: payload,
       };
     }
     case actions.deleteGuest: {

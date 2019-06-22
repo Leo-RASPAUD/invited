@@ -3,12 +3,18 @@ import { Auth } from 'aws-amplify';
 import UserContext from '../UserContext';
 import useForm from 'react-hook-form';
 import { withRouter } from 'react-router-dom';
+import Button from '../components/Button'
+import Container from '../components/Container'
+import Grid from '../components/Grid'
+import GridItem from '../components/GridItem'
+import Input from '../components/Input';
+import PageTitle from '../components/PageTitle'
 
 const Login = ({ history }) => {
   const [error, setError] = useState('');
   const { updateCurrentUser } = useContext(UserContext);
 
-  const { handleSubmit, register } = useForm();
+  const { handleSubmit, register, errors } = useForm();
 
   const onSubmit = async data => {
     signIn(data);
@@ -27,22 +33,19 @@ const Login = ({ history }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <h2>Sign In</h2>
-
-      <div>
-        <label htmlFor="username">Username</label>
-        <input name="username" type="text" ref={register} />
-      </div>
-
-      <div>
-        <label htmlFor="password">Password</label>
-        <input name="password" type="password" ref={register} />
-      </div>
-
-      <div>{error}</div>
-      <input className="button" type="submit" />
-    </form>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Container>
+          <PageTitle>Sign In</PageTitle>
+        </Container>
+        <Grid>
+          <GridItem>
+            <Input required name="username" label="Name" type="text" register={register} errors={errors} />
+            <Input required name="password" label="Name" type="password" register={register} errors={errors} />
+            <div>{error}</div>
+            <Button type="submit">Get</Button>
+          </GridItem>
+        </Grid>
+      </form>
   );
 };
 

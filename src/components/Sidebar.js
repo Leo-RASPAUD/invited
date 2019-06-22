@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import Button from './Button'
 
 const themeDefault = {
   background: 'coral',
@@ -20,20 +21,16 @@ function Sidebar({ children, theme = themeDefault }) {
       width: 14,
     },
     button: {
-      appearance: 'none',
-      border: 'none',
-      borderRadius: 0,
       display: 'block',
-      fontSize: 24,
-      left: -56,
-      padding: 15,
+      right: 248  ,
       position: 'absolute',
-      top: 14,
+      top: 8,
       ...theme,
     },
     collapse: {
       height: '100vh',
       position: 'fixed',
+      top: 0,
       transition: `right .2s ease-in-out`,
       width: 240,
       zIndex: 2,
@@ -64,9 +61,10 @@ function Sidebar({ children, theme = themeDefault }) {
       }}
       ref={node}
     >
-      <button aria-label="Menu" onClick={() => setCollapse(!collapse)} style={styles.button}>
-        <span style={styles.burger} />
-      </button>
+
+      <div style={styles.button}>
+        <Button onClick={() => setCollapse(!collapse)}>Menu</Button>
+      </div>
       <div>{children}</div>
     </div>
   );

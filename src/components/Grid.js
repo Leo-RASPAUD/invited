@@ -1,15 +1,9 @@
 import React from 'react';
+import styles from './Grid.module.scss';
 
-function Sidebar({ children, theme }) {
-  const styles = {
-    display: 'grid',
-    gap: 16,
-    gridTemplateColumns: '1fr',
-    gridTemplateRows: 'auto',
-    width: '100%',
-  };
+function Grid({ children, theme }) {
 
-  return <div style={styles}>{children}</div>;
+  return <div className={styles['grid']}>{children}</div>;
 }
 
-export default Sidebar;
+export default Grid;

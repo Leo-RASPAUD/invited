@@ -19,4 +19,14 @@ const decrypt = {
 }`,
 };
 
-export { decrypt };
+const getGuests = {
+  name: actions.getGuests,
+  actions: [{ name: actions.getGuests, dispatch }, { name: globalErrors.errorGetGuests, dispatch: dispatchGlobal }],
+  query: `query getGuests($eventId: String!) {
+    getGuests(eventId: $eventId) {
+      ${guest}
+    }
+}`,
+};
+
+export { decrypt, getGuests };
