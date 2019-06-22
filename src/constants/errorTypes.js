@@ -8,4 +8,5 @@ export default {
   updateGuestInvitation: 'updateGuestInvitation',
   deleteEvent: 'deleteEvent',
   sendInvites: 'sendInvites',
+  getGuests: 'getGuests',
 };

@@ -11,6 +11,7 @@ export const actions = {
   errorUpdateGuestInvitation: 'errorUpdateGuestInvitation',
   errorDeleteEvent: 'errorDeleteEvent',
   errorSendInvites: 'errorSendInvites',
+  errorGetGuests: 'errorGetGuests',
 };
 
 export const dispatchName = 'dispatchGlobal';
@@ -94,6 +95,14 @@ export const reducer = (state, { payload, type }) => {
         ...state,
         errorType: errorTypes.sendInvites,
         errorMessage: 'Error while trying to send the invites',
+        errors: payload.errors,
+      };
+    }
+    case actions.errorGetGuests: {
+      return {
+        ...state,
+        errorType: errorTypes.errorGetGuest,
+        errorMessage: 'Error while trying to get guests',
         errors: payload.errors,
       };
     }

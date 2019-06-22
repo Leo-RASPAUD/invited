@@ -10,6 +10,7 @@ import EventDetails from './pages/EventDetails';
 import PublicEvent from './pages/PublicEvent';
 import Login from './pages/Login';
 import PrivateRoute from './components/PrivateRoute';
+import EventGuests from './pages/EventGuests';
 import SignUp from './pages/SignUp';
 
 export default () => {
@@ -36,6 +37,7 @@ export default () => {
             <PrivateRoute exact path="/app" component={EventList} />
             <PrivateRoute exact path="/app/new" component={Create} />
             <PrivateRoute exact path="/app/event/:id" component={EventDetails} />
+            <PrivateRoute exact path="/app/event/:id/guests" component={EventGuests} />
           </Switch>
         </Main>
       </div>

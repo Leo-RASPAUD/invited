@@ -4,9 +4,11 @@ import useFetcher from '../hooks/useFetcher';
 import Container from '../components/Container';
 import Grid from '../components/Grid';
 import GridItem from '../components/GridItem';
+import Item from '../components/Item';
 import Button from '../components/Button';
+import PageTitle from '../components/PageTitle';
 import Tools from '../components/Tools';
-import Event from '../components/Event';
+// import Event from '../components/Event';
 import Search from '../components/Search';
 import Error from '../components/Error';
 
@@ -28,19 +30,21 @@ export default () => {
         <Search name="search" />
       </Tools>
       <Container>
-        <h1>My events</h1>
+        <PageTitle>My events</PageTitle>
       </Container>
       <div>
         {loading && <div>Loading ...</div>}
         {errorMessage && <Error errorMessage={errorMessage} />}
         {!loading ? (
-          <Grid>
-            {events.map(event => (
-              <GridItem>
-                <Event key={event.id} {...event} />
-              </GridItem>
-            ))}
-          </Grid>
+          <Container>
+            <Grid>
+              {events.map(event => (
+                <GridItem key={event.id}>
+                  <Item {...event} />
+                </GridItem>
+              ))}
+            </Grid>
+          </Container>
         ) : null}
       </div>
     </div>

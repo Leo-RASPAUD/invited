@@ -3,9 +3,10 @@
 .item {
   border: $border-width solid $border-color;
   box-shadow: $box-shadow;
+  margin: 0 0 16px;
   padding: 14px;
 }
-  
+
 .item-heading {
   font-size: 40px;
   line-height: 1;

@@ -3,7 +3,7 @@
 .grid-item {
   box-sizing: border-box;
   flex: 0 0 100%;
-  padding: 8px;
+  padding: 0 $grid-gutter / 2;
 
   @media (min-width: 768px) {
     flex: 0 0 50%;
