@@ -33,7 +33,7 @@ const EventDetails = ({ location, match }) => {
   const sendInvites = () => {
     fetcher({
       ...sendInvitesQuery,
-      params: { name, type, place, date, host, eventId, guests: JSON.stringify(guests) },
+      params: { name, type, place, date, host, guests: JSON.stringify(guests) },
     });
   };
 
@@ -68,12 +68,11 @@ const EventDetails = ({ location, match }) => {
               <div>
                 <Link to={`/event/${guest.encrypted}`}>Public page</Link>
               </div>
-
-              {errorType === errorTypes.sendInvites && errorMessage && <Error errorMessage={errorMessage} />}
             </div>
           ))}
           <h3>Send</h3>
           <button onClick={sendInvites}>Send invites</button>
+          {errorType === errorTypes.sendInvites && errorMessage && <Error errorMessage={errorMessage} />}
           <h3>Add guest</h3>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Input required name="firstName" label="First name" type="text" register={register} errors={errors} />

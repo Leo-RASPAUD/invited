@@ -17,7 +17,7 @@ module.exports.handler = async ({ host, eventId, name, place, date, time, guests
     dynamic_template_data: {
       firstName: guest.firstName,
       lastName: guest.lastName,
-      eventId,
+      url: guest.encrypted,
       host,
       name,
       place,
