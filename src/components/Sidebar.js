@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const themeDefault = {
   background: 'coral',
@@ -6,7 +6,8 @@ const themeDefault = {
 };
 
 function Sidebar({ children, theme = themeDefault }) {
-  const [collapse, setCollapse] = React.useState(true);
+  const [collapse, setCollapse] = useState(true);
+  const node = useRef();
 
   const styles = {
     burger: {
@@ -40,12 +41,28 @@ function Sidebar({ children, theme = themeDefault }) {
     },
   };
 
+  const handleClick = e => {
+    if (node.current.contains(e.target)) {
+      return;
+    }
+
+    setCollapse(true);
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClick);
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+    };
+  }, []);
+
   return (
     <div
       style={{
         ...styles.collapse,
         right: collapse ? -240 : 0,
       }}
+      ref={node}
     >
       <button aria-label="Menu" onClick={() => setCollapse(!collapse)} style={styles.button}>
         <span style={styles.burger} />

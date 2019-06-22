@@ -1,32 +1,10 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
-import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import contextUser from '../UserContext';
 
-const Navigation = styled.div`
-  padding: 16px;
-`;
-
-const List = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  > li {
-    margin: 4px 0;
-    padding: 0;
-  }
-
-  > li > a,
-  > li > button {
-    color: white;
-    display: block;
-    padding: 4px 8px;
-    text-decoration: none;
-  }
-`;
+import styles from './Navigation.module.scss';
 
 const NavigationComponent = ({ history }) => {
   const userContext = useContext(contextUser);
@@ -39,13 +17,15 @@ const NavigationComponent = ({ history }) => {
   };
 
   return (
-    <Navigation className="Navigation">
+    <div className={styles['navigation']}>
       {userContext.isLoaded && userContext.user && (
-        <List>
+        <ul className={styles['list']}>
           <li>
-            <NavLink activeStyle={{
-              background: 'rgba(255,255,255, 0.1)'
-            }} to="/app"
+            <NavLink
+              activeStyle={{
+                background: 'rgba(255,255,255, 0.1)',
+              }}
+              to="/app"
             >
               Event list
             </NavLink>
@@ -53,21 +33,23 @@ const NavigationComponent = ({ history }) => {
           <li>
             <button onClick={signOut}>Signout</button>
           </li>
-        </List>
+        </ul>
       )}
       {userContext.isLoaded && !userContext.user && (
-        <List>
+        <ul className={styles['list']}>
           <li>
-            <NavLink activeStyle={{
-              background: 'rgba(255,255,255, 0.1)'
-            }} to="/login"
+            <NavLink
+              activeStyle={{
+                background: 'rgba(255,255,255, 0.1)',
+              }}
+              to="/login"
             >
               Login
             </NavLink>
           </li>
-        </List>
+        </ul>
       )}
-    </Navigation>
+    </div>
   );
 };
 
