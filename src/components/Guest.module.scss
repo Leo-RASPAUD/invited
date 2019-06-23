@@ -1,10 +1,10 @@
 @import '../variables.scss';
 
 .container {
-  border: 1px solid coral;
-  // border-radius: 4px;
-  margin: 8px;
-  padding: 8px;
+  border: $border-width solid $border-color;
+  box-shadow: $box-shadow;
+  margin: 0 0 16px;
+  padding: 14px;
   position: relative;
 }
 

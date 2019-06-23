@@ -61,16 +61,20 @@ export default ({ match }) => {
         {loading ? 'Loading...' : null}
         {!loading && guests.length > 0 && (
           <>
-            <PageTitle>Guests</PageTitle>
-            <Grid>
-              {guests.map(guest => {
-                return (
-                  <GridItem key={guest.id}>
-                    <Guest {...guest} />
-                  </GridItem>
-                );
-              })}
-            </Grid>
+            <Container>
+              <PageTitle>Guests</PageTitle>
+            </Container>
+            <Container>
+              <Grid>
+                {guests.map(guest => {
+                  return (
+                    <GridItem key={guest.id}>
+                      <Guest {...guest} />
+                    </GridItem>
+                  );
+                })}
+              </Grid>
+            </Container>
           </>
         )}
       </Container>

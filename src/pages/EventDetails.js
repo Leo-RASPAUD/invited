@@ -58,19 +58,17 @@ const EventDetails = ({ history, location, match }) => {
               <ButtonConfirm onConfirm={() => deleteEvent(eventId)}>Delete</ButtonConfirm>
             </Tool>
           </Tools>
-          <Container>
-            <Invitation>
-              <h1>The {type} of</h1>
-              <p>{host}</p>
-              <p>please join us</p>
-              <p>
-                {date}, {time}
-              </p>
-              <p>{place}</p>
-              <p>Reception to follow</p>
-            </Invitation>
-            {errorType === errorTypes.sendInvites && errorMessage && <Error errorMessage={errorMessage} />}
-          </Container>
+          <Invitation>
+            <h1>The {type} of</h1>
+            <p>{host}</p>
+            <p>please join us</p>
+            <p>
+              {date}, {time}
+            </p>
+            <p>{place}</p>
+            <p>Reception to follow</p>
+          </Invitation>
+          {errorType === errorTypes.sendInvites && errorMessage && <Error errorMessage={errorMessage} />}
         </>
       )}
     </div>
