@@ -59,7 +59,7 @@ export default ({ match }) => {
           </form>
         )}
         {loading ? 'Loading...' : null}
-        {!loading && (
+        {!loading && guests.length > 0 && (
           <>
             <PageTitle>Guests</PageTitle>
             <Grid>

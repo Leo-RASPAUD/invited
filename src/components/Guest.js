@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../components/Button';
+import ButtonConfirm from '../components/ButtonConfirm';
 import useFetcher from '../hooks/useFetcher';
 import { deleteGuest } from '../mutations/guestMutations';
 import styles from './Guest.module.scss';
@@ -16,7 +16,7 @@ export default ({ firstName, lastName, email, id }) => {
       <div>{lastName}</div>
       <div>{email}</div>
       <div className={styles['delete-button']}>
-        <Button onClick={deleteItem}>Delete</Button>
+        <ButtonConfirm onConfirm={deleteItem}>Delete</ButtonConfirm>
       </div>
     </div>
   );
