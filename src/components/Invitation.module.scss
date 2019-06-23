@@ -1,0 +1,9 @@
+@import '../variables.scss';
+
+.invitation {
+  border: $border-width solid $border-color;
+  box-shadow: $box-shadow;
+  margin: 0 0 16px;
+  padding: 14px;
+  text-align: center;
+}

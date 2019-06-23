@@ -4,19 +4,29 @@ import useFetcher from '../hooks/useFetcher';
 import { withRouter } from 'react-router';
 import errorTypes from '../constants/errorTypes';
 import Error from '../components/Error';
-import Button, { Buttons } from '../components/Button';
+import ButtonConfirm from '../components/ButtonConfirm';
+import Button from '../components/Button';
 import Container from '../components/Container';
+import Tool from '../components/Tool';
+import Tools from '../components/Tools';
+import Invitation from '../components/Invitation';
+import { deleteEvent as deleteEventMutation } from '../mutations/eventMutations';
 
 import PageTitle from '../components/PageTitle';
-const EventDetails = ({ location, match }) => {
+const EventDetails = ({ history, location, match }) => {
   const eventId = match.params.id;
   const { loading, state, fetcher } = useFetcher();
   const {
-    event: { name, type, place, date, host },
+    event: { date, host, name, place, time, type },
     guests = [],
     errorMessage,
     errorType,
   } = state;
+
+  const deleteEvent = async id => {
+    await fetcher({ ...deleteEventMutation, params: { id } });
+    history.push(`/app`);
+  };
 
   const sendInvites = () => {
     fetcher({
@@ -33,28 +43,43 @@ const EventDetails = ({ location, match }) => {
     <div>
       {errorType === errorTypes.getEvent && <Error errorMessage={errorMessage} />}
       {!loading && (!errorType || errorType !== errorTypes.getEvent) && (
-        <Container>
-          <PageTitle>{name}</PageTitle>
-          <div>Insert example of invitation.</div>
-          <div>Type: {type}</div>
-          <div>Place: {place}</div>
-          <div>Date: {date}</div>
-          <div>Host: {host}</div>
-          <Buttons>
-            <Button to={`${eventId}/guests`}>Event guests</Button>
-          </Buttons>
-          <h3>Send</h3>
-          <Button onClick={sendInvites}>Send invites</Button>
-          {errorType === errorTypes.sendInvites && errorMessage && <Error errorMessage={errorMessage} />}
-          {/* <h3>Add guest</h3>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Input required name="firstName" label="First name" type="text" register={register} errors={errors} />
-            <Input required name="lastName" label="Last name" type="text" register={register} errors={errors} />
-            <Input required name="email" label="Email" type="text" register={register} errors={errors} />
-            {errorType === errorTypes.addGuest && errorMessage && <Error errorMessage={errorMessage} />}
-            <input className="button" type="submit" />
-          </form> */}
-        </Container>
+        <>
+          <Container>
+            <PageTitle>{name}</PageTitle>
+          </Container>
+          <Tools>
+            <Tool>
+              <Button to={`${eventId}/guests`}>Guests</Button>
+            </Tool>
+            <Tool>
+              <Button onClick={sendInvites}>Send</Button>
+            </Tool>
+            <Tool>
+              <ButtonConfirm onConfirm={() => deleteEvent(eventId)}>Delete</ButtonConfirm>
+            </Tool>
+          </Tools>
+          <Container>
+            <Invitation>
+              <h1>The {type} of</h1>
+              <p>{host}</p>
+              <p>please join us</p>
+              <p>
+                {date}, {time}
+              </p>
+              <p>{place}</p>
+              <p>Reception to follow</p>
+            </Invitation>
+            {errorType === errorTypes.sendInvites && errorMessage && <Error errorMessage={errorMessage} />}
+            {/* <h3>Add guest</h3>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Input required name="firstName" label="First name" type="text" register={register} errors={errors} />
+              <Input required name="lastName" label="Last name" type="text" register={register} errors={errors} />
+              <Input required name="email" label="Email" type="text" register={register} errors={errors} />
+              {errorType === errorTypes.addGuest && errorMessage && <Error errorMessage={errorMessage} />}
+              <input className="button" type="submit" />
+            </form> */}
+          </Container>
+        </>
       )}
     </div>
   );

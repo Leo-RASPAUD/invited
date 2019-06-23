@@ -7,6 +7,7 @@ import GridItem from '../components/GridItem';
 import Item from '../components/Item';
 import Button from '../components/Button';
 import PageTitle from '../components/PageTitle';
+import Tool from '../components/Tool';
 import Tools from '../components/Tools';
 // import Event from '../components/Event';
 import Search from '../components/Search';
@@ -29,8 +30,12 @@ export default () => {
         <PageTitle>My events</PageTitle>
       </Container>
       <Tools>
-        <Button to="/app/new">New event</Button>
-        <Search name="search" />
+        <Tool>
+          <Button to="/app/new">New event</Button>
+        </Tool>
+        <Tool>
+          <Search name="search" />
+        </Tool>
       </Tools>
       <Container>
         {loading && <div>...</div>}
