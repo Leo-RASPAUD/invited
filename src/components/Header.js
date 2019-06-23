@@ -1,11 +1,11 @@
 import React from 'react';
-import Button from './Button'
+import Brand from './Brand';
 import styles from './Header.module.scss';
 
 function Header({ children }) {
   return (
     <header className={styles['header']}>
-      <Button to="/">Invited</Button>
+      <Brand to="/">Invited</Brand>
       <div>{children}</div>
     </header>
   );

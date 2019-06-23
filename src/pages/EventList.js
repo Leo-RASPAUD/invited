@@ -25,28 +25,26 @@ export default () => {
 
   return (
     <div>
+      <Container>
+        <PageTitle>My events</PageTitle>
+      </Container>
       <Tools>
         <Button to="/app/new">New event</Button>
         <Search name="search" />
       </Tools>
       <Container>
-        <PageTitle>My events</PageTitle>
-      </Container>
-      <div>
-        {loading && <div>Loading ...</div>}
+        {loading && <div>...</div>}
         {errorMessage && <Error errorMessage={errorMessage} />}
         {!loading ? (
-          <Container>
-            <Grid>
-              {events.map(event => (
-                <GridItem key={event.id}>
-                  <Item {...event} />
-                </GridItem>
-              ))}
-            </Grid>
-          </Container>
+          <Grid>
+            {events.map(event => (
+              <GridItem key={event.id}>
+                <Item {...event} />
+              </GridItem>
+            ))}
+          </Grid>
         ) : null}
-      </div>
+      </Container>
     </div>
   );
 };

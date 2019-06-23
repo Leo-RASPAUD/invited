@@ -28,7 +28,7 @@ export default () => {
               exact
               path="/"
               component={() => {
-                return <div>Home page</div>;
+                return <div style={{ padding: 8 }}>Home page</div>;
               }}
             />
             <Route exact path="/event/:encrypted" component={PublicEvent} />

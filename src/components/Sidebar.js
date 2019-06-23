@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Button from './Button'
 
 function Sidebar({ children }) {
   const [collapse, setCollapse] = useState(true);
@@ -12,14 +11,15 @@ function Sidebar({ children }) {
       boxSizing: 'border-box',
       color: 'inherit',
       display: 'block',
-      height: 14,
-      width: 14,
+      height: 12,
+      width: 12,
     },
     button: {
+      appearance: 'none',
+      border: 'none',
+      borderRadius: 0,
       display: 'block',
-      right: 248  ,
-      position: 'absolute',
-      top: 8,
+      padding: 12,
     },
     collapse: {
       background: 'coral',
@@ -42,25 +42,28 @@ function Sidebar({ children }) {
   };
 
   useEffect(() => {
+    document.addEventListener('touchstart', handleClick);
     document.addEventListener('mousedown', handleClick);
     return () => {
+      document.addEventListener('touchstart', handleClick);
       document.removeEventListener('mousedown', handleClick);
     };
   }, []);
 
   return (
-    <div
-      style={{
-        ...styles.collapse,
-        right: collapse ? -240 : 0,
-      }}
-      ref={node}
-    >
-
-      <div style={styles.button}>
-        <Button onClick={() => setCollapse(!collapse)}>Menu</Button>
+    <div>
+      <button aria-label="Menu" onClick={() => setCollapse(!collapse)} style={styles.button}>
+        <span style={styles.burger} />
+      </button>
+      <div
+        style={{
+          ...styles.collapse,
+          right: collapse ? -240 : 0,
+        }}
+        ref={node}
+      >
+        <div>{children}</div>
       </div>
-      <div>{children}</div>
     </div>
   );
 }
