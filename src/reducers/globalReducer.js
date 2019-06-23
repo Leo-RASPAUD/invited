@@ -101,7 +101,7 @@ export const reducer = (state, { payload, type }) => {
     case actions.errorGetGuests: {
       return {
         ...state,
-        errorType: errorTypes.errorGetGuest,
+        errorType: errorTypes.getGuests,
         errorMessage: 'Error while trying to get guests',
         errors: payload.errors,
       };

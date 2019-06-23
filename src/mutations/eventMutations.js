@@ -6,7 +6,7 @@ const deleteEvent = {
   name: 'deleteEvent',
   actions: [{ name: actions.deleteEvent, dispatch }, { name: globalErrors.errorDeleteEvent, dispatch: dispatchGlobal }],
   query: `mutation deleteEvent($id: String!) {
-    deleteEvent2(id: $id)
+    deleteEvent(id: $id)
 }`,
 };
 

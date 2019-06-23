@@ -70,14 +70,6 @@ const EventDetails = ({ history, location, match }) => {
               <p>Reception to follow</p>
             </Invitation>
             {errorType === errorTypes.sendInvites && errorMessage && <Error errorMessage={errorMessage} />}
-            {/* <h3>Add guest</h3>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Input required name="firstName" label="First name" type="text" register={register} errors={errors} />
-              <Input required name="lastName" label="Last name" type="text" register={register} errors={errors} />
-              <Input required name="email" label="Email" type="text" register={register} errors={errors} />
-              {errorType === errorTypes.addGuest && errorMessage && <Error errorMessage={errorMessage} />}
-              <input className="button" type="submit" />
-            </form> */}
           </Container>
         </>
       )}

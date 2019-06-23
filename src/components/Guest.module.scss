@@ -1,0 +1,15 @@
+@import '../variables.scss';
+
+.container {
+  border: 1px solid coral;
+  // border-radius: 4px;
+  margin: 8px;
+  padding: 8px;
+  position: relative;
+}
+
+.delete-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
