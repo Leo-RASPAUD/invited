@@ -4,6 +4,7 @@ import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Main from './components/Main';
 import Sidebar from './components/Sidebar';
+import DesktopNavigation from './components/DesktopNavigation';
 import Create from './pages/Create';
 import EventList from './pages/EventList';
 import EventDetails from './pages/EventDetails';
@@ -21,6 +22,9 @@ export default () => {
           <Sidebar>
             <Navigation />
           </Sidebar>
+          <DesktopNavigation>
+            <Navigation />
+          </DesktopNavigation>
         </Header>
         <Main>
           <Switch>

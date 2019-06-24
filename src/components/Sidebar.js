@@ -1,37 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 
+import styles from './Sidebar.module.scss';
+
 function Sidebar({ children }) {
   const [collapse, setCollapse] = useState(true);
   const node = useRef();
-
-  const styles = {
-    burger: {
-      borderBottom: 'solid 3px',
-      borderTop: 'solid 3px',
-      boxSizing: 'border-box',
-      color: 'inherit',
-      display: 'block',
-      height: 12,
-      width: 12,
-    },
-    button: {
-      appearance: 'none',
-      border: 'none',
-      borderRadius: 0,
-      display: 'block',
-      padding: 12,
-    },
-    collapse: {
-      background: 'coral',
-      color: 'white',
-      height: '100vh',
-      position: 'fixed',
-      top: 0,
-      transition: `right .2s ease-in-out`,
-      width: 240,
-      zIndex: 2,
-    },
-  };
 
   const handleClick = e => {
     if (node.current.contains(e.target)) {
@@ -51,13 +24,13 @@ function Sidebar({ children }) {
   }, []);
 
   return (
-    <div>
-      <button aria-label="Menu" onClick={() => setCollapse(!collapse)} style={styles.button}>
-        <span style={styles.burger} />
+    <div className={styles['container']}>
+      <button aria-label="Menu" onClick={() => setCollapse(!collapse)} className={styles['button']}>
+        <span className={styles['burger']} />
       </button>
       <div
+        className={styles['collapse']}
         style={{
-          ...styles.collapse,
           right: collapse ? -240 : 0,
         }}
         ref={node}

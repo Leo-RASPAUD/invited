@@ -31,7 +31,9 @@ const NavigationComponent = ({ history }) => {
             </NavLink>
           </li>
           <li>
-            <button onClick={signOut}>Signout</button>
+            <button className={styles['signout']} onClick={signOut}>
+              Signout
+            </button>
           </li>
         </ul>
       )}

@@ -1,0 +1,32 @@
+.container {
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.burger {
+  border-bottom: solid 3px;
+  border-top: solid 3px;
+  box-sizing: border-box;
+  color: inherit;
+  display: block;
+  height: 12px;
+  width: 12px;
+}
+.button {
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  display: block;
+  padding: 12px;
+}
+.collapse {
+  background: coral;
+  color: white;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  transition: right 0.2s ease-in-out;
+  width: 240px;
+  z-index: 2;
+}
