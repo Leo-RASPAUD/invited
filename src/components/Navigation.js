@@ -25,6 +25,7 @@ const NavigationComponent = ({ history }) => {
               activeStyle={{
                 background: 'rgba(0,0,0, 0.1)',
               }}
+              exact
               to="/app"
             >
               Event list

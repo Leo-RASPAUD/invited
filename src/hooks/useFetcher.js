@@ -30,7 +30,6 @@ export default () => {
     try {
       const result = await fetchData({ query, params, name, authMode });
       if (isSubscribed) {
-        setLoading(false);
         actions
           .filter(action => !action.name.startsWith('error'))
           .forEach(({ name = '', dispatch = '', field = null }) => {
@@ -38,6 +37,7 @@ export default () => {
               rest[dispatch]({ type: name, payload: field ? result[field] : result });
             }
           });
+        setLoading(false);
       }
     } catch (error) {
       handleError({ actions, error });
