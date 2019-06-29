@@ -33,53 +33,53 @@ export default ({ match }) => {
 
   return (
     <div>
-      <Container>
-        {(errorType === errorTypes.getGuests || errorType === errorTypes.deleteGuest) && errorMessage && (
-          <Error errorMessage={errorMessage} />
-        )}
-        <Tools>
-          <Tool>
-            <Button to={`/app/event/${eventId}`}>Back to event</Button>
-          </Tool>
-        </Tools>
-        {(!errorType || errorType !== errorTypes.getGuests) && (
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Container>
-              <PageTitle>Add a new guest</PageTitle>
-            </Container>
-            <Container>
-              <Grid>
-                <GridItem>
-                  <Input required name="firstName" label="First name" type="text" register={register} errors={errors} />
-                  <Input required name="lastName" label="Last name" type="text" register={register} errors={errors} />
-                  <Input required name="email" label="Email" type="text" register={register} errors={errors} />
-                  {errorType === errorTypes.addGuest && errorMessage && <Error errorMessage={errorMessage} />}
-                  <Button type="submit">Add guest</Button>
-                </GridItem>
-              </Grid>
-            </Container>
-          </form>
-        )}
-        {loading ? 'Loading...' : null}
-        {!loading && guests.length > 0 && (
-          <>
-            <Container>
-              <PageTitle>Guests</PageTitle>
-            </Container>
-            <Container>
-              <Grid>
-                {guests.map(guest => {
-                  return (
-                    <GridItem key={guest.id}>
-                      <Guest {...guest} />
-                    </GridItem>
-                  );
-                })}
-              </Grid>
-            </Container>
-          </>
-        )}
-      </Container>
+      {(errorType === errorTypes.getGuests || errorType === errorTypes.deleteGuest) && errorMessage && (
+        <Error errorMessage={errorMessage} />
+      )}
+      {(!errorType || errorType !== errorTypes.getGuests) && (
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Container>
+            <PageTitle>Add a new guest</PageTitle>
+          </Container>
+          <Container>
+            <Grid>
+              <GridItem>
+                <Input required name="firstName" label="First name" type="text" register={register} errors={errors} />
+                <Input required name="lastName" label="Last name" type="text" register={register} errors={errors} />
+                <Input required name="email" label="Email" type="text" register={register} errors={errors} />
+                {errorType === errorTypes.addGuest && errorMessage && <Error errorMessage={errorMessage} />}
+              </GridItem>
+            </Grid>
+          </Container>
+          <Tools>
+            <Tool>
+              <Button type="submit">Add guest</Button>
+            </Tool>
+            <Tool>
+              <Button to={`/app/event/${eventId}`}>Cancel</Button>
+            </Tool>
+          </Tools>
+        </form>
+      )}
+      {loading ? 'Loading...' : null}
+      {!loading && guests.length > 0 && (
+        <>
+          <Container>
+            <PageTitle>Guests</PageTitle>
+          </Container>
+          <Container>
+            <Grid>
+              {guests.map(guest => {
+                return (
+                  <GridItem key={guest.id}>
+                    <Guest {...guest} />
+                  </GridItem>
+                );
+              })}
+            </Grid>
+          </Container>
+        </>
+      )}
     </div>
   );
 };
