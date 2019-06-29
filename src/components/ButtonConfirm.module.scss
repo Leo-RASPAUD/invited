@@ -44,6 +44,7 @@
 .confirm {
   @extend %button;
   background: lightseagreen;
+  border: $border-width solid lightseagreen;
   flex: 1;
   padding: 6px;
 
@@ -56,6 +57,7 @@
 .cancel {
   @extend %button;
   background: crimson;
+  border: $border-width solid crimson;
   flex: 1;
   padding: 6px;
 

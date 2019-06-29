@@ -6,6 +6,11 @@
   margin: 0 0 16px;
   padding: 14px;
   position: relative;
+
+  > h3 {
+    font-weight: 500;
+    margin: 0;
+  }
 }
 
 .delete-button {

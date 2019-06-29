@@ -12,8 +12,9 @@ export default ({ firstName, lastName, email, id }) => {
   };
   return (
     <div className={styles['container']}>
-      <div>{firstName}</div>
-      <div>{lastName}</div>
+      <h3>
+        {firstName} {lastName}
+      </h3>
       <div>{email}</div>
       <div className={styles['delete-button']}>
         <ButtonConfirm onConfirm={deleteItem}>Delete</ButtonConfirm>
