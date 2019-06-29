@@ -60,7 +60,7 @@ const EventDetails = ({ history, location, match }) => {
             </Tool>
           </Tools>
           <Invitation type={type}>
-            <h1>The {type} of</h1>
+            <h1>The {eventTypes[type]} of</h1>
             <p>{host}</p>
             <p>please join us</p>
             <p>

@@ -5,7 +5,7 @@ import useFetcher from '../hooks/useFetcher';
 import Container from '../components/Container';
 import Grid from '../components/Grid';
 import GridItem from '../components/GridItem';
-import Item from '../components/Item';
+import Event from '../components/Event';
 import Button from '../components/Button';
 import PageTitle from '../components/PageTitle';
 import Tool from '../components/Tool';
@@ -49,7 +49,7 @@ export default () => {
               .filter(event => event.name.toLowerCase().startsWith(watchSearch.toLowerCase()))
               .map(event => (
                 <GridItem key={event.id}>
-                  <Item {...event} />
+                  <Event {...event} />
                 </GridItem>
               ))}
           </Grid>
