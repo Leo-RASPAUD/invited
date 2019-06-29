@@ -1,45 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Button, { Buttons } from './Button';
+import Background from './Background';
+import eventThemes from '../constants/eventThemes';
+
 import styles from './Event.module.scss';
-import { deleteEvent as deleteEventMutation } from '../mutations/eventMutations';
-import useFetcher from '../hooks/useFetcher';
-import { withRouter } from 'react-router-dom';
 
-const Event = ({ id, name, loading, date, host, place, type, history }) => {
-  const { fetcher } = useFetcher();
-  const [imageUrl, setImageUrl] = useState(null);
-
-  const src = 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/restaurant.jpg';
-
-  const deleteEvent = async id => {
-    fetcher({ ...deleteEventMutation, params: { id } });
-  };
-
-  useEffect(() => {
-    const imageLoader = new Image();
-    imageLoader.src = src;
-
-    imageLoader.onload = () => {
-      setImageUrl(src);
-    };
-  });
-
+const Event = ({ id, name, loading, date, host, place, type }) => {
+  const { backgroundColor = 'grey', backgroundImage, ...rest } = eventThemes[type.toLowerCase()];
   return (
-    <div key={id}>
-      <div className={styles['outer-div']} onClick={() => history.push(`/app/event/${id}`)}>
-        <div className={styles['title']}>{name}</div>
-        <div className={styles['delete-button']} onClick={() => deleteEvent(id)}>
-          X
+    <Background color={backgroundColor} image={backgroundImage}>
+      <div className={styles['event']} style={rest}>
+        <div className={styles['event-content']}>
+          <h2 className={styles['event-heading']}>{name}</h2>
+          <p className={styles['event-detail']}>{date}</p>
         </div>
-        <div className={`${!imageUrl ? styles['visible'] : styles['hidden']} ${styles['placeholder']} `} />
-        <div
-          className={`${styles['inner-div']} ${!imageUrl ? styles['hidden'] : styles['visible']}`}
-          style={{
-            backgroundImage: `url(${src})`,
-          }}
-        />
+        <Buttons>
+          <Button to={`/app/event/${id}`}>View</Button>
+        </Buttons>
       </div>
-    </div>
+    </Background>
   );
 };
 
-export default withRouter(Event);
+export default Event;
