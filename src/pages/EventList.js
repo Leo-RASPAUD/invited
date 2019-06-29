@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import useForm from 'react-hook-form';
 import { getEvents } from '../queries/eventQueries';
 import useFetcher from '../hooks/useFetcher';
 import Container from '../components/Container';
@@ -19,13 +20,15 @@ export default () => {
     state: { events, errorMessage },
     fetcher,
   } = useFetcher();
+  const { register, watch } = useForm();
+  const watchSearch = watch('search');
 
   useEffect(() => {
     fetcher(getEvents);
   }, []); // eslint-disable-line
 
   return (
-    <div>
+    <>
       <Container>
         <PageTitle>My events</PageTitle>
       </Container>
@@ -34,7 +37,7 @@ export default () => {
           <Button to="/app/new">New event</Button>
         </Tool>
         <Tool>
-          <Search name="search" />
+          <Search name="search" register={register} />
         </Tool>
       </Tools>
       <Container>
@@ -42,14 +45,16 @@ export default () => {
         {errorMessage && <Error errorMessage={errorMessage} />}
         {!loading ? (
           <Grid>
-            {events.map(event => (
-              <GridItem key={event.id}>
-                <Item {...event} />
-              </GridItem>
-            ))}
+            {events
+              .filter(event => event.name.toLowerCase().startsWith(watchSearch.toLowerCase()))
+              .map(event => (
+                <GridItem key={event.id}>
+                  <Item {...event} />
+                </GridItem>
+              ))}
           </Grid>
         ) : null}
       </Container>
-    </div>
+    </>
   );
 };
