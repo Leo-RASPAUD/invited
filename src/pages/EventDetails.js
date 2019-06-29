@@ -58,7 +58,7 @@ const EventDetails = ({ history, location, match }) => {
               <ButtonConfirm onConfirm={() => deleteEvent(eventId)}>Delete</ButtonConfirm>
             </Tool>
           </Tools>
-          <Invitation>
+          <Invitation type={type}>
             <h1>The {type} of</h1>
             <p>{host}</p>
             <p>please join us</p>
