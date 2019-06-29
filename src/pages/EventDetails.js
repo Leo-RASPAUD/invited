@@ -10,6 +10,7 @@ import Container from '../components/Container';
 import Tool from '../components/Tool';
 import Tools from '../components/Tools';
 import Invitation from '../components/Invitation';
+import eventTypes from '../constants/eventTypes';
 import { deleteEvent as deleteEventMutation } from '../mutations/eventMutations';
 
 import PageTitle from '../components/PageTitle';
@@ -59,7 +60,7 @@ const EventDetails = ({ history, location, match }) => {
             </Tool>
           </Tools>
           <Invitation>
-            <h1>The {type} of</h1>
+            <h1>The {eventTypes[type]} of</h1>
             <p>{host}</p>
             <p>please join us</p>
             <p>
