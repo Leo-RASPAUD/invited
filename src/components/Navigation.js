@@ -9,7 +9,7 @@ import { MdLock } from 'react-icons/md';
 import styles from './Navigation.module.scss';
 
 const activeStyle = {
-  background: 'rgba(0,0,0, 0.1)',
+  boxShadow: 'inset 0 0 0 2px currentColor',
 };
 
 const NavigationComponent = ({ history }) => {
@@ -44,12 +44,7 @@ const NavigationComponent = ({ history }) => {
       {userContext.isLoaded && !userContext.user && (
         <ul className={styles['list']}>
           <li>
-            <NavLink
-              activeStyle={{
-                background: 'rgba(255,255,255, 0.1)',
-              }}
-              to="/login"
-            >
+            <NavLink activeStyle={activeStyle} to="/login">
               Login
             </NavLink>
           </li>

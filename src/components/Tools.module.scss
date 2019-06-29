@@ -3,5 +3,7 @@
 .tools {
   display: flex;
   flex-wrap: wrap;
+  max-width: $max-width;
+  margin: 0 auto;
   padding: 8px;
 }

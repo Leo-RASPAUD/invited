@@ -1,11 +1,13 @@
-$primary-color: coral;
+$interactive-color: tomato;
 
-$action-background: $primary-color;
-$action-border-color: $primary-color;
+$action-background: $interactive-color;
+$action-border-color: $interactive-color;
 $action-box-shadow: none;
 $action-color: white;
 $action-font-weight: normal;
 $action-text-transform: initial;
+
+$link-color: $interactive-color;
 
 $border-color: lightgrey;
 $border-width: 2px;
@@ -13,3 +15,4 @@ $box-shadow: none;
 $color: black;
 
 $grid-gutter: 8px;
+$max-width: 1440px;

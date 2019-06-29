@@ -1,3 +1,5 @@
+@import '../variables.scss';
+
 .navigation {
   padding: 8px;
   display: flex;
@@ -47,14 +49,10 @@
     width: 100%;
 
     @media (min-width: 768px) {
-      color: coral;
+      color: $link-color;
       font-size: 16px;
       line-height: 28px;
       transition: color 0.25s ease-in-out;
-
-      &:hover {
-        color: purple;
-      }
     }
   }
 }
