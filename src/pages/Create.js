@@ -39,7 +39,7 @@ const Create = ({ history }) => {
             <Select label="Type" register={register} errors={errors} name="type" required>
               <option value="">Select</option>
               {Object.keys(eventTypes).map(value => (
-                <option key={value} value={eventTypes[value]}>
+                <option key={value} value={eventTypes}>
                   {eventTypes[value]}
                 </option>
               ))}
