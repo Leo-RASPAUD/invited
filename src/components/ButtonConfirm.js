@@ -20,10 +20,7 @@ export default ({ type = 'default', children, label, onConfirm, ...rest }) => {
     </div>
   ) : (
     <div className={styles.container}>
-      <button
-        onClick={() => setConfirm(true)}
-        className={styles.button}
-      >
+      <button onClick={() => setConfirm(true)} className={styles.button}>
         {children}
       </button>
     </div>

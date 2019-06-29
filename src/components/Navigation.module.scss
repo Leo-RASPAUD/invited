@@ -1,5 +1,10 @@
 .navigation {
   padding: 8px;
+
+  @media (min-width: 768px) {
+    padding: 0;
+  }
+
 }
 
 .list {
@@ -14,26 +19,37 @@
   > li {
     margin: 4px 0;
     padding: 0;
+
+    @media (min-width: 768px) {
+      margin: 0 0 0 8px;
+    }
   }
 
   > li > a,
   > li > button {
-    cursor: pointer;
-    color: white;
-    display: block;
-    padding: 4px 8px;
-    text-decoration: none;
     appearance: none;
-    border: none;
     background: transparent;
-    font-size: inherit;
-    line-height: inherit;
+    border: none;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    display: block;
     font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 4px 8px;
+    text-align: left;
+    text-decoration: none;
+    transition: background .3s ease-in-out, color .3s ease-in-out;
+    width: 100%;
 
     @media (min-width: 768px) {
       color: coral;
-      transition: all 0.25s ease-in-out;
-      font-size: 24px;
+      font-size: 16px;
+      line-height: 28px;
+      transition: color 0.25s ease-in-out;
 
       &:hover {
         color: purple;

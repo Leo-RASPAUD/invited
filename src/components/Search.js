@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from './Search.module.scss';
 
-export default ({ register, name, placeholder = 'Search'}) => {
+export default ({ register, name, placeholder = 'Search' }) => {
   return (
     <div className={styles['search']}>
-      <label className={styles['search-label']} htmlFor={name}>Search</label>
+      <label className={styles['search-label']} htmlFor={name}>
+        Search
+      </label>
       <input
         className={styles['search-input']}
         id={name}

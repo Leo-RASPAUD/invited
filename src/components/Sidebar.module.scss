@@ -13,13 +13,16 @@
   height: 12px;
   width: 12px;
 }
+
 .button {
   appearance: none;
+  background: white;
   border: none;
   border-radius: 0;
   display: block;
   padding: 12px;
 }
+
 .collapse {
   background: coral;
   color: white;
