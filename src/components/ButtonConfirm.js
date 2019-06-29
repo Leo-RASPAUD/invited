@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import styles from './ButtonConfirm.module.scss';
+import { MdCheck, MdClose } from 'react-icons/md';
 
 export default ({ type = 'default', children, label, onConfirm, ...rest }) => {
   const [confirm, setConfirm] = useState(false);
@@ -9,17 +10,16 @@ export default ({ type = 'default', children, label, onConfirm, ...rest }) => {
     onConfirm();
   };
 
-  return confirm ? (
+  return (
     <div className={styles.container}>
-      <button className={styles.confirm} onClick={() => handleClick()}>
-        Confirm
-      </button>
-      <button className={styles.cancel} onClick={() => setConfirm(false)}>
-        Cancel
-      </button>
-    </div>
-  ) : (
-    <div className={styles.container}>
+      <div className={`${styles.confirmation} ${confirm ? styles['confirmation-true'] : styles['confirmation-false']}`}>
+        <button className={styles.confirm} onClick={() => handleClick()}>
+          <MdCheck />
+        </button>
+        <button className={styles.cancel} onClick={() => setConfirm(false)}>
+          <MdClose />
+        </button>
+      </div>
       <button onClick={() => setConfirm(true)} className={styles.button}>
         {children}
       </button>

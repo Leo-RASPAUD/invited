@@ -19,22 +19,48 @@
 
 .container {
   display: flex;
+  position: relative;
 }
 
 .button {
   @extend %button;
   flex: 1;
+  min-width: 72px;
 }
+
+.confirmation {
+  display: flex;
+  left: 0;
+  position: absolute; 
+  right: 0;
+  top: 0;
+}
+
+.confirmation-false {
+  display: none;
+}
+
 
 .confirm {
   @extend %button;
-  background: lime;
+  background: lightseagreen;
   flex: 1;
-  margin: 0 8px 0 0;
+  padding: 6px;
+
+  > svg {
+    display: block;
+    font-size: 20px;
+  }
 }
 
 .cancel {
   @extend %button;
-  background: tomato;
+  background: crimson;
   flex: 1;
+  padding: 6px;
+
+  > svg {
+    display: block;
+    font-size: 20px;
+  }
 }
