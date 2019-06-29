@@ -10,6 +10,7 @@ import Container from '../components/Container';
 import Tool from '../components/Tool';
 import Tools from '../components/Tools';
 import Invitation from '../components/Invitation';
+import eventTypes from '../constants/eventTypes';
 import { deleteEvent as deleteEventMutation } from '../mutations/eventMutations';
 
 import PageTitle from '../components/PageTitle';
