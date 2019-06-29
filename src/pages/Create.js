@@ -11,8 +11,7 @@ import { withRouter } from 'react-router';
 import Error from '../components/Error';
 import stringUtils from '../utils/stringUtils';
 import Select from '../components/Select';
-
-const options = ['Birthday', 'Drinks', 'Party', 'Restaurant', 'Wedding'];
+import eventTypes from '../constants/eventTypes';
 
 const Create = ({ history }) => {
   const { handleSubmit, register, errors } = useForm();
@@ -39,9 +38,9 @@ const Create = ({ history }) => {
             <Input required name="place" label="Place" type="text" register={register} errors={errors} />
             <Select label="Type" register={register} errors={errors} name="type" required>
               <option value="">Select</option>
-              {options.map(value => (
-                <option key={value} value={value}>
-                  {value}
+              {Object.keys(eventTypes).map(value => (
+                <option key={value} value={eventTypes[value]}>
+                  {eventTypes[value]}
                 </option>
               ))}
             </Select>
