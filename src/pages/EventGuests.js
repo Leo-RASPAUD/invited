@@ -45,9 +45,11 @@ export default ({ match }) => {
         {(!errorType || errorType !== errorTypes.getGuests) && (
           <form onSubmit={handleSubmit(onSubmit)}>
             <Container>
+              <PageTitle>Add a new guest</PageTitle>
+            </Container>
+            <Container>
               <Grid>
                 <GridItem>
-                  <PageTitle style={{ marginBottom: 8 }}>Add a new guest</PageTitle>
                   <Input required name="firstName" label="First name" type="text" register={register} errors={errors} />
                   <Input required name="lastName" label="Last name" type="text" register={register} errors={errors} />
                   <Input required name="email" label="Email" type="text" register={register} errors={errors} />
