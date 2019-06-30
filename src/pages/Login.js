@@ -43,7 +43,7 @@ const Login = ({ history }) => {
             <Input required name="username" label="Name" type="text" register={register} errors={errors} />
             <Input required name="password" label="Password" type="password" register={register} errors={errors} />
             <div>{error}</div>
-            <Button type="submit">Get</Button>
+            <Button type="submit">Login</Button>
           </GridItem>
         </Grid>
       </Container>

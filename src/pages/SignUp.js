@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
 import useForm from 'react-hook-form';
 import { withRouter } from 'react-router-dom';
+import Container from '../components/Container';
+import Grid from '../components/Grid';
+import GridItem from '../components/GridItem';
+import Input from '../components/Input';
+import Button from '../components/Button';
+import Error from '../components/Error';
+import PageTitle from '../components/PageTitle';
 
 import { Auth } from 'aws-amplify';
 
 const SignUp = ({ history }) => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [error, setError] = useState('');
-  const [newUsername, setNewUsername] = useState('');
+  const [newEmail, setNewEmail] = useState('');
 
-  const { handleSubmit, register } = useForm();
+  const { handleSubmit, register, errors } = useForm();
 
   const onSubmit = async data => {
     if (!showConfirmation) {
@@ -19,9 +26,9 @@ const SignUp = ({ history }) => {
     }
   };
 
-  const signUp = ({ username, password, email }) => {
+  const signUp = ({ password, email }) => {
     Auth.signUp({
-      username,
+      username: email,
       password,
       attributes: {
         email,
@@ -29,7 +36,7 @@ const SignUp = ({ history }) => {
     })
       .then(() => {
         setShowConfirmation(true);
-        setNewUsername(username);
+        setNewEmail(email);
         setError('');
       })
       .catch(error => {
@@ -38,7 +45,7 @@ const SignUp = ({ history }) => {
       });
   };
   const confirmSignUp = ({ authCode }) => {
-    Auth.confirmSignUp(newUsername, authCode)
+    Auth.confirmSignUp(newEmail, authCode)
       .then(() => history.push('/app'))
       .catch(error => {
         console.log(error);
@@ -47,37 +54,51 @@ const SignUp = ({ history }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {!showConfirmation && (
-        <>
-          <h2>Sign In</h2>
+    <>
+      <Container>
+        <PageTitle>Sign up</PageTitle>
+      </Container>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {!showConfirmation && (
+          <>
+            <Container>
+              <Grid>
+                <GridItem>
+                  <Input required name="email" label="Email" type="email" register={register} errors={errors} />
+                  <Input
+                    required
+                    name="password"
+                    label="Password"
+                    type="password"
+                    register={register}
+                    errors={errors}
+                  />
+                </GridItem>
+              </Grid>
+            </Container>
+          </>
+        )}
+        {showConfirmation && (
+          <Container>
+            <Grid>
+              <GridItem>
+                <Input
+                  required
+                  name="authCode"
+                  label="Confirmation code"
+                  type="text"
+                  register={register}
+                  errors={errors}
+                />
+              </GridItem>
+            </Grid>
+          </Container>
+        )}
 
-          <div>
-            <label htmlFor="username">Username</label>
-            <input name="username" type="text" ref={register} />
-          </div>
-
-          <div>
-            <label htmlFor="password">Password</label>
-            <input name="password" type="password" ref={register} />
-          </div>
-
-          <div>
-            <label htmlFor="email">Email</label>
-            <input name="email" type="text" ref={register} />
-          </div>
-        </>
-      )}
-      {showConfirmation && (
-        <div>
-          <label htmlFor="authCode">Confirmation code</label>
-          <input name="authCode" type="password" ref={register} />
-        </div>
-      )}
-
-      <div>{error}</div>
-      <input className="button" type="submit" />
-    </form>
+        <Error errorMessage={error} />
+        <Button type="submit">Sign up</Button>
+      </form>
+    </>
   );
 };
 

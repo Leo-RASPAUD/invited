@@ -48,6 +48,11 @@ const NavigationComponent = ({ history }) => {
               Login
             </NavLink>
           </li>
+          <li>
+            <NavLink activeStyle={activeStyle} to="/signup">
+              Signup
+            </NavLink>
+          </li>
         </ul>
       )}
     </div>
