@@ -48,6 +48,7 @@
 .input-input {
   appearance: none;
   position: absolute;
+  opacity: 0;
 
   &:focus + .input-label {
     border: $border-width solid $action-border-color;
