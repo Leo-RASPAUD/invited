@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from './Input.module.scss';
+import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
+import styles from './InputCheckbox.module.scss';
 import Error from './Error';
 
 export default ({
@@ -10,25 +11,27 @@ export default ({
   type,
   errors,
   errorMessage,
-  defaultValue,
+  defaultChecked,
   disabled = false,
 }) => {
   return (
     <div className={styles['input']}>
-      <label className={styles['input-label']} htmlFor={name}>
-        {label}
-      </label>
       <input
         className={styles['input-input']}
-        defaultValue={defaultValue}
+        defaultChecked={defaultChecked}
+        disabled={disabled}
         id={name}
         name={name}
         type={type}
-        disabled={disabled}
         ref={register({
           required,
         })}
       />
+      <label className={styles['input-label']} htmlFor={name}>
+        <span>{label}</span>
+        <MdCheckBox className={styles['input-checked']} />
+        <MdCheckBoxOutlineBlank className={styles['input-unchecked']} />
+      </label>
       {errors[name] && <Error errorMessage={errorMessage || `${label} is required`} />}
     </div>
   );

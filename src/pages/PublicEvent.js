@@ -6,8 +6,17 @@ import useFetcher from '../hooks/useFetcher';
 import { withRouter } from 'react-router';
 import stringUtils from '../utils/stringUtils';
 import Input from '../components/Input';
+import InputCheckbox from '../components/InputCheckbox';
 import Error from '../components/Error';
 import errorTypes from '../constants/errorTypes';
+
+import Button from '../components/Button';
+import Container from '../components/Container';
+import Invitation from '../components/Invitation';
+import eventTypes from '../constants/eventTypes';
+import Grid from '../components/Grid';
+import GridItem from '../components/GridItem';
+import PageTitle from '../components/PageTitle';
 
 const PublicEvent = ({ location, match }) => {
   const encrypted = match.params.encrypted;
@@ -18,8 +27,7 @@ const PublicEvent = ({ location, match }) => {
     guest,
     errorType,
     errorMessage,
-    guest: { firstName, lastName, email, eventId },
-    event: { name, host, type, place, date },
+    event: { host, type, place, date, time },
   } = state;
 
   const isAccept = location.search.match(/accept=(.*)/) ? location.search.match(/accept=(.*)/)[1] === 'true' : false;
@@ -41,30 +49,40 @@ const PublicEvent = ({ location, match }) => {
       {errorType === errorTypes.decrypt && <Error errorMessage={errorMessage} />}
       {!loading && (!errorType || errorType !== errorTypes.decrypt) && (
         <>
-          <h1>{firstName} you're invited to the following event:</h1>
-          <div>
-            {firstName} {lastName} {email}
-          </div>
-          <div style={{ fontSize: 32, color: 'purple', backgroundColor: 'coral' }}>{name}</div>
-          <div>Id: {eventId}</div>
-          <div>Type: {type}</div>
-          <div>Place: {place}</div>
-          <div>Date: {date}</div>
-          <div>Host: {host}</div>
-          <h3>Accept</h3>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Input required name="notes" label="Notes" type="text" register={register} errors={errors} />
-            <Input
-              name="accepted"
-              label="Accepted"
-              type="checkbox"
-              register={register}
-              errors={errors}
-              defaultChecked={isAccept}
-            />
-            {errorType === errorTypes.updateGuestInvitation && errorMessage && <Error errorMessage={errorMessage} />}
-            <input type="submit" className="button" />
-          </form>
+          <Invitation type={type}>
+            <h1>The {eventTypes[type]} of</h1>
+            <p>{host}</p>
+            <p>please join us</p>
+            <p>
+              {date}, {time}
+            </p>
+            <p>{place}</p>
+            <p>Reception to follow</p>
+          </Invitation>
+          <Container>
+            <PageTitle>Accept</PageTitle>
+          </Container>
+          <Container>
+            <Grid>
+              <GridItem>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <Input required name="notes" label="Notes" type="text" register={register} errors={errors} />
+                  <InputCheckbox
+                    name="accepted"
+                    label="Accepted"
+                    type="checkbox"
+                    register={register}
+                    errors={errors}
+                    defaultChecked={isAccept}
+                  />
+                  {errorType === errorTypes.updateGuestInvitation && errorMessage && (
+                    <Error errorMessage={errorMessage} />
+                  )}
+                  <Button type="submit">Submit</Button>
+                </form>
+              </GridItem>
+            </Grid>
+          </Container>
         </>
       )}
     </div>
