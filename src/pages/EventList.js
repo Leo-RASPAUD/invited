@@ -41,7 +41,6 @@ export default () => {
         </Tool>
       </Tools>
       <Container>
-        {loading && <div>...</div>}
         {errorMessage && <Error errorMessage={errorMessage} />}
         {!loading ? (
           <Grid>

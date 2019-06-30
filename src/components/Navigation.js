@@ -28,7 +28,7 @@ const NavigationComponent = ({ history }) => {
         <ul className={styles['list']}>
           <li>
             <NavLink activeStyle={activeStyle} exact to="/app">
-              Event list
+              My events
             </NavLink>
           </li>
           <li>

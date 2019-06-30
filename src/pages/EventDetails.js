@@ -53,7 +53,7 @@ const EventDetails = ({ history, location, match }) => {
               <Button to={`${eventId}/guests`}>Guests</Button>
             </Tool>
             <Tool>
-              <Button onClick={sendInvites}>Send</Button>
+              <Button onClick={sendInvites}>Send invites</Button>
             </Tool>
             <Tool>
               <ButtonConfirm onConfirm={() => deleteEvent(eventId)}>Delete</ButtonConfirm>

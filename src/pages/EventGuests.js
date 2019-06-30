@@ -38,6 +38,11 @@ export default ({ match }) => {
       )}
       {(!errorType || errorType !== errorTypes.getGuests) && (
         <form onSubmit={handleSubmit(onSubmit)}>
+          <Tools>
+            <Tool>
+              <Button to={`/app/event/${eventId}`}>&#x2190; Event</Button>
+            </Tool>
+          </Tools>
           <Container>
             <PageTitle>Add a new guest</PageTitle>
           </Container>
@@ -54,9 +59,6 @@ export default ({ match }) => {
           <Tools>
             <Tool>
               <Button type="submit">Add guest</Button>
-            </Tool>
-            <Tool>
-              <Button to={`/app/event/${eventId}`}>Cancel</Button>
             </Tool>
           </Tools>
         </form>

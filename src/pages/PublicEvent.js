@@ -48,16 +48,6 @@ const PublicEvent = ({ location, match }) => {
       {errorType === errorTypes.decrypt && <Error errorMessage={errorMessage} />}
       {!loading && (!errorType || errorType !== errorTypes.decrypt) && (
         <>
-          <Invitation type={type}>
-            <h1>The {eventTypes[type]} of</h1>
-            <p>{host}</p>
-            <p>please join us</p>
-            <p>
-              {date}, {time}
-            </p>
-            <p>{place}</p>
-            <p>Reception to follow</p>
-          </Invitation>
           <Container>
             <PageTitle>Accept</PageTitle>
           </Container>
@@ -82,6 +72,16 @@ const PublicEvent = ({ location, match }) => {
               </GridItem>
             </Grid>
           </Container>
+          <Invitation type={type}>
+            <h1>The {eventTypes[type]} of</h1>
+            <p>{host}</p>
+            <p>please join us</p>
+            <p>
+              {date}, {time}
+            </p>
+            <p>{place}</p>
+            <p>Reception to follow</p>
+          </Invitation>
         </>
       )}
     </div>

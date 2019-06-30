@@ -8,8 +8,9 @@ export default {
     backgroundColor: 'cyan',
   },
   party: {
-    color: 'blue',
-    backgroundColor: 'red',
+    color: 'white',
+    backgroundColor: '#00627b',
+    backgroundImage: 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/party.jpg',
   },
   restaurant: {
     color: 'orange',
@@ -17,7 +18,7 @@ export default {
   },
   wedding: {
     color: 'yellow',
-    backgroundColor: 'green',
+    backgroundColor: 'black',
     backgroundImage: 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/restaurant.jpg',
   },
 };
