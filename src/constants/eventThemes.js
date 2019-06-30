@@ -1,11 +1,13 @@
 export default {
   birthday: {
-    color: 'cyan',
-    backgroundColor: 'yellow',
+    color: 'white',
+    backgroundColor: '#77a74c',
+    backgroundImage: 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/birthday.jpg',
   },
   drinks: {
-    color: 'yellow',
-    backgroundColor: 'cyan',
+    color: 'white',
+    backgroundColor: '#6e4b37',
+    backgroundImage: 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/drinks.jpg',
   },
   party: {
     color: 'white',
@@ -13,12 +15,13 @@ export default {
     backgroundImage: 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/party.jpg',
   },
   restaurant: {
-    color: 'orange',
-    backgroundColor: 'blue',
+    color: 'white',
+    backgroundColor: '#34221e',
+    backgroundImage: 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/restaurant.jpg',
   },
   wedding: {
-    color: 'yellow',
-    backgroundColor: 'black',
-    backgroundImage: 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/restaurant.jpg',
+    color: 'white',
+    backgroundColor: '#9b9390',
+    backgroundImage: 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/weddingV2.jpg',
   },
 };
