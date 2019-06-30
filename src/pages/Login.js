@@ -9,6 +9,9 @@ import Grid from '../components/Grid';
 import GridItem from '../components/GridItem';
 import Input from '../components/Input';
 import PageTitle from '../components/PageTitle';
+import Error from '../components/Error';
+import Tool from '../components/Tool';
+import Tools from '../components/Tools';
 
 const Login = ({ history }) => {
   const [error, setError] = useState('');
@@ -16,20 +19,15 @@ const Login = ({ history }) => {
 
   const { handleSubmit, register, errors } = useForm();
 
-  const onSubmit = async data => {
-    signIn(data);
-  };
-
-  const signIn = ({ username, password }) => {
-    Auth.signIn(username, password)
-      .then(user => {
-        updateCurrentUser(user);
-        history.push('/app');
-      })
-      .catch(error => {
-        console.log(error);
-        setError(error.message);
-      });
+  const onSubmit = async ({ email, password }) => {
+    try {
+      const user = await Auth.signIn(email, password);
+      updateCurrentUser(user);
+      history.push('/app');
+    } catch (error) {
+      console.log(error);
+      setError(error.message);
+    }
   };
 
   return (
@@ -40,13 +38,17 @@ const Login = ({ history }) => {
       <Container>
         <Grid>
           <GridItem>
-            <Input required name="username" label="Name" type="text" register={register} errors={errors} />
+            <Input required name="email" label="Email" type="text" register={register} errors={errors} />
             <Input required name="password" label="Password" type="password" register={register} errors={errors} />
-            <div>{error}</div>
-            <Button type="submit">Login</Button>
           </GridItem>
         </Grid>
       </Container>
+      <Tools>
+        <Tool>
+          {error.length > 0 && <Error errorMessage={error} />}
+          <Button type="submit">Login</Button>
+        </Tool>
+      </Tools>
     </form>
   );
 };
