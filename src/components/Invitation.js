@@ -7,7 +7,7 @@ import eventThemes from '../constants/eventThemes';
 const Invitation = ({ children, type }) => {
   const { backgroundColor = 'grey', backgroundImage, ...rest } = eventThemes[type.toLowerCase()];
   return (
-    <Background color={backgroundColor} image={backgroundImage}>
+    <Background color={backgroundColor} image={backgroundImage} withMargin>
       <div className={styles['invitation']} style={rest}>
         {children}
       </div>

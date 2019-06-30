@@ -6,7 +6,7 @@ export default ({ Icon, label, onClick }) => {
     <button onClick={onClick}>
       <span className={styles['container']}>
         <Icon className={styles['icon']} />
-        {label}
+        <span>{label}</span>
       </span>
     </button>
   );
