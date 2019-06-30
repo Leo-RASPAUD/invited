@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonConfirm from '../components/ButtonConfirm';
+import ButtonConfirm from './ButtonConfirm';
 import useFetcher from '../hooks/useFetcher';
 import { deleteGuest } from '../mutations/guestMutations';
 import styles from './Guest.module.scss';

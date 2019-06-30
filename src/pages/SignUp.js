@@ -44,7 +44,6 @@ const SignUp = ({ history }) => {
       setNewPassword(password);
       setError('');
     } catch (error) {
-      console.log(error);
       setError(error.message);
     }
   };
@@ -56,7 +55,6 @@ const SignUp = ({ history }) => {
       updateCurrentUser(user);
       history.push('/app');
     } catch (error) {
-      console.log(error);
       setError(error.message);
     }
   };

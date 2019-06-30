@@ -14,6 +14,7 @@ import PrivateRoute from './components/PrivateRoute';
 import EventGuests from './pages/EventGuests';
 import SignUp from './pages/SignUp';
 import Profile from './pages/Profile';
+import ForgotPassword from './pages/ForgotPassword';
 
 export default () => {
   return (
@@ -39,6 +40,7 @@ export default () => {
             <Route exact path="/event/:encrypted" component={PublicEvent} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/forgotPassword" component={ForgotPassword} />
             <PrivateRoute exact path="/app" component={EventList} />
             <PrivateRoute exact path="/app/new" component={Create} />
             <PrivateRoute exact path="/app/profile" component={Profile} />

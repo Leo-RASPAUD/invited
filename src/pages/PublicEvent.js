@@ -9,7 +9,6 @@ import Input from '../components/Input';
 import InputCheckbox from '../components/InputCheckbox';
 import Error from '../components/Error';
 import errorTypes from '../constants/errorTypes';
-
 import Button from '../components/Button';
 import Container from '../components/Container';
 import Invitation from '../components/Invitation';

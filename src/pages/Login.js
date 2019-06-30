@@ -31,25 +31,30 @@ const Login = ({ history }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Container>
-        <PageTitle>Sign In</PageTitle>
-      </Container>
-      <Container>
-        <Grid>
-          <GridItem>
-            <Input required name="email" label="Email" type="text" register={register} errors={errors} />
-            <Input required name="password" label="Password" type="password" register={register} errors={errors} />
-          </GridItem>
-        </Grid>
-      </Container>
-      <Tools>
-        <Tool>
-          {error.length > 0 && <Error errorMessage={error} />}
-          <Button type="submit">Login</Button>
-        </Tool>
-      </Tools>
-    </form>
+    <>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Container>
+          <PageTitle>Sign In</PageTitle>
+        </Container>
+        <Container>
+          <Grid>
+            <GridItem>
+              <Input required name="email" label="Email" type="text" register={register} errors={errors} />
+              <Input required name="password" label="Password" type="password" register={register} errors={errors} />
+            </GridItem>
+          </Grid>
+        </Container>
+        <Tools>
+          <Tool>
+            {error.length > 0 && <Error errorMessage={error} />}
+            <Button type="submit">Login</Button>
+          </Tool>
+          <Tool>
+            <Button to={'/forgotPassword'}>Forgot password</Button>
+          </Tool>
+        </Tools>
+      </form>
+    </>
   );
 };
 
