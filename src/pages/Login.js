@@ -44,7 +44,11 @@ const Login = ({ history }) => {
             </GridItem>
           </Grid>
         </Container>
-        {error.length > 0 && <Error errorMessage={error} />}
+        {error.length > 0 && (
+          <Container>
+            <Error errorMessage={error} />
+          </Container>
+        )}
         <Tools>
           <Tool>
             <Button type="submit">Login</Button>
