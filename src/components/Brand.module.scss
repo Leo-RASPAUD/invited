@@ -1,0 +1,19 @@
+.brand {
+  color: inherit;
+  display: flex;
+  font-size: 24px;
+  line-height: 36px;
+  text-decoration: none;
+}
+
+.brand-icon {
+  display: block;
+  font-size: 24px;
+  padding: 8px 4px 4px 0;
+
+  > svg {
+    display: block;
+  }
+}
+
+.brand-text {}
