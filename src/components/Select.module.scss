@@ -20,8 +20,9 @@
   appearance: none;
   background: $action-background;
   border: none;
-  border-bottom: 2px solid coral;
+  border-bottom: 2px solid $action-border-color;
   border-radius: 0;
+  color: inherit;
   font-size: inherit;
   padding: 8px 0;
   width: 100%;

@@ -3,12 +3,13 @@ $interactive-color: maroon;
 $interactive-color: white;
 
 $background: linear-gradient(45deg, teal, lightseagreen);
-$background: linear-gradient(45deg, darkslategray, slategray);
-$background: linear-gradient(45deg, salmon, tomato);
+$background: linear-gradient(45deg, red, tomato);
+/*$background: linear-gradient(45deg, slategray, darkslategray);*/
+/*$background: linear-gradient(45deg, salmon, tomato);*/
 
 $action-background: rgba(0, 0, 0, .1);
 $action-border-color: $interactive-color;
-$action-box-shadow: none;
+$action-box-shadow: 0 16px 32px 0 rgba(black, .1);
 $action-color: $interactive-color;
 $action-font-weight: normal;
 $action-text-transform: initial;
@@ -17,8 +18,9 @@ $link-color: $interactive-color;
 
 $border-color: $interactive-color;
 $border-width: 2px;
-$box-shadow: none;
+$box-shadow: 0 16px 32px 0 rgba(black, .1);
 $color: $interactive-color;
+$text-shadow: 0 0 16px rgba(black, 0.1);
 
 $grid-gutter: 8px;
 $max-width: none;
