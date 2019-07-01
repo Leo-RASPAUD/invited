@@ -29,7 +29,7 @@ function Sidebar({ children }) {
         <span className={styles['burger']} />
       </button>
       <div
-        className={styles['collapse']}
+        className={`${styles['collapse']} ${collapse ? styles['is-out'] : styles['is-in']}`}
         style={{
           right: collapse ? -240 : 0,
         }}

@@ -20,7 +20,7 @@
     
 .search-input {
   appearance: none;
-  background: transparent;
+  background: $action-background;
   border: none;
   border-bottom: $border-width solid $action-border-color;
   border-radius: 0;
@@ -32,4 +32,8 @@
   margin: 0;
   padding: 8px 8px 6px;
   width: 100%;
+
+  &::placeholder {
+    color: rgba(white, .75);
+  }
 }

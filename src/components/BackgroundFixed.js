@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import styles from './Background.module.scss';
+import styles from './BackgroundFixed.module.scss';
 
-const Background = ({ color = 'grey', children, image = '' }) => {
+const BackgroundFixed = ({ children, image = '', withMargin = false }) => {
   const [imageUrl, setImageUrl] = useState(null);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const Background = ({ color = 'grey', children, image = '' }) => {
   }, []); // eslint-disable-line
 
   return (
-    <div className={styles['background']} style={{ background: color }}>
+    <div className={styles['background']} style={{ margin: withMargin ? '0 8px' : 'inherit' }}>
       <div
         className={`${styles['background-image']} ${
           !imageUrl ? styles['background-loading'] : styles['background-loaded']
@@ -28,4 +28,4 @@ const Background = ({ color = 'grey', children, image = '' }) => {
   );
 };
 
-export default Background;
+export default BackgroundFixed;

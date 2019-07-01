@@ -1,3 +1,5 @@
+@import '../variables.scss';
+
 .container {
   @media (min-width: 768px) {
     display: none;
@@ -5,8 +7,8 @@
 }
 
 .burger {
-  border-bottom: solid 3px;
-  border-top: solid 3px;
+  border-bottom: solid 3px $action-color;
+  border-top: solid 3px $action-color;
   box-sizing: border-box;
   color: inherit;
   display: block;
@@ -16,7 +18,7 @@
 
 .button {
   appearance: none;
-  background: white;
+  background: $action-background;
   border: none;
   border-radius: 0;
   display: block;
@@ -24,12 +26,17 @@
 }
 
 .collapse {
-  background: coral;
+  background: $background;
+  box-shadow: 0 0 320px 0 rgba(black, 0);
   color: white;
   height: 100vh;
   position: fixed;
   top: 0;
-  transition: right 0.2s ease-in-out;
+  transition: box-shadow .6s ease-in-out, right 0.2s ease-in-out;
   width: 240px;
   z-index: 2;
+
+  &.is-in {
+    box-shadow: 0 0 320px 0 rgba(black, 1);
+  }
 }

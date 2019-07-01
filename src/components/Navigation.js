@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
-import ButtonIcon from './ButtonIcon';
+import Button from './Button';
 import { withRouter } from 'react-router-dom';
 import contextUser from '../UserContext';
-import { MdLock } from 'react-icons/md';
+import IconText from './IconText';
+import { MdEvent, MdExitToApp, MdMood } from 'react-icons/md';
 
 import styles from './Navigation.module.scss';
 
@@ -28,16 +29,18 @@ const NavigationComponent = ({ history }) => {
         <ul className={styles['list']}>
           <li>
             <NavLink activeStyle={activeStyle} exact to="/app">
-              My events
+              <IconText icon={MdEvent} children="Events" />
             </NavLink>
           </li>
           <li>
             <NavLink activeStyle={activeStyle} exact to="/app/profile">
-              Profile
+              <IconText icon={MdMood} children="Profile" />
             </NavLink>
           </li>
           <li>
-            <ButtonIcon onClick={signOut} Icon={MdLock} label="Signout" />
+            <Button onClick={signOut}>
+              <IconText icon={MdExitToApp} children="Signout" />
+            </Button>
           </li>
         </ul>
       )}

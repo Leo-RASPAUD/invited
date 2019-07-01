@@ -1,6 +1,6 @@
-$interactive-color: tomato;
+$interactive-color: white;
 
-$action-background: $interactive-color;
+$action-background: rgba(0, 0, 0, .1);
 $action-border-color: $interactive-color;
 $action-box-shadow: none;
 $action-color: white;
@@ -9,10 +9,11 @@ $action-text-transform: initial;
 
 $link-color: $interactive-color;
 
-$border-color: lightgrey;
+$background: linear-gradient(45deg, coral, salmon);
+$border-color: white;
 $border-width: 2px;
 $box-shadow: none;
-$color: black;
+$color: white;
 
 $grid-gutter: 8px;
 $max-width: none;

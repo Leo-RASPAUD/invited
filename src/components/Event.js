@@ -2,6 +2,8 @@ import React from 'react';
 import Button, { Buttons } from './Button';
 import Background from './Background';
 import eventThemes from '../constants/eventThemes';
+import { MdPageview } from 'react-icons/md';
+import IconText from './IconText';
 
 import styles from './Event.module.scss';
 
@@ -15,7 +17,9 @@ const Event = ({ id, name, loading, date, host, place, type }) => {
           <p className={styles['event-detail']}>{date}</p>
         </div>
         <Buttons>
-          <Button to={`/app/event/${id}`}>View</Button>
+          <Button to={`/app/event/${id}`}>
+            <IconText icon={MdPageview}>View</IconText>
+          </Button>
         </Buttons>
       </div>
     </Background>

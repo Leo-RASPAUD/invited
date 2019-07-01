@@ -13,6 +13,8 @@ import Tools from '../components/Tools';
 // import Event from '../components/Event';
 import Search from '../components/Search';
 import Error from '../components/Error';
+import IconText from '../components/IconText';
+import { MdCreate } from 'react-icons/md';
 
 export default () => {
   const {
@@ -30,11 +32,13 @@ export default () => {
   return (
     <>
       <Container>
-        <PageTitle>My events</PageTitle>
+        <PageTitle>Events</PageTitle>
       </Container>
       <Tools>
         <Tool>
-          <Button to="/app/new">New event</Button>
+          <Button to="/app/new">
+            <IconText icon={MdCreate}>New</IconText>
+          </Button>
         </Tool>
         <Tool>
           <Search name="search" register={register} />
