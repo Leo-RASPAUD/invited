@@ -1,19 +1,24 @@
+$interactive-color: darkslategray;
+$interactive-color: maroon;
 $interactive-color: white;
+
+$background: linear-gradient(45deg, teal, lightseagreen);
+$background: linear-gradient(45deg, darkslategray, slategray);
+$background: linear-gradient(45deg, salmon, tomato);
 
 $action-background: rgba(0, 0, 0, .1);
 $action-border-color: $interactive-color;
 $action-box-shadow: none;
-$action-color: white;
+$action-color: $interactive-color;
 $action-font-weight: normal;
 $action-text-transform: initial;
 
 $link-color: $interactive-color;
 
-$background: linear-gradient(45deg, coral, salmon);
-$border-color: white;
+$border-color: $interactive-color;
 $border-width: 2px;
 $box-shadow: none;
-$color: white;
+$color: $interactive-color;
 
 $grid-gutter: 8px;
 $max-width: none;

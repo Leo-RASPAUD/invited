@@ -34,6 +34,6 @@
   width: 100%;
 
   &::placeholder {
-    color: rgba(white, .75);
+    color: rgba($action-color, .75);
   }
 }
