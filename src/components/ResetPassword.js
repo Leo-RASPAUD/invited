@@ -68,7 +68,11 @@ const ResetPassword = ({ history, username, disabled, redirect }) => {
       )}
       {error.length > 0 && (
         <Container>
-          <Error errorMessage={error} />
+          <Grid>
+            <GridItem>
+              <Error errorMessage={error} />
+            </GridItem>
+          </Grid>
         </Container>
       )}
       <Tools>

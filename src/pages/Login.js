@@ -46,7 +46,11 @@ const Login = ({ history }) => {
         </Container>
         {error.length > 0 && (
           <Container>
-            <Error errorMessage={error} />
+            <Grid>
+              <GridItem>
+                <Error errorMessage={error} />
+              </GridItem>
+            </Grid>
           </Container>
         )}
         <Tools>

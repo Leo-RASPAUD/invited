@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Auth } from 'aws-amplify';
 import Input from './Input';
 import Container from './Container';
 import Grid from './Grid';
@@ -9,39 +10,57 @@ import Button from './Button';
 import Tool from './Tool';
 import Tools from './Tools';
 import ResetPassword from './ResetPassword';
+import Error from './Error';
 
 import styles from './Profile.module.scss';
 
 export default ({ user }) => {
-  const { register, errors } = useForm();
+  const { register, errors, handleSubmit, reset } = useForm();
+  const [changePasswordError, setChangePasswordError] = useState('');
+  const [successPassword, setSuccessPassword] = useState(false);
+
+  const changePassword = async ({ oldPassword, newPassword }) => {
+    try {
+      const user = await Auth.currentAuthenticatedUser();
+      await Auth.changePassword(user, oldPassword, newPassword);
+      setSuccessPassword(true);
+      setTimeout(() => {
+        setSuccessPassword(false);
+      }, 2000);
+
+      reset();
+    } catch (error) {
+      setChangePasswordError(error.message);
+    }
+  };
 
   return (
     <>
-      <form className={styles['container']}>
+      <Container>
+        <Grid>
+          <GridItem>
+            <Input
+              required={false}
+              name="username"
+              label="Username"
+              type="text"
+              errors={errors}
+              disabled
+              defaultValue={user.username}
+            />
+          </GridItem>
+        </Grid>
+      </Container>
+      <Container>
+        <PageTitle>Change password</PageTitle>
+        {successPassword && <h4>Password changed successfully.</h4>}
+      </Container>
+      <form className={styles['container']} onSubmit={handleSubmit(changePassword)}>
         <Container>
           <Grid>
             <GridItem>
               <Input
-                required={false}
-                name="username"
-                label="Username"
-                type="text"
-                register={register}
-                errors={errors}
-                disabled
-                defaultValue={user.username}
-              />
-            </GridItem>
-          </Grid>
-        </Container>
-        <Container>
-          <PageTitle>Change password</PageTitle>
-        </Container>
-        <Container>
-          <Grid>
-            <GridItem>
-              <Input
-                required={false}
+                required
                 name="oldPassword"
                 label="Old password"
                 type="password"
@@ -49,7 +68,7 @@ export default ({ user }) => {
                 errors={errors}
               />
               <Input
-                required={false}
+                required
                 name="newPassword"
                 label="New password"
                 type="password"
@@ -59,12 +78,22 @@ export default ({ user }) => {
             </GridItem>
           </Grid>
         </Container>
+        {changePasswordError.length > 0 && (
+          <Container>
+            <Grid>
+              <GridItem>
+                <Error errorMessage={changePasswordError} />
+              </GridItem>
+            </Grid>
+          </Container>
+        )}
         <Tools>
           <Tool>
             <Button type="submit">Submit</Button>
           </Tool>
         </Tools>
       </form>
+
       <Container>
         <PageTitle>Forgot password</PageTitle>
       </Container>
