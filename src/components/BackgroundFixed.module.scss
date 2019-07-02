@@ -1,4 +1,5 @@
-.background {}
+.background {
+}
 
 .background-image {
   background-position: center;
@@ -11,6 +12,7 @@
   top: 0;
   transition: opacity 1s ease-in-out;
   z-index: -1;
+  will-change: transform;
 }
 
 .background-children {
