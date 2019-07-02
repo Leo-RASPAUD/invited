@@ -10,9 +10,9 @@
   display: block;
   font-size: inherit;
   font-weight: $action-font-weight;
-  line-height: 20px;
+  line-height: 24px;
   margin: 0;
-  padding: 6px 10px;
+  padding: $padding $padding $padding;
   text-decoration: none;
   text-transform: $action-text-transform;
 }
@@ -25,7 +25,7 @@
 .button {
   @extend %button;
   flex: 1;
-  min-width: 72px;
+  min-width: 104px;
 }
 
 .confirmation {
@@ -46,11 +46,11 @@
   background: lightseagreen;
   border: $border-width solid lightseagreen;
   flex: 1;
-  padding: 6px;
+
 
   > svg {
     display: block;
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 
@@ -59,10 +59,9 @@
   background: crimson;
   border: $border-width solid crimson;
   flex: 1;
-  padding: 6px;
 
   > svg {
     display: block;
-    font-size: 20px;
+    font-size: 24px;
   }
 }

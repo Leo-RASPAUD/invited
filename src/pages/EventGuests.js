@@ -43,7 +43,7 @@ export default ({ match }) => {
           <Tools>
             <Tool>
               <Button to={`/app/event/${eventId}`}>
-                <IconText icon={MdChevronLeft}>Event</IconText>
+                <IconText icon={MdChevronLeft}>Back</IconText>
               </Button>
             </Tool>
           </Tools>
