@@ -31,8 +31,9 @@
     appearance: none;
     background: transparent;
     border: none;
+    box-shadow: none;
     box-sizing: border-box;
-    color: white;
+    color: $interactive-color;
     cursor: pointer;
     display: block;
     font-family: inherit;
