@@ -10,6 +10,8 @@ import Button from './Button';
 import Tool from './Tool';
 import Tools from './Tools';
 import Error from './Error';
+import IconText from './IconText';
+import { MdCached } from 'react-icons/md';
 
 const ResetPassword = ({ history, username, disabled, redirect }) => {
   const [isResetPassword, setResetPassword] = useState(false);
@@ -73,7 +75,7 @@ const ResetPassword = ({ history, username, disabled, redirect }) => {
         {!isResetPassword && (
           <Tool>
             <Button type="button" onClick={resetPassword} disabled={disabled}>
-              Reset password
+              <IconText icon={MdCached} children="Reset password" />
             </Button>
           </Tool>
         )}

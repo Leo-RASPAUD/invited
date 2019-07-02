@@ -5,7 +5,7 @@ import Button from './Button';
 import { withRouter } from 'react-router-dom';
 import contextUser from '../UserContext';
 import IconText from './IconText';
-import { MdEvent, MdExitToApp, MdMood } from 'react-icons/md';
+import { MdEvent, MdExitToApp, MdPerson } from 'react-icons/md';
 
 import styles from './Navigation.module.scss';
 
@@ -34,7 +34,7 @@ const NavigationComponent = ({ history }) => {
           </li>
           <li>
             <NavLink activeStyle={activeStyle} exact to="/app/profile">
-              <IconText icon={MdMood} children="Profile" />
+              <IconText icon={MdPerson} children="Profile" />
             </NavLink>
           </li>
           <li>

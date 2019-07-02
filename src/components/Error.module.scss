@@ -1,3 +1,17 @@
+@import '../variables.scss';
+
 .error {
-  color: red;
+  color: $error-color;
+  background: white;
+  padding: 8px;
+  margin: 8px 0px;
+  width: 100%;
+  border: 2px solid $border-color;
+  display: flex;
+  align-items: center;
+}
+
+.error-icon {
+  font-size: 24px;
+  margin-right: 8px;
 }
