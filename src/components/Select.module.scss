@@ -24,6 +24,8 @@
   border-radius: 0;
   color: inherit;
   font-size: inherit;
-  padding: 8px 0;
+  line-height: 24px;
+  margin: 0;
+  padding: $padding + 2 $padding $padding;
   width: 100%;
 }

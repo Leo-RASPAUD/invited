@@ -12,9 +12,10 @@ export default ({
   errorMessage,
   defaultValue,
   disabled = false,
+  row = true,
 }) => {
   return (
-    <div className={styles['input']}>
+    <div className={`${styles['input']} ${row ? styles['is-row'] : styles['is-column']}`}>
       <label className={styles['input-label']} htmlFor={name}>
         {label}
       </label>

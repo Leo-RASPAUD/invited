@@ -1,9 +1,11 @@
 @import '../variables.scss';
 
 .header {
+  // background: $action-background;
+  // box-shadow: $box-shadow;
   display: flex;
   justify-content: space-between;
-  max-width: $max-width;
+  // max-width: $max-width;
   margin: 0 auto;
   padding: 8px;
 }

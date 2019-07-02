@@ -66,6 +66,7 @@ export default ({ user }) => {
                 type="password"
                 register={register}
                 errors={errors}
+                row={false}
               />
               <Input
                 required
@@ -74,6 +75,7 @@ export default ({ user }) => {
                 type="password"
                 register={register}
                 errors={errors}
+                row={false}
               />
             </GridItem>
           </Grid>
