@@ -12,7 +12,6 @@ import errorTypes from '../constants/errorTypes';
 import Button from '../components/Button';
 import Container from '../components/Container';
 import Invitation from '../components/Invitation';
-import eventTypes from '../constants/eventTypes';
 import Grid from '../components/Grid';
 import GridItem from '../components/GridItem';
 import PageTitle from '../components/PageTitle';
@@ -26,7 +25,8 @@ const PublicEvent = ({ location, match }) => {
     guest,
     errorType,
     errorMessage,
-    event: { host, type, place, date, time },
+    event,
+    event: { type },
   } = state;
 
   const isAccept = location.search.match(/accept=(.*)/) ? location.search.match(/accept=(.*)/)[1] === 'true' : false;
@@ -72,16 +72,7 @@ const PublicEvent = ({ location, match }) => {
               </GridItem>
             </Grid>
           </Container>
-          <Invitation type={type}>
-            <h1>The {eventTypes[type]} of</h1>
-            <p>{host}</p>
-            <p>please join us</p>
-            <p>
-              {date}, {time}
-            </p>
-            <p>{place}</p>
-            <p>Reception to follow</p>
-          </Invitation>
+          <Invitation type={type} event={event} />
         </>
       )}
     </div>
