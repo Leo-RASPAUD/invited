@@ -8,12 +8,12 @@
 }
 
 .select-label {
-  flex: 0 0 25%;
+  flex: 0 0 percentage(1/3);
   padding: 8px 0;
 }
 
 .select-control {
-  flex: 0 0 75%;
+  flex: 0 0 percentage(2/3);
 }
 
 .select-select {
