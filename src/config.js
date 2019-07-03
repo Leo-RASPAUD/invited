@@ -8,7 +8,6 @@ const baseUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3000'
 
 const oauth = {
   domain: 'invited.auth.ap-southeast-2.amazoncognito.com',
-  // scope: ['openid', 'email', 'profile'],
   redirectSignIn: `${baseUrl}/googleSignIn`,
   redirectSignOut: `${baseUrl}`,
   responseType: 'code',

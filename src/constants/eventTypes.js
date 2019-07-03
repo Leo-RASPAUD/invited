@@ -4,4 +4,5 @@ export default {
   party: 'Party',
   restaurant: 'Restaurant',
   wedding: 'Wedding',
+  funeral: 'Funeral',
 };
