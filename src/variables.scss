@@ -1,32 +1,39 @@
-// $interactive-color: darkslategray;
-// $interactive-color: #BD3F32;
-// $interactive-color: teal;
-$interactive-color: white;
-$error-color: red;
+$active-color: currentColor;
+$background: #fff;
 
-// $background: linear-gradient(45deg, teal, lightseagreen);
-$background: linear-gradient(45deg, #2980b9, #2c3e50);
-// $background: linear-gradient(45deg, slategray, darkslategray);
-// $background: linear-gradient(45deg, salmon, tomato);
-// $background: linear-gradient(0deg, #cb356b, #bd3f32);
-// $background: white;
-
-$action-background: rgba(0, 0, 0, 0.1);
-$action-border-color: $interactive-color;
-$action-box-shadow: 0 16px 32px 0 rgba(black, 0.1);
-$action-color: $interactive-color;
+$action-background: none;
+$action-border-color: $active-color;
+$action-box-shadow: none;
+$action-color: $active-color;
 $action-font-weight: normal;
 $action-text-transform: initial;
 
-$link-color: $interactive-color;
+$error-color: #f00;
 
-$border-color: $interactive-color;
+$link-color: $active-color;
+
+$border-color: $active-color;
 $border-width: 2px;
 $box-shadow: 0 16px 32px 0 rgba(black, 0.1);
-$color: $interactive-color;
+$color: $active-color;
 $text-shadow: 0 0 16px rgba(black, 0.1);
 
 $grid-gutter: 8px;
-$max-width: none;
+$max-width: 1024px;
 
-$padding: 12px;
+$padding: 16px;
+
+$yellow: #ffef6b;
+$orange: #ff7a64;
+
+$yellow: #ffef6b;
+$orange: #ff7a64;
+
+$pink: #ff8bb5;
+$black: #242430;
+
+$teal: #305555;
+$white: #fbfbfa;
+
+$blue: #4e6280;
+$white: #fbfbfa;

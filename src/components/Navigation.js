@@ -4,13 +4,11 @@ import { Auth } from 'aws-amplify';
 import Button from './Button';
 import { withRouter } from 'react-router-dom';
 import contextUser from '../UserContext';
-import IconText from './IconText';
-import { MdEvent, MdExitToApp, MdPerson } from 'react-icons/md';
 
 import styles from './Navigation.module.scss';
 
 const activeStyle = {
-  boxShadow: 'inset 0 0 0 2px currentColor',
+  border: '2px solid currentColor',
 };
 
 const NavigationComponent = ({ history }) => {
@@ -29,18 +27,16 @@ const NavigationComponent = ({ history }) => {
         <ul className={styles['list']}>
           <li>
             <NavLink activeStyle={activeStyle} exact to="/app">
-              <IconText icon={MdEvent} children="Events" />
+              Events
             </NavLink>
           </li>
           <li>
             <NavLink activeStyle={activeStyle} exact to="/app/profile">
-              <IconText icon={MdPerson} children="Profile" />
+              Profile
             </NavLink>
           </li>
           <li>
-            <Button onClick={signOut}>
-              <IconText icon={MdExitToApp} children="Signout" />
-            </Button>
+            <Button onClick={signOut}>Signout</Button>
           </li>
         </ul>
       )}

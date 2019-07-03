@@ -10,9 +10,9 @@
   display: block;
   font-size: inherit;
   font-weight: $action-font-weight;
-  line-height: 24px;
+  line-height: inherit;
   margin: 0;
-  padding: $padding;
+  padding: $padding - 2;
   text-decoration: none;
   text-transform: $action-text-transform;
 }

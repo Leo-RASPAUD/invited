@@ -12,8 +12,8 @@
   box-sizing: border-box;
   color: inherit;
   display: block;
-  height: 12px;
-  width: 12px;
+  height: 20px;
+  width: 20px;
 }
 
 .button {
@@ -22,21 +22,19 @@
   border: none;
   border-radius: 0;
   display: block;
-  padding: 12px;
+  padding: $padding;
 }
 
 .collapse {
-  background: $background;
-  box-shadow: 0 0 320px 0 rgba(black, 0);
-  color: white;
+  background: $orange;
+  border-left: 2px solid currentColor;
+  box-sizing: border-box;
   height: 100vh;
   position: fixed;
   top: 0;
-  transition: box-shadow .6s ease-in-out, right 0.2s ease-in-out;
+  transition: right 0.2s ease-in-out;
   width: 240px;
   z-index: 2;
 
-  &.is-in {
-    box-shadow: 0 0 320px 0 rgba(black, 1);
-  }
+  &.is-in {}
 }

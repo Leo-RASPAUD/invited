@@ -6,16 +6,17 @@ import Main from './components/Main';
 import Sidebar from './components/Sidebar';
 import DesktopNavigation from './components/DesktopNavigation';
 import Create from './pages/Create';
-import EventList from './pages/EventList';
 import EventDetails from './pages/EventDetails';
-import PublicEvent from './pages/PublicEvent';
-import Login from './pages/Login';
-import PrivateRoute from './components/PrivateRoute';
 import EventGuests from './pages/EventGuests';
-import SignUp from './pages/SignUp';
-import Profile from './pages/Profile';
+import EventList from './pages/EventList';
 import ForgotPassword from './pages/ForgotPassword';
 import GoogleSignInLoading from './pages/GoogleSignInLoading';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import PrivateRoute from './components/PrivateRoute';
+import Profile from './pages/Profile';
+import PublicEvent from './pages/PublicEvent';
+import SignUp from './pages/SignUp';
 
 export default () => {
   return (
@@ -31,13 +32,7 @@ export default () => {
         </Header>
         <Main>
           <Switch>
-            <Route
-              exact
-              path="/"
-              component={() => {
-                return <div style={{ padding: 8 }}>Home page</div>;
-              }}
-            />
+            <Route exact path="/" component={Home} />
             <Route exact path="/event/:encrypted" component={PublicEvent} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />

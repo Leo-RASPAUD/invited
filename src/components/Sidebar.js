@@ -31,7 +31,7 @@ function Sidebar({ children }) {
       <div
         className={`${styles['collapse']} ${collapse ? styles['is-out'] : styles['is-in']}`}
         style={{
-          right: collapse ? -240 : 0,
+          right: collapse ? -241 : 0,
         }}
         ref={node}
       >

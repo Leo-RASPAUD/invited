@@ -11,8 +11,7 @@ import eventThemes from '../constants/eventThemes';
 import eventTypes from '../constants/eventTypes';
 
 const Invitation = ({ event, type }) => {
-  console.log(type, eventTypes[type]);
-  const { backgroundColor, backgroundImage, ...rest } = eventThemes[type.toLowerCase()];
+  const { backgroundImage, ...rest } = eventThemes[type.toLowerCase()];
   return (
     <BackgroundFixed image={backgroundImage}>
       <div className={styles['invitation']} style={rest}>

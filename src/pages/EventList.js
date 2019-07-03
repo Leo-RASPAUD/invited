@@ -10,11 +10,8 @@ import Button from '../components/Button';
 import PageTitle from '../components/PageTitle';
 import Tool from '../components/Tool';
 import Tools from '../components/Tools';
-// import Event from '../components/Event';
 import Search from '../components/Search';
 import Error from '../components/Error';
-import IconText from '../components/IconText';
-import { MdCreate } from 'react-icons/md';
 
 export default () => {
   const {
@@ -36,9 +33,7 @@ export default () => {
       </Container>
       <Tools>
         <Tool>
-          <Button to="/app/new">
-            <IconText icon={MdCreate}>New</IconText>
-          </Button>
+          <Button to="/app/new">New</Button>
         </Tool>
         <Tool>
           <Search name="search" register={register} />

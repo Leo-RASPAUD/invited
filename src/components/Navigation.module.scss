@@ -29,27 +29,18 @@
   > li > a,
   > li > button {
     appearance: none;
-    background: transparent;
-    border: none;
-    box-shadow: none;
+    background: $action-background;
+    border: $border-width solid transparent;
+    box-shadow: $action-box-shadow;
     box-sizing: border-box;
-    color: $interactive-color;
-    cursor: pointer;
+    color: $action-color;
     display: block;
-    font-family: inherit;
     font-size: inherit;
-    font-weight: inherit;
-    line-height: 24px;
+    font-weight: $action-font-weight;
+    line-height: inherit;
     margin: 0;
-    padding: 4px 8px;
-    text-align: left;
+    padding: $padding - 2;
     text-decoration: none;
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
-    width: 100%;
-
-    @media (min-width: 768px) {
-      color: $link-color;
-      transition: color 0.25s ease-in-out;
-    }
+    text-transform: $action-text-transform;
   }
 }

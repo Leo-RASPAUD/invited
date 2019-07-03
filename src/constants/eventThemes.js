@@ -1,32 +1,26 @@
 export default {
   birthday: {
-    color: 'white',
-    backgroundColor: '#77a74c',
-    backgroundImage: 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/birthday.jpg',
+    color: '#ffef6b',
+    backgroundColor: '#ff7a64',
   },
   drinks: {
-    color: 'white',
-    backgroundColor: '#6e4b37',
-    backgroundImage: 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/drinks.jpg',
+    color: '#ffef6b',
+    backgroundColor: '#ff7a64',
   },
   party: {
-    color: 'white',
-    backgroundColor: '#00627b',
-    backgroundImage: 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/party.jpg',
+    color: '#ff8bb5',
+    backgroundColor: '#242430',
   },
   restaurant: {
-    color: 'white',
-    backgroundColor: '#34221e',
-    backgroundImage: 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/restaurant.jpg',
+    color: '#fbfbfa',
+    backgroundColor: '#305555',
   },
   wedding: {
-    color: 'white',
-    backgroundColor: '#9b9390',
-    backgroundImage: 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/weddingV2.jpg',
+    color: '#fbfbfa',
+    backgroundColor: '#4e6280',
   },
   funeral: {
-    color: 'white',
-    backgroundColor: '#9b9390',
-    backgroundImage: 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/weddingV2.jpg',
+    color: '#fbfbfa',
+    backgroundColor: '#242430',
   },
 };

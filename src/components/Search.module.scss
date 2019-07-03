@@ -28,12 +28,12 @@
   box-sizing: border-box;
   flex: 1 1 auto;
   font-size: inherit;
-  line-height: 24px;
+  line-height: inherit;
   margin: 0;
-  padding: $padding + 2 $padding $padding;
+  padding: $padding $padding $padding - 2;
   width: 100%;
 
   &::placeholder {
-    color: rgba($action-color, .75);
+    color: $action-color;
   }
 }
