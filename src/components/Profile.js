@@ -93,14 +93,15 @@ export default ({ user }) => {
           </Tool>
         </Tools>
       </form>
-
-      <Container>
-        <PageTitle>Forgot password</PageTitle>
-      </Container>
-      <Container>
-        <div>A confirmation code will be sent in your email address.</div>
-      </Container>
-      <ResetPassword username={user.username} />
+      <div className="orange-yellow">
+        <Container>
+          <PageTitle>Forgot password</PageTitle>
+        </Container>
+        <Container>
+          <div>A confirmation code will be sent in your email address.</div>
+        </Container>
+        <ResetPassword username={user.username} />
+      </div>
     </>
   );
 };

@@ -8,7 +8,7 @@ import { reducer as guestReducer } from './reducers/guestsReducer';
 import { reducer as globalReducer } from './reducers/globalReducer';
 import Router from './Router';
 
-import './App.css';
+import './App.scss';
 
 Amplify.configure(config);
 

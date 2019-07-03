@@ -1,0 +1,26 @@
+@import './variables';
+
+.orange-yellow {
+  color: $orange;
+  background: $yellow;
+}
+
+.yellow-orange {
+  color: $yellow;
+  background: $orange;
+}
+
+.pink-black {
+  color: $pink;
+  background: $black;
+}
+
+.white-teal {
+  color: $white;
+  background: $teal;
+}
+
+.white-blue {
+  color: $white;
+  background: $blue;
+}
