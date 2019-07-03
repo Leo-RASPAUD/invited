@@ -18,7 +18,7 @@ const NavigationComponent = ({ history }) => {
   const signOut = () => {
     Auth.signOut({ global: true })
       .then(data => {
-        history.push('/app');
+        history.push('/');
       })
       .catch(err => console.log(err));
   };

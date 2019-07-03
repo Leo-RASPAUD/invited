@@ -9,8 +9,8 @@ export default () => {
   const [user, setUser] = useState({});
 
   const getSession = async () => {
-    const auth = await Auth.currentSession();
-    setUser(auth.accessToken.payload);
+    const user = await Auth.currentAuthenticatedUser();
+    setUser(user.attributes);
     setLoading(false);
   };
 
