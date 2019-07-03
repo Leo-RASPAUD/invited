@@ -4,7 +4,7 @@ const userPoolId = 'ap-southeast-2_VuJmvtEfB';
 const userPoolWebClientId = '6a08escb764vt5ebhqrl176mru';
 const graphqlEndpoint = 'https://67taogaa2bckvlesjcv3cp2slm.appsync-api.ap-southeast-2.amazonaws.com/graphql';
 
-const baseUrl = process.env === 'development' ? 'http://localhost:3000' : 'https://invited.events';
+const baseUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://invited.events';
 
 const oauth = {
   domain: 'invited.auth.ap-southeast-2.amazoncognito.com',
