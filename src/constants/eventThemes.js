@@ -24,4 +24,9 @@ export default {
     backgroundColor: '#9b9390',
     backgroundImage: 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/weddingV2.jpg',
   },
+  funeral: {
+    color: 'white',
+    backgroundColor: '#9b9390',
+    backgroundImage: 'https://s3-ap-southeast-2.amazonaws.com/invited.public/images/weddingV2.jpg',
+  },
 };

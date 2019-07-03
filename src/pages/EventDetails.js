@@ -10,7 +10,6 @@ import Container from '../components/Container';
 import Tool from '../components/Tool';
 import Tools from '../components/Tools';
 import Invitation from '../components/Invitation';
-import eventTypes from '../constants/eventTypes';
 import { deleteEvent as deleteEventMutation } from '../mutations/eventMutations';
 
 import PageTitle from '../components/PageTitle';
@@ -18,7 +17,8 @@ const EventDetails = ({ history, location, match }) => {
   const eventId = match.params.id;
   const { loading, state, fetcher } = useFetcher();
   const {
-    event: { date, host, name, place, time, type },
+    event,
+    event: { date, host, name, place, type },
     guests = [],
     errorMessage,
     errorType,
@@ -59,16 +59,7 @@ const EventDetails = ({ history, location, match }) => {
               <ButtonConfirm onConfirm={() => deleteEvent(eventId)}>Delete</ButtonConfirm>
             </Tool>
           </Tools>
-          <Invitation type={type}>
-            <h1>The {eventTypes[type]} of</h1>
-            <p>{host}</p>
-            <p>please join us</p>
-            <p>
-              {date}, {time}
-            </p>
-            <p>{place}</p>
-            <p>Reception to follow</p>
-          </Invitation>
+          <Invitation type={type} event={event} />
           {errorType === errorTypes.sendInvites && errorMessage && <Error errorMessage={errorMessage} />}
         </>
       )}
