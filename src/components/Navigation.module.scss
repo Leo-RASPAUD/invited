@@ -1,7 +1,7 @@
 @import '../variables.scss';
 
 .navigation {
-  padding: 8px;
+  padding: $padding $padding $padding $padding;
 
   @media (min-width: 768px) {
     padding: 0;

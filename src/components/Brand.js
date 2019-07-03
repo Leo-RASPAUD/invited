@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Brand.module.scss';
 
 export default ({ children, ...props }) => {
-  const size = 90;
+  const size = 110;
   return (
     <Link className={styles['brand']} {...props}>
       <span className={styles['brand-shape']}>

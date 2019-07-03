@@ -29,8 +29,9 @@
   width: 100%;
 
   &:disabled {
-    background: #dbdbda;
-    color: currentColor;
+    background: $disabled-background;
+    border-bottom: $border-width solid $disabled-border-color;
+    color: $disabled-color;
   }
 
   &:placeholder {
