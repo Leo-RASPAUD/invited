@@ -1,20 +1,16 @@
 @import '../variables';
 
 .select {
-  display: flex;
   align-items: center;
-  margin: 16px 0;
-  flex-wrap: wrap;
+  margin: $padding 0;
 }
 
 .select-label {
-  flex: 0 0 (1 / 3) * 100%;
-  padding: $padding 0;
+  display: block;
+  padding: $padding / 2 0;
 }
 
-.select-control {
-  flex: 0 0 (2 / 3) * 100%;
-}
+.select-control {}
 
 .select-select {
   appearance: none;

@@ -8,17 +8,15 @@ export default props => {
   return (
     <div className={styles['select']}>
       <label className={styles['select-label']}>{label}</label>
-      <div className={styles['select-control']}>
-        <select
-          className={styles['select-select']}
-          name={name}
-          ref={register({
-            required,
-          })}
-        >
-          {children}
-        </select>
-      </div>
+      <select
+        className={styles['select-select']}
+        name={name}
+        ref={register({
+          required,
+        })}
+      >
+        {children}
+      </select>
       {errors[name] && <Error errorMessage={errorMessage || `${label} is required`} />}
     </div>
   );
