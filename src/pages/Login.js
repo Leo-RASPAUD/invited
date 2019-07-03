@@ -12,6 +12,7 @@ import PageTitle from '../components/PageTitle';
 import Error from '../components/Error';
 import Tool from '../components/Tool';
 import Tools from '../components/Tools';
+import GoogleButton from 'react-google-button';
 
 const Login = ({ history }) => {
   const [error, setError] = useState('');
@@ -55,8 +56,13 @@ const Login = ({ history }) => {
         )}
         <Tools>
           <Tool>
+            <GoogleButton onClick={() => Auth.federatedSignIn({ provider: 'Google' })} />
+          </Tool>
+          <Tool>
             <Button type="submit">Login</Button>
           </Tool>
+        </Tools>
+        <Tools>
           <Tool>
             <Button to={'/forgotPassword'}>Forgot password</Button>
           </Tool>

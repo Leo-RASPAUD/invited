@@ -1,15 +1,15 @@
-$interactive-color: darkslategray;
+// $interactive-color: darkslategray;
 // $interactive-color: #BD3F32;
 // $interactive-color: teal;
-// $interactive-color: white;
+$interactive-color: white;
 $error-color: red;
 
 // $background: linear-gradient(45deg, teal, lightseagreen);
-// $background: linear-gradient(45deg, #2980b9, #2c3e50);
+$background: linear-gradient(45deg, #2980b9, #2c3e50);
 // $background: linear-gradient(45deg, slategray, darkslategray);
 // $background: linear-gradient(45deg, salmon, tomato);
-$background: linear-gradient(0deg, #cb356b, #bd3f32);
-$background: white;
+// $background: linear-gradient(0deg, #cb356b, #bd3f32);
+// $background: white;
 
 $action-background: rgba(0, 0, 0, 0.1);
 $action-border-color: $interactive-color;

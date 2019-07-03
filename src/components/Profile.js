@@ -41,12 +41,12 @@ export default ({ user }) => {
           <GridItem>
             <Input
               required={false}
-              name="username"
-              label="Username"
+              name="email"
+              label="Email"
               type="text"
               errors={errors}
               disabled
-              defaultValue={user.username}
+              defaultValue={user.email}
             />
           </GridItem>
         </Grid>
