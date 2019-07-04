@@ -22,22 +22,23 @@ const App = props => {
   const updateCurrentUser = async user => {
     if (user) {
       setCurrentUser(user);
-    }
-    try {
-      const user = await Auth.currentAuthenticatedUser();
-      setCurrentUser(user);
       setLoaded(true);
-    } catch (err) {
-      setCurrentUser(null);
-      setLoaded(true);
+    } else {
+      try {
+        const user = await Auth.currentAuthenticatedUser();
+        setCurrentUser(user);
+        setLoaded(true);
+      } catch (err) {
+        setCurrentUser(null);
+        setLoaded(true);
+      }
     }
   };
 
   useEffect(() => {
     updateCurrentUser();
     Hub.listen('auth', ({ channel, payload }) => {
-      console.log('auth', payload.event);
-      if (channel === 'auth' && ['signIn', 'signOut', 'cognitoHostedUI'].includes(payload.event)) {
+      if (['signIn', 'signOut'].includes(payload.event)) {
         updateCurrentUser(payload.data);
       }
     });

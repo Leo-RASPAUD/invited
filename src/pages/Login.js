@@ -59,7 +59,12 @@ const Login = ({ history }) => {
             <Button type="submit">Login</Button>
           </Tool>
           <Tool>
-            <GoogleButton onClick={() => Auth.federatedSignIn({ provider: 'Google' })} style={{ padding: 1 }} />
+            <GoogleButton
+              onClick={() => {
+                Auth.federatedSignIn({ provider: 'Google' });
+              }}
+              style={{ padding: 1 }}
+            />
           </Tool>
         </Tools>
         <Tools>
