@@ -107,8 +107,8 @@ const Create = ({ history }) => {
       </Container>
       <Container>
         <p>
-          <strong>Warning!</strong> The buttons that follow look very similar but do very different things. If you have
-          difficulty reading proceed with caution.
+          <strong>Warning!</strong> The buttons that follow look very similar but do <strong>very</strong> different
+          things. If you have difficulty reading proceed with <strong>caution</strong>.
         </p>
       </Container>
       <Tools>
