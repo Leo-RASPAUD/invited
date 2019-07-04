@@ -36,6 +36,7 @@ const App = props => {
   useEffect(() => {
     updateCurrentUser();
     Hub.listen('auth', ({ channel, payload }) => {
+      console.log('auth', payload.event);
       if (channel === 'auth' && ['signIn', 'signOut', 'cognitoHostedUI'].includes(payload.event)) {
         updateCurrentUser(payload.data);
       }
