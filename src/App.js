@@ -36,8 +36,9 @@ const App = props => {
   useEffect(() => {
     updateCurrentUser();
     Hub.listen('auth', ({ channel, payload }) => {
+      console.log(payload);
       if (channel === 'auth' && payload.event !== 'signIn') {
-        updateCurrentUser();
+        updateCurrentUser(payload.event);
       }
     });
   }, []);
