@@ -1,15 +1,19 @@
 import React, { useEffect, useContext } from 'react'; // eslint-disable-line
 import context from '../UserContext';
+import { Hub } from 'aws-amplify';
 
 export default ({ history }) => {
-  const userContext = useContext(context);
+  const { updateCurrentUser } = useContext(context);
   useEffect(() => {
-    setTimeout(() => {
-      const isAuthenticated = userContext.user && userContext.user.username ? true : false;
-      if (isAuthenticated) {
+    Hub.listen('auth', async ({ channel, payload }) => {
+      if (payload.event === 'cognitoHostedUI') {
+        await updateCurrentUser(payload.data);
         history.push('/app');
       }
-    }, 0);
-  });
+    });
+    return () => {
+      Hub.remove('auth');
+    };
+  }, []); // eslint-disable-line
   return null;
 };

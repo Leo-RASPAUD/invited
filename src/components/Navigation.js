@@ -12,10 +12,11 @@ const activeStyle = {
 };
 
 const NavigationComponent = ({ history }) => {
-  const userContext = useContext(contextUser);
+  const { updateCurrentUser, isLoaded, user } = useContext(contextUser);
   const signOut = () => {
     Auth.signOut({ global: true })
-      .then(data => {
+      .then(async data => {
+        await updateCurrentUser(null);
         history.push('/');
       })
       .catch(err => console.log(err));
@@ -24,7 +25,7 @@ const NavigationComponent = ({ history }) => {
   return (
     window.location.pathname !== '/googleSignIn' && (
       <div className={styles['navigation']}>
-        {userContext.isLoaded && userContext.user && (
+        {isLoaded && user && (
           <ul className={styles['list']}>
             <li>
               <NavLink activeStyle={activeStyle} exact to="/app">
@@ -41,7 +42,7 @@ const NavigationComponent = ({ history }) => {
             </li>
           </ul>
         )}
-        {userContext.isLoaded && !userContext.user && (
+        {isLoaded && !user && (
           <ul className={styles['list']}>
             <li>
               <NavLink activeStyle={activeStyle} to="/login">
