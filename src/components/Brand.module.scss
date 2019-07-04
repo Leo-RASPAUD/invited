@@ -6,12 +6,13 @@
   position: relative;
   text-align: center;
   text-decoration: none;
-  z-index: -1;
+  z-index: 1;
 }
 
 .brand-shape {
   display: block;
   left: 50%;
+  pointer-events: none;
   position: absolute;
   top: 50%;
   z-index: 1;

@@ -1,3 +1,12 @@
+$black: #242430;
+$blue: #4e6280;
+$orange: #ff7a64;
+$pink: #ff8bb5;
+$teal: #305555;
+$white: #fbfbfa;
+$white: #fbfbfa;
+$yellow: #ffef6b;
+
 $active-color: currentColor;
 $background: #fff;
 
@@ -5,7 +14,7 @@ $action-background: none;
 $action-border-color: $active-color;
 $action-box-shadow: none;
 $action-color: $active-color;
-$action-font-weight: normal;
+$action-font-weight: bold;
 $action-text-transform: initial;
 
 $disabled-background: #ebebea;
@@ -18,26 +27,11 @@ $link-color: $active-color;
 
 $border-color: $active-color;
 $border-width: 2px;
-$box-shadow: 0 16px 32px 0 rgba(black, 0.1);
-$color: $active-color;
-$text-shadow: 0 0 16px rgba(black, 0.1);
+$box-shadow: none;
+$color: $black;
+$text-shadow: none;
 
 $grid-gutter: 8px;
 $max-width: 1024px;
 
 $padding: 16px;
-
-$yellow: #ffef6b;
-$orange: #ff7a64;
-
-$yellow: #ffef6b;
-$orange: #ff7a64;
-
-$pink: #ff8bb5;
-$black: #242430;
-
-$teal: #305555;
-$white: #fbfbfa;
-
-$blue: #4e6280;
-$white: #fbfbfa;

@@ -40,10 +40,10 @@ export default ({ match }) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <Tools>
             <Tool>
-              <Button to={`/app/event/${eventId}`}>Back</Button>
-            </Tool>
-            <Tool>
               <PageTitle>Add guest</PageTitle>
+            </Tool>
+            <Tool style={{ margin: '0 0 0 auto' }}>
+              <Button to={`/app/event/${eventId}`}>Back</Button>
             </Tool>
           </Tools>
           <Container>

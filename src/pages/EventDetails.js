@@ -5,10 +5,10 @@ import { withRouter } from 'react-router';
 import errorTypes from '../constants/errorTypes';
 import Error from '../components/Error';
 import ButtonConfirm from '../components/ButtonConfirm';
-import Button from '../components/Button';
+import Button, { Buttons } from '../components/Button';
 import Tool from '../components/Tool';
+import Container from '../components/Container';
 import Tools from '../components/Tools';
-import Invitation from '../components/Invitation';
 import { deleteEvent as deleteEventMutation } from '../mutations/eventMutations';
 
 import PageTitle from '../components/PageTitle';
@@ -16,8 +16,7 @@ const EventDetails = ({ history, location, match }) => {
   const eventId = match.params.id;
   const { loading, state, fetcher } = useFetcher();
   const {
-    event,
-    event: { date, host, name, place, type },
+    event: { date, host, name, place, time, type },
     guests = [],
     errorMessage,
     errorType,
@@ -46,25 +45,43 @@ const EventDetails = ({ history, location, match }) => {
         <>
           <Tools>
             <Tool>
-              <Button to={`/app`}>Back</Button>
-            </Tool>
-            <Tool>
               <PageTitle>{name}</PageTitle>
             </Tool>
-          </Tools>
-          <Tools>
-            <Tool>
-              <Button to={`${eventId}/guests`}>Guests</Button>
-            </Tool>
-            <Tool>
-              <Button onClick={sendInvites}>Send invites</Button>
-            </Tool>
-            <Tool>
-              <ButtonConfirm onConfirm={() => deleteEvent(eventId)}>Delete</ButtonConfirm>
+            <Tool style={{ margin: '0 0 0 auto' }}>
+              <Button to={`/app`}>Back</Button>
             </Tool>
           </Tools>
-          <Invitation type={type} event={event} />
-          {errorType === errorTypes.sendInvites && errorMessage && <Error errorMessage={errorMessage} />}
+          <div className="pink-black">
+            <Container>
+              <PageTitle>Details</PageTitle>
+              <p>
+                {host} is having a {type} at {place} on {time}, {date}.
+              </p>
+              <Buttons>
+                <Button to={`${eventId}/edit`}>Edit</Button>
+              </Buttons>
+            </Container>
+          </div>
+          <div className="white-blue">
+            <Container>
+              <PageTitle>Guests</PageTitle>
+              <p>No one has accepted yet. Either you haven't hit send or you aren't very popular.</p>
+              <Buttons>
+                <Button to={`${eventId}/guests`}>Manage guests</Button>
+                <Button onClick={sendInvites}>Send invites</Button>
+                {errorType === errorTypes.sendInvites && errorMessage && <Error errorMessage={errorMessage} />}
+              </Buttons>
+            </Container>
+          </div>
+          <div>
+            <Container>
+              <PageTitle>Delete event</PageTitle>
+              <p>The shows over folks, time to wrap it up.</p>
+              <Buttons>
+                <ButtonConfirm onConfirm={() => deleteEvent(eventId)}>Delete</ButtonConfirm>
+              </Buttons>
+            </Container>
+          </div>
         </>
       )}
     </div>

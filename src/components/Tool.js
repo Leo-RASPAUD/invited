@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './Tool.module.scss';
 
-function Tool({ children }) {
-  return <div className={styles['tool']}>{children}</div>;
+function Tool(props) {
+  return <div className={styles['tool']} {...props} />;
 }
 
 export default Tool;

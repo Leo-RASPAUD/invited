@@ -1,7 +1,9 @@
 import React from 'react';
 
+import styles from './Main.module.scss';
+
 function Main({ children }) {
-  return <main>{children}</main>;
+  return <main className={styles['main']}>{children}</main>;
 }
 
 export default Main;

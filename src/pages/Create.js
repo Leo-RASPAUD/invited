@@ -39,10 +39,45 @@ const Create = ({ history }) => {
       <Container>
         <Grid>
           <GridItem>
-            <Input required name="name" label="Name" type="text" register={register} errors={errors} />
-            <Input required name="host" label="Host" type="text" register={register} errors={errors} />
-            <Input required name="place" label="Place" type="text" register={register} errors={errors} />
-            <Select label="Type" register={register} errors={errors} name="type" required>
+            <Input
+              required
+              name="name"
+              label="What is the name of the event?"
+              type="text"
+              register={register}
+              errors={errors}
+            />
+            <Input
+              required
+              name="host"
+              label={
+                <>
+                  Who is the host of the event? <i>Enter as a possessive.</i>
+                </>
+              }
+              type="text"
+              register={register}
+              errors={errors}
+            />
+            <Input
+              required
+              name="place"
+              label="Where is the place the event will be hosted?"
+              type="text"
+              register={register}
+              errors={errors}
+            />
+            <Select
+              label={
+                <>
+                  What is the type of event? <i>We'll add an appropriate theme.</i>
+                </>
+              }
+              register={register}
+              errors={errors}
+              name="type"
+              required
+            >
               <option value="">Select</option>
               {Object.keys(eventTypes).map(value => (
                 <option key={value} value={value}>
@@ -50,11 +85,31 @@ const Create = ({ history }) => {
                 </option>
               ))}
             </Select>
-            <Input required name="time" label="Time" type="text" register={register} errors={errors} />
-            <Input required name="date" label="Date" type="text" register={register} errors={errors} />
+            <Input
+              required
+              name="time"
+              label="What time is the event?"
+              type="text"
+              register={register}
+              errors={errors}
+            />
+            <Input
+              required
+              name="date"
+              label="When will the event be held?"
+              type="text"
+              register={register}
+              errors={errors}
+            />
             {errorMessage && <Error errorMessage={errorMessage} />}
           </GridItem>
         </Grid>
+      </Container>
+      <Container>
+        <p>
+          <strong>Warning!</strong> The buttons that follow look very similar but do very different things. If you have
+          difficulty reading proceed with caution.
+        </p>
       </Container>
       <Tools>
         <Tool>

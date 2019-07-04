@@ -40,7 +40,9 @@
     line-height: inherit;
     margin: 0;
     padding: $padding - 2;
+    text-align: left;
     text-decoration: none;
     text-transform: $action-text-transform;
+    width: 100%;
   }
 }

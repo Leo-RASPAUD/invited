@@ -4,6 +4,7 @@ import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Main from './components/Main';
 import Sidebar from './components/Sidebar';
+import Footer from './components/Footer';
 import DesktopNavigation from './components/DesktopNavigation';
 import Create from './pages/Create';
 import EventDetails from './pages/EventDetails';
@@ -45,6 +46,7 @@ export default () => {
             <PrivateRoute exact path="/app/event/:id/guests" component={EventGuests} />
           </Switch>
         </Main>
+        <Footer />
       </div>
     </Router>
   );
