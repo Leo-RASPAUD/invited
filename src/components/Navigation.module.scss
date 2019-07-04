@@ -26,8 +26,7 @@
     }
   }
 
-  > li > a,
-  > li > button {
+  > li > a {
     appearance: none;
     background: $action-background;
     border: $border-width solid transparent;
@@ -43,6 +42,12 @@
     text-align: left;
     text-decoration: none;
     text-transform: $action-text-transform;
+    width: 100%;
+  }
+
+  > li > button {
+    color: $pink;
+    text-align: left;
     width: 100%;
   }
 }
