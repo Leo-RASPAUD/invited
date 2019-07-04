@@ -33,6 +33,7 @@
     background: $disabled-background;
     border-bottom: $border-width solid $disabled-border-color;
     color: $disabled-color;
+    opacity: 1;
   }
 
   &:placeholder {
