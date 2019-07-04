@@ -15,8 +15,6 @@ import { addGuest } from '../mutations/guestMutations';
 import Tool from '../components/Tool';
 import Tools from '../components/Tools';
 import errorTypes from '../constants/errorTypes';
-import { MdChevronLeft } from 'react-icons/md';
-import IconText from '../components/IconText';
 
 export default ({ match }) => {
   const eventId = match.params.id;
@@ -42,14 +40,12 @@ export default ({ match }) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <Tools>
             <Tool>
-              <Button to={`/app/event/${eventId}`}>
-                <IconText icon={MdChevronLeft}>Back</IconText>
-              </Button>
+              <Button to={`/app/event/${eventId}`}>Back</Button>
+            </Tool>
+            <Tool>
+              <PageTitle>Add guest</PageTitle>
             </Tool>
           </Tools>
-          <Container>
-            <PageTitle>Add a new guest</PageTitle>
-          </Container>
           <Container>
             <Grid>
               <GridItem>

@@ -6,7 +6,6 @@ import errorTypes from '../constants/errorTypes';
 import Error from '../components/Error';
 import ButtonConfirm from '../components/ButtonConfirm';
 import Button from '../components/Button';
-import Container from '../components/Container';
 import Tool from '../components/Tool';
 import Tools from '../components/Tools';
 import Invitation from '../components/Invitation';
@@ -45,9 +44,14 @@ const EventDetails = ({ history, location, match }) => {
       {errorType === errorTypes.getEvent && <Error errorMessage={errorMessage} />}
       {!loading && (!errorType || errorType !== errorTypes.getEvent) && (
         <>
-          <Container>
-            <PageTitle>{name}</PageTitle>
-          </Container>
+          <Tools>
+            <Tool>
+              <Button to={`/app`}>Back</Button>
+            </Tool>
+            <Tool>
+              <PageTitle>{name}</PageTitle>
+            </Tool>
+          </Tools>
           <Tools>
             <Tool>
               <Button to={`${eventId}/guests`}>Guests</Button>

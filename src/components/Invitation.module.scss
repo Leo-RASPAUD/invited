@@ -1,14 +1,21 @@
 @import '../variables.scss';
 
 .invitation {
-  box-sizing: border-box;
-  font-size: 18px;
   margin: 0 auto;
-  min-height: 75vh;
+  max-width: $max-width;
   padding: $padding;
 }
 
-.invitation h1 {
-  font-size: 40px;
-  line-height: 1;
+.invitation {
+  h1 {
+    font-size: 40px;
+    line-height: 56px;
+    margin: 0;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 32px;
+    margin: 0;
+  }
 }

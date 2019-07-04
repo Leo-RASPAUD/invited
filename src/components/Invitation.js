@@ -14,13 +14,15 @@ const Invitation = ({ event, type }) => {
   const { backgroundImage, ...rest } = eventThemes[type.toLowerCase()];
   return (
     <BackgroundFixed image={backgroundImage}>
-      <div className={styles['invitation']} style={rest}>
-        {eventTypes.wedding === eventTypes[type] && <Wedding {...event} />}
-        {eventTypes.birthday === eventTypes[type] && <Birthday {...event} />}
-        {eventTypes.funeral === eventTypes[type] && <Funeral {...event} />}
-        {eventTypes.drinks === eventTypes[type] && <Drinks {...event} />}
-        {eventTypes.restaurant === eventTypes[type] && <Restaurant {...event} />}
-        {eventTypes.party === eventTypes[type] && <Party {...event} />}
+      <div style={rest}>
+        <div className={styles['invitation']}>
+          {eventTypes.wedding === eventTypes[type] && <Wedding {...event} />}
+          {eventTypes.birthday === eventTypes[type] && <Birthday {...event} />}
+          {eventTypes.funeral === eventTypes[type] && <Funeral {...event} />}
+          {eventTypes.drinks === eventTypes[type] && <Drinks {...event} />}
+          {eventTypes.restaurant === eventTypes[type] && <Restaurant {...event} />}
+          {eventTypes.party === eventTypes[type] && <Party {...event} />}
+        </div>
       </div>
     </BackgroundFixed>
   );

@@ -13,6 +13,7 @@
   line-height: inherit;
   margin: 0;
   padding: $padding - 2;
+  text-align: center;
   text-decoration: none;
   text-transform: $action-text-transform;
 }
@@ -25,7 +26,7 @@
 .button {
   @extend %button;
   flex: 1;
-  min-width: 104px;
+  min-width: 86px;
 }
 
 .confirmation {
@@ -44,24 +45,32 @@
 .confirm {
   @extend %button;
   background: lightseagreen;
-  border: $border-width solid lightseagreen;
+  border: $border-width solid $active-color;
+  border-right: $border-width / 2 solid $active-color;
   flex: 1;
+  padding: ($padding / 2) - 2 0;
+  width: 43px;
 
 
   > svg {
     display: block;
-    font-size: 20px;
+    font-size: 36px;
+    margin: 0 auto;
   }
 }
 
 .cancel {
   @extend %button;
   background: crimson;
-  border: $border-width solid crimson;
+  border: $border-width solid $active-color;
+  border-left: $border-width / 2 solid $active-color;
   flex: 1;
+  padding: ($padding / 2) - 2 0;
+  width: 43px;
 
   > svg {
     display: block;
-    font-size: 20px;
+    font-size: 36px;
+    margin: 0 auto;
   }
 }

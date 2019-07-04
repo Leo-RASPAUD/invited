@@ -1,6 +1,8 @@
 export default {
   birthday: 'Birthday',
-  engagment: 'Engagment',
-  wedding: 'Wedding',
+  drinks: 'Drinks',
   funeral: 'Funeral',
+  party: 'Party',
+  restaurant: 'Restaurant',
+  wedding: 'Wedding',
 };
