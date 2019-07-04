@@ -20,8 +20,6 @@ export default {
     region,
     userPoolId,
     userPoolWebClientId,
-    signInEnabled: true,
-    userPools: true,
   },
   aws_appsync_graphqlEndpoint: graphqlEndpoint,
   aws_appsync_region: region,

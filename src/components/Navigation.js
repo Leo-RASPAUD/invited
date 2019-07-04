@@ -22,39 +22,41 @@ const NavigationComponent = ({ history }) => {
   };
 
   return (
-    <div className={styles['navigation']}>
-      {userContext.isLoaded && userContext.user && (
-        <ul className={styles['list']}>
-          <li>
-            <NavLink activeStyle={activeStyle} exact to="/app">
-              Events
-            </NavLink>
-          </li>
-          <li>
-            <NavLink activeStyle={activeStyle} exact to="/app/profile">
-              Profile
-            </NavLink>
-          </li>
-          <li>
-            <Button onClick={signOut}>Signout</Button>
-          </li>
-        </ul>
-      )}
-      {userContext.isLoaded && !userContext.user && (
-        <ul className={styles['list']}>
-          <li>
-            <NavLink activeStyle={activeStyle} to="/login">
-              Login
-            </NavLink>
-          </li>
-          <li>
-            <NavLink activeStyle={activeStyle} to="/signup">
-              Signup
-            </NavLink>
-          </li>
-        </ul>
-      )}
-    </div>
+    window.location.pathname !== '/googleSignIn' && (
+      <div className={styles['navigation']}>
+        {userContext.isLoaded && userContext.user && (
+          <ul className={styles['list']}>
+            <li>
+              <NavLink activeStyle={activeStyle} exact to="/app">
+                Events
+              </NavLink>
+            </li>
+            <li>
+              <NavLink activeStyle={activeStyle} exact to="/app/profile">
+                Profile
+              </NavLink>
+            </li>
+            <li>
+              <Button onClick={signOut}>Signout</Button>
+            </li>
+          </ul>
+        )}
+        {userContext.isLoaded && !userContext.user && (
+          <ul className={styles['list']}>
+            <li>
+              <NavLink activeStyle={activeStyle} to="/login">
+                Login
+              </NavLink>
+            </li>
+            <li>
+              <NavLink activeStyle={activeStyle} to="/signup">
+                Signup
+              </NavLink>
+            </li>
+          </ul>
+        )}
+      </div>
+    )
   );
 };
 

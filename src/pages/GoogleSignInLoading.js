@@ -4,10 +4,12 @@ import context from '../UserContext';
 export default ({ history }) => {
   const userContext = useContext(context);
   useEffect(() => {
-    const isAuthenticated = userContext.user && userContext.user.username ? true : false;
-    if (isAuthenticated) {
-      history.push('/app');
-    }
+    setTimeout(() => {
+      const isAuthenticated = userContext.user && userContext.user.username ? true : false;
+      if (isAuthenticated) {
+        history.push('/app');
+      }
+    }, 0);
   });
   return null;
 };
