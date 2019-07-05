@@ -23,7 +23,7 @@ const Login = ({ history }) => {
   const onSubmit = async ({ email, password }) => {
     try {
       const user = await Auth.signIn(email, password);
-      updateCurrentUser(user);
+      await updateCurrentUser(user);
       history.push('/app');
     } catch (error) {
       console.log(error);

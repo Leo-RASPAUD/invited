@@ -1,6 +1,6 @@
 import React, { useReducer, useState, useEffect } from 'react';
-import Amplify, { Auth, Hub } from 'aws-amplify';
-import config from './config';
+import { Auth, Hub } from 'aws-amplify';
+
 import { Context, initialStateEvents, initialStateGuests, initialGlobalState } from './AppContext';
 import UserContext from './UserContext';
 import { reducer as eventsReducer } from './reducers/eventsReducer';
@@ -10,40 +10,37 @@ import Router from './Router';
 
 import './App.scss';
 
-Amplify.configure(config);
-
 const App = props => {
   const [stateEvents, dispatchEvents] = useReducer(eventsReducer, initialStateEvents);
   const [stateGuests, dispatchGuests] = useReducer(guestReducer, initialStateGuests);
   const [stateGlobal, dispatchGlobal] = useReducer(globalReducer, initialGlobalState);
-  const [user, setCurrentUser] = useState({});
-  const [isLoaded, setLoaded] = useState(false);
+  const [appState, setAppState] = useState({
+    user: {},
+    isLoaded: false,
+  });
 
   const updateCurrentUser = async user => {
     if (user) {
-      setCurrentUser(user);
-      setLoaded(true);
+      setAppState({ user, isLoaded: true });
     } else {
       try {
-        const user = await Auth.currentAuthenticatedUser();
-        setCurrentUser(user);
-        setLoaded(true);
+        const newUser = await Auth.currentAuthenticatedUser();
+        setAppState({ user: newUser, isLoaded: true });
       } catch (err) {
-        setCurrentUser(null);
-        setLoaded(true);
+        setAppState({ user: null, isLoaded: true });
       }
     }
   };
 
   useEffect(() => {
     updateCurrentUser();
-    Hub.listen('auth', ({ channel, payload }) => {
-      console.log('payload', payload);
-      if (['signIn', 'signOut'].includes(payload.event)) {
-        updateCurrentUser(payload.data);
-      }
-    });
   }, []);
+
+  Hub.listen('auth', ({ channel, payload: { event, data } }) => {
+    if (['signIn', 'signOut'].includes(event)) {
+      updateCurrentUser(data);
+    }
+  });
 
   return (
     <div className="App">
@@ -57,9 +54,9 @@ const App = props => {
       >
         <UserContext.Provider
           value={{
-            user,
+            user: appState.user,
             updateCurrentUser,
-            isLoaded,
+            isLoaded: appState.isLoaded,
           }}
         >
           <Router />
