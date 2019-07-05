@@ -7,7 +7,7 @@ const HubAuth = ({ history }) => {
   const { updateCurrentUser } = useContext(UserContext);
 
   const hubAuthCallback = async ({ channel, payload: { event, data } }) => {
-    if (event === 'signIn') {
+    if (['signIn', 'cognitoHostedUI'].includes(event)) {
       await updateCurrentUser(data);
       history.push('/app');
     }
