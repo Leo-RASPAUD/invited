@@ -1,5 +1,5 @@
 import React, { useReducer, useState, useEffect } from 'react';
-import { Auth, Hub } from 'aws-amplify';
+import { Auth } from 'aws-amplify';
 
 import { Context, initialStateEvents, initialStateGuests, initialGlobalState } from './AppContext';
 import UserContext from './UserContext';
@@ -20,27 +20,26 @@ const App = props => {
   });
 
   const updateCurrentUser = async user => {
-    if (user) {
-      setAppState({ user, isLoaded: true });
-    } else {
-      try {
-        const newUser = await Auth.currentAuthenticatedUser();
-        setAppState({ user: newUser, isLoaded: true });
-      } catch (err) {
-        setAppState({ user: null, isLoaded: true });
+    return new Promise(async resolve => {
+      if (user) {
+        setAppState({ user, isLoaded: true });
+        resolve();
+      } else {
+        try {
+          const newUser = await Auth.currentAuthenticatedUser();
+          setAppState({ user: newUser, isLoaded: true });
+          resolve();
+        } catch (err) {
+          setAppState({ user: null, isLoaded: true });
+          resolve();
+        }
       }
-    }
+    });
   };
 
   useEffect(() => {
     updateCurrentUser();
   }, []);
-
-  Hub.listen('auth', ({ channel, payload: { event, data } }) => {
-    if (['signIn', 'signOut'].includes(event)) {
-      updateCurrentUser(data);
-    }
-  });
 
   return (
     <div className="App">

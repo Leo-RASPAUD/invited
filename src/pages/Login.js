@@ -1,6 +1,5 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Auth } from 'aws-amplify';
-import UserContext from '../UserContext';
 import useForm from 'react-hook-form';
 import { withRouter } from 'react-router-dom';
 import Button from '../components/Button';
@@ -16,15 +15,12 @@ import GoogleButton from 'react-google-button';
 
 const Login = ({ history }) => {
   const [error, setError] = useState('');
-  const { updateCurrentUser } = useContext(UserContext);
 
   const { handleSubmit, register, errors } = useForm();
 
   const onSubmit = async ({ email, password }) => {
     try {
-      const user = await Auth.signIn(email, password);
-      await updateCurrentUser(user);
-      history.push('/app');
+      await Auth.signIn(email, password);
     } catch (error) {
       console.log(error);
       setError(error.message);
