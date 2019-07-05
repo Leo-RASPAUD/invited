@@ -11,7 +11,6 @@ import EventDetails from './pages/EventDetails';
 import EventGuests from './pages/EventGuests';
 import EventList from './pages/EventList';
 import ForgotPassword from './pages/ForgotPassword';
-import GoogleSignInLoading from './pages/GoogleSignInLoading';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import PrivateRoute from './components/PrivateRoute';
@@ -38,7 +37,7 @@ export default () => {
           <Route exact path="/event/:encrypted" component={PublicEvent} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/googleSignIn" component={GoogleSignInLoading} />
+          <Route exact path="/googleSignIn" render={() => null} />
           <Route exact path="/forgotPassword" component={ForgotPassword} />
           <PrivateRoute exact path="/app" component={EventList} />
           <PrivateRoute exact path="/app/new" component={Create} />
