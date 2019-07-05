@@ -15,6 +15,7 @@ import GoogleSignInLoading from './pages/GoogleSignInLoading';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import PrivateRoute from './components/PrivateRoute';
+import HubAuth from './components/HubAuth';
 import Profile from './pages/Profile';
 import PublicEvent from './pages/PublicEvent';
 import SignUp from './pages/SignUp';
@@ -22,32 +23,31 @@ import SignUp from './pages/SignUp';
 export default () => {
   return (
     <Router>
-      <div>
-        <Header>
-          <Sidebar>
-            <Navigation />
-          </Sidebar>
-          <DesktopNavigation>
-            <Navigation />
-          </DesktopNavigation>
-        </Header>
-        <Main>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/event/:encrypted" component={PublicEvent} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/googleSignIn" component={GoogleSignInLoading} />
-            <Route exact path="/forgotPassword" component={ForgotPassword} />
-            <PrivateRoute exact path="/app" component={EventList} />
-            <PrivateRoute exact path="/app/new" component={Create} />
-            <PrivateRoute exact path="/app/profile" component={Profile} />
-            <PrivateRoute exact path="/app/event/:id" component={EventDetails} />
-            <PrivateRoute exact path="/app/event/:id/guests" component={EventGuests} />
-          </Switch>
-        </Main>
-        <Footer />
-      </div>
+      <HubAuth />
+      <Header>
+        <Sidebar>
+          <Navigation />
+        </Sidebar>
+        <DesktopNavigation>
+          <Navigation />
+        </DesktopNavigation>
+      </Header>
+      <Main>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/event/:encrypted" component={PublicEvent} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/googleSignIn" component={GoogleSignInLoading} />
+          <Route exact path="/forgotPassword" component={ForgotPassword} />
+          <PrivateRoute exact path="/app" component={EventList} />
+          <PrivateRoute exact path="/app/new" component={Create} />
+          <PrivateRoute exact path="/app/profile" component={Profile} />
+          <PrivateRoute exact path="/app/event/:id" component={EventDetails} />
+          <PrivateRoute exact path="/app/event/:id/guests" component={EventGuests} />
+        </Switch>
+      </Main>
+      <Footer />
     </Router>
   );
 };

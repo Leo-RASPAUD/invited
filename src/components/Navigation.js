@@ -12,14 +12,9 @@ const activeStyle = {
 };
 
 const NavigationComponent = ({ history }) => {
-  const { updateCurrentUser, isLoaded, user } = useContext(contextUser);
+  const { isLoaded, user } = useContext(contextUser);
   const signOut = () => {
-    Auth.signOut({ global: true })
-      .then(async data => {
-        await updateCurrentUser(null);
-        history.push('/');
-      })
-      .catch(err => console.log(err));
+    Auth.signOut({ global: true }).catch(err => console.log(err));
   };
 
   return (

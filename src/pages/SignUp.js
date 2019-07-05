@@ -1,7 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import useForm from 'react-hook-form';
 import { withRouter } from 'react-router-dom';
-import UserContext from '../UserContext';
 import Container from '../components/Container';
 import Grid from '../components/Grid';
 import GridItem from '../components/GridItem';
@@ -19,7 +18,6 @@ const SignUp = ({ history }) => {
   const [error, setError] = useState('');
   const [newEmail, setNewEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
-  const { updateCurrentUser } = useContext(UserContext);
   const { handleSubmit, register, errors } = useForm();
 
   const onSubmit = async data => {
@@ -51,9 +49,7 @@ const SignUp = ({ history }) => {
   const confirmSignUp = async ({ authCode }) => {
     try {
       await Auth.confirmSignUp(newEmail, authCode);
-      const user = await Auth.signIn(newEmail, newPassword);
-      updateCurrentUser(user);
-      history.push('/app');
+      await Auth.signIn(newEmail, newPassword);
     } catch (error) {
       setError(error.message);
     }
