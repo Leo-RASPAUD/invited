@@ -45,10 +45,10 @@ const EventDetails = ({ history, location, match }) => {
         <>
           <Tools>
             <Tool>
-              <PageTitle>{name}</PageTitle>
-            </Tool>
-            <Tool style={{ margin: '0 0 0 auto' }}>
               <Button to={`/app`}>Back</Button>
+            </Tool>
+            <Tool>
+              <PageTitle>{name}</PageTitle>
             </Tool>
           </Tools>
           <div className="pink-black">

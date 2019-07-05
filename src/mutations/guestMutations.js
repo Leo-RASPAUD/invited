@@ -21,6 +21,7 @@ const deleteGuest = {
 };
 
 const updateGuestInvitation = {
+  authMode: 'AWS_IAM',
   name: actions.updateGuestInvitation,
   actions: [
     { name: actions.updateGuestInvitation, dispatch },

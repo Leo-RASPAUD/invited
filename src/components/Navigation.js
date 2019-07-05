@@ -11,7 +11,7 @@ const activeStyle = {
   border: '2px solid currentColor',
 };
 
-const NavigationComponent = ({ history }) => {
+const NavigationComponent = ({ history, match }) => {
   const { isLoaded, user } = useContext(contextUser);
   const signOut = () => {
     Auth.signOut({ global: true }).catch(err => console.log(err));
