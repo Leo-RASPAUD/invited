@@ -23,7 +23,7 @@ const HubAuth = ({ history }) => {
     return () => {
       Hub.remove('auth');
     };
-  });
+  }, []); // eslint-disable-line
 
   return null;
 };
