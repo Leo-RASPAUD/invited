@@ -23,9 +23,5 @@ export default {
   },
   aws_appsync_graphqlEndpoint: graphqlEndpoint,
   aws_appsync_region: region,
-  aws_cognito_region: region,
-  aws_project_region: region,
-  aws_sign_in_enabled: 'enable',
-  aws_user_pools: 'enable',
   aws_appsync_authenticationType: 'AMAZON_COGNITO_USER_POOLS',
 };
