@@ -6,6 +6,7 @@ export default ({ history }) => {
   const { updateCurrentUser } = useContext(context);
   useEffect(() => {
     Hub.listen('auth', async ({ channel, payload }) => {
+      console.log('payload in googlesign in', payload);
       if (payload.event === 'cognitoHostedUI') {
         await updateCurrentUser(payload.data);
         history.push('/app');
