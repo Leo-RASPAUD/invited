@@ -7,4 +7,5 @@ export default `
     encrypted
     notes
     accepted
+    emailSent
 `;

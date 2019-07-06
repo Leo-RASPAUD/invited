@@ -30,8 +30,8 @@ const getEvent = {
 const sendInvites = {
   name: actions.sendInvites,
   actions: [{ name: globalErrors.errorSendInvites, dispatch: dispatchGlobal }],
-  query: `query sendInvites( $name: String!, $type: String!, $place: String!, $date: String!, $host: String!, $guests: String!) {
-    sendInvites(name: $name, type: $type, place: $place, date: $date, host: $host, guests: $guests)
+  query: `query sendInvites( $eventId: String!, $name: String!, $type: String!, $place: String!, $date: String!, $host: String!, $guests: String!) {
+    sendInvites(eventId: $eventId, name: $name, type: $type, place: $place, date: $date, host: $host, guests: $guests)
 }`,
 };
 

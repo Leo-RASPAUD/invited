@@ -1,6 +1,7 @@
 const EVENTS_TABLE = 'InviteMeEvents';
 const GUESTS_TABLE = 'InviteMeGuests';
 const SECRET_NAME = 'Invite';
+const INDEX_EVENT_ID = 'eventId-index';
 const SECRET_KEYS = {
   publicPasswordSecret: 'publicPasswordSecret',
   sendgrid: 'sendgrid',
@@ -14,4 +15,5 @@ module.exports = {
   SECRET_NAME,
   SECRET_KEYS,
   NEW_INVITE_EMAIL,
+  INDEX_EVENT_ID,
 };

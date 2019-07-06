@@ -63,7 +63,6 @@ export default ({ match }) => {
           </Tools>
         </form>
       )}
-      {loading ? 'Loading...' : null}
       {!loading && guests.length > 0 && (
         <>
           <Container>
