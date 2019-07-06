@@ -14,15 +14,13 @@ export default () => {
     <>
       <Container>
         <PageTitle>Forgot password</PageTitle>
-      </Container>
-      <form>
-        <Container>
+        <form>
           <MaxWidth>
             <Input required={false} name="username" label="Username" type="text" register={register} errors={errors} />
           </MaxWidth>
-        </Container>
-        <ResetPassword username={username} disabled={username.length === 0} redirect />
-      </form>
+          <ResetPassword username={username} disabled={username.length === 0} redirect />
+        </form>
+      </Container>
     </>
   );
 };
