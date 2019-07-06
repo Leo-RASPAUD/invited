@@ -10,7 +10,7 @@ export default () => (
         <p>I'm a simple web application for organising events.</p>
       </Container>
     </div>
-    <div className="yellow-orange" style={{ minHeight: '30vh' }}>
+    <div className="yellow-teal" style={{ minHeight: '30vh' }}>
       <Container>
         <PageTitle>How does this work?</PageTitle>
         <p>
