@@ -6,6 +6,8 @@ $teal: #305555;
 $white: #fbfbfa;
 $white: #fbfbfa;
 $yellow: #ffef6b;
+$green: #36e27a;
+$red: #f00;
 
 $active-color: currentColor;
 $background: #fff;
@@ -21,7 +23,7 @@ $disabled-background: #ebebea;
 $disabled-border-color: #8b8b8a;
 $disabled-color: #8b8b8a;
 
-$error-color: #f00;
+$error-color: $red;
 
 $link-color: $active-color;
 

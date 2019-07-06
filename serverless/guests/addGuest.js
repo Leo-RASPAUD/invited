@@ -10,7 +10,6 @@ const createGuest = data => {
   return dynamoClient
     .put({
       TableName: constants.GUESTS_TABLE,
-      ReturnValues: 'ALL_OLD',
       Item: data,
     })
     .promise();
@@ -25,7 +24,7 @@ module.exports.handler = async ({ eventId, ...rest }) => {
     secretName: constants.SECRET_NAME,
     key: constants.SECRET_KEYS.publicPasswordSecret,
   });
-  const guest = { eventId, id: uuidv4(), ...rest };
+  const guest = { eventId, id: uuidv4(), emailSent: false, ...rest };
   const encrypted = encrypt({ key, data: JSON.stringify(guest) });
   guest.encrypted = encrypted;
   try {

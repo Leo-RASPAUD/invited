@@ -22,6 +22,8 @@ const EventDetails = ({ history, location, match }) => {
     errorType,
   } = state;
 
+  const acceptedCount = guests.filter(guest => guest.accepted).length;
+
   const deleteEvent = async id => {
     await fetcher({ ...deleteEventMutation, params: { id } });
     history.push(`/app`);
@@ -30,7 +32,7 @@ const EventDetails = ({ history, location, match }) => {
   const sendInvites = () => {
     fetcher({
       ...sendInvitesQuery,
-      params: { name, type, place, date, host, guests: JSON.stringify(guests) },
+      params: { eventId, name, type, place, date, host, guests: JSON.stringify(guests) },
     });
   };
 
@@ -65,12 +67,19 @@ const EventDetails = ({ history, location, match }) => {
           <div className="white-blue">
             <Container>
               <PageTitle>Guests</PageTitle>
-              <p>No one has accepted yet. Either you haven't hit send or you aren't very popular.</p>
+              {acceptedCount === 0 && (
+                <p>No one has accepted yet. Either you haven't hit send or you aren't very popular.</p>
+              )}
+              {acceptedCount > 0 && (
+                <p>
+                  {acceptedCount} {acceptedCount === 1 ? 'person has' : 'peeps have'} accepted so far!
+                </p>
+              )}
               <Buttons>
                 <Button to={`${eventId}/guests`}>Manage guests</Button>
                 <Button onClick={sendInvites}>Send invites</Button>
-                {errorType === errorTypes.sendInvites && errorMessage && <Error errorMessage={errorMessage} />}
               </Buttons>
+              {errorType === errorTypes.sendInvites && errorMessage && <Error errorMessage={errorMessage} />}
             </Container>
           </div>
           <div>

@@ -1,6 +1,7 @@
 @import '../variables.scss';
 
 .container {
+  background: #30555521;
   border: $border-width solid $border-color;
   box-shadow: $box-shadow;
   margin: 0 0 16px;
@@ -11,6 +12,14 @@
     font-weight: 500;
     margin: 0;
   }
+}
+
+.container-accepted {
+  background: $green;
+}
+
+.container-refused {
+  background: $red;
 }
 
 .delete-button {
