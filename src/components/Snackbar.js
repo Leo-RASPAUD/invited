@@ -7,5 +7,11 @@ export default () => {
     state: { snackbarItems },
   } = useContext(Context);
 
-  return snackbarItems.map(item => <SnackbarItem key={item.id} item={item} />);
+  return (
+    <div style={{ position: 'fixed', zIndex: 10, top: 8, right: 8, left: 8 }}>
+      {snackbarItems.map(item => (
+        <SnackbarItem key={item.id} item={item} />
+      ))}
+    </div>
+  );
 };
