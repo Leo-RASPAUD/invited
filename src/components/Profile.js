@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Auth } from 'aws-amplify';
 import Input from './Input';
 import Container from './Container';
@@ -11,23 +11,24 @@ import Tool from './Tool';
 import Tools from './Tools';
 import ResetPassword from './ResetPassword';
 import Error from './Error';
+import { Context } from '../AppContext';
+import { actions } from '../reducers/globalReducer';
 
 import styles from './Profile.module.scss';
 
 export default ({ user }) => {
+  const { dispatchGlobal } = useContext(Context);
   const { register, errors, handleSubmit, reset } = useForm();
   const [changePasswordError, setChangePasswordError] = useState('');
-  const [successPassword, setSuccessPassword] = useState(false);
 
   const changePassword = async ({ oldPassword, newPassword }) => {
     try {
       const user = await Auth.currentAuthenticatedUser();
       await Auth.changePassword(user, oldPassword, newPassword);
-      setSuccessPassword(true);
-      setTimeout(() => {
-        setSuccessPassword(false);
-      }, 2000);
-
+      dispatchGlobal({
+        type: actions.newSnackbarItem,
+        customMessage: 'Password changed successfully',
+      });
       reset();
     } catch (error) {
       setChangePasswordError(error.message);
@@ -53,7 +54,6 @@ export default ({ user }) => {
       </Container>
       <Container>
         <PageTitle>Change password</PageTitle>
-        {successPassword && <h4>Password changed successfully.</h4>}
       </Container>
       <form className={styles['container']} onSubmit={handleSubmit(changePassword)}>
         <Container>
@@ -100,7 +100,7 @@ export default ({ user }) => {
         <Container>
           <div>A confirmation code will be sent to your email address.</div>
         </Container>
-        <ResetPassword username={user.username} />
+        <ResetPassword email={user.email} />
       </div>
     </>
   );

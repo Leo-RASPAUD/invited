@@ -14,7 +14,7 @@ export const actions = {
   errorSendInvites: 'errorSendInvites',
   errorGetGuests: 'errorGetGuests',
 
-  snackbarSendInvitesSuccess: 'snackbarSendInvitesSuccess',
+  newSnackbarItem: 'newSnackbarItem',
   closeSnackbarItem: 'closeSnackbarItem',
 };
 
@@ -117,7 +117,7 @@ export const reducer = (state, { payload, type, customMessage }) => {
         errorMessage: 'Something went wrong!',
       };
     }
-    case (type.match(/snackbar/) || {}).input: {
+    case actions.newSnackbarItem: {
       return {
         ...state,
         snackbarItems: state.snackbarItems.concat({ message: customMessage, id: uuid() }),

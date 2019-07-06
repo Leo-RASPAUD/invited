@@ -27,7 +27,7 @@ export default ({ item: { id, message } }) => {
   }, []);
 
   return (
-    <div key={id} className={styles['snackbar-item']} style={{ height }}>
+    <div className={styles['snackbar-item']} style={{ height }}>
       <div className={styles['snackbar-container']}>
         <div className={styles['snackbar-content']}>
           <div className={styles['snackbar-message']}>{message}</div>

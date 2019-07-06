@@ -7,5 +7,5 @@ export default () => {
     state: { snackbarItems },
   } = useContext(Context);
 
-  return snackbarItems.map(item => <SnackbarItem item={item} />);
+  return snackbarItems.map(item => <SnackbarItem key={item.id} item={item} />);
 };

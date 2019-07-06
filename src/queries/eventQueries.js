@@ -32,7 +32,7 @@ const sendInvites = {
   actions: [
     { name: globalActions.errorSendInvites, dispatch: dispatchGlobal },
     {
-      name: globalActions.snackbarSendInvitesSuccess,
+      name: globalActions.newSnackbarItem,
       dispatch: dispatchGlobal,
       customMessage: 'Invites sent successfully',
     },

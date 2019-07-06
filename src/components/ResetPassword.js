@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Auth } from 'aws-amplify';
 import { withRouter } from 'react-router';
 import Input from './Input';
@@ -10,16 +10,23 @@ import Button from './Button';
 import Tool from './Tool';
 import Tools from './Tools';
 import Error from './Error';
+import { Context } from '../AppContext';
+import { actions } from '../reducers/globalReducer';
 
-const ResetPassword = ({ history, username, disabled, redirect }) => {
+const ResetPassword = ({ history, email, disabled, redirect }) => {
+  const { dispatchGlobal } = useContext(Context);
   const [isResetPassword, setResetPassword] = useState(false);
   const [error, setError] = useState('');
   const { handleSubmit, register, errors } = useForm();
 
   const resetPassword = async () => {
     try {
-      await Auth.forgotPassword(username);
+      await Auth.forgotPassword(email);
       setResetPassword(true);
+      dispatchGlobal({
+        type: actions.newSnackbarItem,
+        customMessage: 'A confirmation code has been sent to your email address',
+      });
     } catch (error) {
       setError(error.message);
     }
@@ -27,14 +34,14 @@ const ResetPassword = ({ history, username, disabled, redirect }) => {
 
   const onSubmit = async ({ confirmationCode, newPassword }) => {
     try {
-      await Auth.forgotPasswordSubmit(username, confirmationCode, newPassword);
+      await Auth.forgotPasswordSubmit(email, confirmationCode, newPassword);
       setResetPassword(false);
       setError('');
       if (redirect) {
         history.push('/login');
       }
     } catch (error) {
-      setError(error.message);
+      setError(error);
     }
   };
 
