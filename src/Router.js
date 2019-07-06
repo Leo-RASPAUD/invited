@@ -5,7 +5,6 @@ import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Main from './components/Main';
 import Sidebar from './components/Sidebar';
-import Footer from './components/Footer';
 import DesktopNavigation from './components/DesktopNavigation';
 import Create from './pages/Create';
 import EditEvent from './pages/EditEvent';
@@ -13,6 +12,7 @@ import EventDetails from './pages/EventDetails';
 import EventGuests from './pages/EventGuests';
 import EventList from './pages/EventList';
 import ForgotPassword from './pages/ForgotPassword';
+import About from './pages/About';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import PrivateRoute from './components/PrivateRoute';
@@ -67,6 +67,7 @@ export default () => {
           })}
         >
           <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
           <Route exact path="/event/:encrypted" component={PublicEvent} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
@@ -80,7 +81,6 @@ export default () => {
           <PrivateRoute exact path="/app/event/:id/guests" component={EventGuests} />
         </AnimatedSwitch>
       </Main>
-      <Footer />
     </Router>
   );
 };

@@ -49,6 +49,11 @@ const NavigationComponent = ({ history, match }) => {
                 Signup
               </NavLink>
             </li>
+            <li>
+              <NavLink activeStyle={activeStyle} exact to="/about">
+                About
+              </NavLink>
+            </li>
           </ul>
         )}
       </div>
