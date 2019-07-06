@@ -14,6 +14,7 @@ export const initialGlobalState = {
   errors: [],
   errorMessage: null,
   errorType: null,
+  snackbarItems: [],
 };
 
 export const Context = React.createContext({

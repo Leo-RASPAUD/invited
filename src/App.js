@@ -9,6 +9,7 @@ import { reducer as globalReducer } from './reducers/globalReducer';
 import Router from './Router';
 
 import './App.scss';
+import Snackbar from './components/Snackbar';
 
 const App = props => {
   const [stateEvents, dispatchEvents] = useReducer(eventsReducer, initialStateEvents);
@@ -58,6 +59,7 @@ const App = props => {
             isLoaded: appState.isLoaded,
           }}
         >
+          <Snackbar />
           <Router />
         </UserContext.Provider>
       </Context.Provider>
