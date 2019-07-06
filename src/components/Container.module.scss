@@ -3,9 +3,5 @@
 .container {
   max-width: $max-width;
   margin: 0 auto;
-  padding: $padding;
-
-  @media (min-width: $breakpoint) {
-    padding: $padding * 2 $padding;
-  }
+  padding: $padding * 2 $padding;
 }

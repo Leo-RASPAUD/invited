@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from '../components/Container';
 import PageTitle from '../components/PageTitle';
+import Button, { Buttons } from '../components/Button';
 
 export default () => (
   <>
@@ -8,6 +9,9 @@ export default () => (
       <Container>
         <PageTitle>Hi, I'm Invited.</PageTitle>
         <p>I'm a simple web application for organising events.</p>
+        <Buttons>
+          <Button to={'/signup'}>Get</Button>
+        </Buttons>
       </Container>
     </div>
     <div className="yellow-teal" style={{ minHeight: '30vh' }}>
