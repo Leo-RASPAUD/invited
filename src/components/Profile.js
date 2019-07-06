@@ -85,7 +85,7 @@ export default ({ user }) => {
         <Container>
           <PageTitle>Forgot password</PageTitle>
           <p>A confirmation code will be sent to your email address.</p>
-          <ResetPassword email={user.username} />
+          <ResetPassword email={user.email} />
         </Container>
       </div>
     </>
