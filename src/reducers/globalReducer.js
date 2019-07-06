@@ -4,6 +4,7 @@ import errorTypes from '../constants/errorTypes';
 export const actions = {
   resetErrors: 'resetErrors',
   errorCreateEvent: 'errorCreateEvent',
+  errorEditEvent: 'errorEditEvent',
   errorGetEvents: 'errorGetEvents',
   errorGetEvent: 'errorGetEvent',
   errorAddGuest: 'errorAddGuest',
@@ -107,6 +108,14 @@ export const reducer = (state, { payload, type, customMessage }) => {
         ...state,
         errorType: errorTypes.getGuests,
         errorMessage: 'Error while trying to get guests.',
+        errors: payload.errors,
+      };
+    }
+    case actions.errorEditEvent: {
+      return {
+        ...state,
+        errorType: errorTypes.editEvent,
+        errorMessage: 'Error while trying to edit the event.',
         errors: payload.errors,
       };
     }

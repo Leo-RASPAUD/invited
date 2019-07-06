@@ -6,6 +6,7 @@ export const actions = {
   getEvents: 'getEvents',
   getEventLoading: 'getEventLoading',
   sendInvites: 'sendInvites',
+  editEvent: 'editEvent',
 };
 
 export const dispatchName = 'dispatchEvents';

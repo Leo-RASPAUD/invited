@@ -9,4 +9,5 @@ export default {
   deleteEvent: 'deleteEvent',
   sendInvites: 'sendInvites',
   getGuests: 'getGuests',
+  editEvent: 'editEvent',
 };

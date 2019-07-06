@@ -19,5 +19,14 @@ const createEvent = {
     }
 }`,
 };
+const editEvent = {
+  name: 'editEvent',
+  actions: [{ name: actions.editEvent, dispatch }, { name: globalErrors.errorEditEvent, dispatch: dispatchGlobal }],
+  query: `mutation editEvent($name: String!, $host: String!, $type: String!, $place: String!, $time: String!, $date: String!, $eventId: String!) {
+    editEvent(name: $name, host: $host, type: $type, place: $place, time: $time, date: $date, eventId: $eventId) {
+      ${lightEvent}
+    }
+}`,
+};
 
-export { deleteEvent, createEvent };
+export { deleteEvent, createEvent, editEvent };

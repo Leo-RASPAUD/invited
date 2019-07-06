@@ -7,6 +7,7 @@ import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import DesktopNavigation from './components/DesktopNavigation';
 import Create from './pages/Create';
+import EditEvent from './pages/EditEvent';
 import EventDetails from './pages/EventDetails';
 import EventGuests from './pages/EventGuests';
 import EventList from './pages/EventList';
@@ -43,6 +44,7 @@ export default () => {
           <PrivateRoute exact path="/app/new" component={Create} />
           <PrivateRoute exact path="/app/profile" component={Profile} />
           <PrivateRoute exact path="/app/event/:id" component={EventDetails} />
+          <PrivateRoute exact path="/app/event/:id/edit" component={EditEvent} />
           <PrivateRoute exact path="/app/event/:id/guests" component={EventGuests} />
         </Switch>
       </Main>

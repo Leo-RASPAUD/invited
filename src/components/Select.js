@@ -4,7 +4,7 @@ import Error from './Error';
 import styles from './Select.module.scss';
 
 export default props => {
-  const { label, required, children, errors, name, errorMessage, register } = props;
+  const { label, required, children, errors, name, errorMessage, register, defaultValue } = props;
   return (
     <div className={styles['select']}>
       <label className={styles['select-label']}>{label}</label>
@@ -12,6 +12,7 @@ export default props => {
         <select
           className={styles['select-select']}
           name={name}
+          defaultValue={defaultValue}
           ref={register({
             required,
           })}
