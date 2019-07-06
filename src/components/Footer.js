@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className="yellow-orange">
       <footer className={styles['footer']}>
-        <div>Bend.</div>
+        <div>The Bends.</div>
       </footer>
     </div>
   );

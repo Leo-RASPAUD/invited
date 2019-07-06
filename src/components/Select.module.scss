@@ -5,12 +5,22 @@
   margin: $padding 0;
 }
 
+.select-icon {
+  height: 20px;
+  position: absolute;
+  right: $padding;
+  top: $padding;
+  width: 20px;
+}
+
 .select-label {
   display: block;
   padding: $padding / 2 0;
 }
 
-.select-control {}
+.select-control {
+  position: relative;
+}
 
 .select-select {
   appearance: none;

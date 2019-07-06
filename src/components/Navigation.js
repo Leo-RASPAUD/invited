@@ -21,7 +21,7 @@ const NavigationComponent = ({ history, match }) => {
     window.location.pathname !== '/googleSignIn' && (
       <div className={styles['navigation']}>
         {isLoaded && user && (
-          <ul className={styles['list']}>
+          <ul className={styles['navigation-list']}>
             <li>
               <NavLink activeStyle={activeStyle} exact to="/app">
                 Events
@@ -32,13 +32,13 @@ const NavigationComponent = ({ history, match }) => {
                 Profile
               </NavLink>
             </li>
-            <li>
+            <li className={styles['navigation-signout']}>
               <Button onClick={signOut}>Signout</Button>
             </li>
           </ul>
         )}
         {isLoaded && !user && (
-          <ul className={styles['list']}>
+          <ul className={styles['navigation-list']}>
             <li>
               <NavLink activeStyle={activeStyle} to="/login">
                 Login

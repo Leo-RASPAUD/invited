@@ -6,7 +6,7 @@ function Header({ children }) {
   return (
     <header className={styles['header']}>
       <Brand to="/">Invited</Brand>
-      <div>{children}</div>
+      <div className={styles['header-children']}>{children}</div>
     </header>
   );
 }

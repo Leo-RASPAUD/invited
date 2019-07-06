@@ -50,11 +50,7 @@ const Create = ({ history }) => {
             <Input
               required
               name="host"
-              label={
-                <>
-                  Who is the host of the event? <i>Enter as a possessive.</i>
-                </>
-              }
+              label="Who is the host of the event?"
               type="text"
               register={register}
               errors={errors}
@@ -67,17 +63,7 @@ const Create = ({ history }) => {
               register={register}
               errors={errors}
             />
-            <Select
-              label={
-                <>
-                  What is the type of event? <i>We'll add an appropriate theme.</i>
-                </>
-              }
-              register={register}
-              errors={errors}
-              name="type"
-              required
-            >
+            <Select label="What is the type of event?" register={register} errors={errors} name="type" required>
               <option value="">Select</option>
               {Object.keys(eventTypes).map(value => (
                 <option key={value} value={value}>

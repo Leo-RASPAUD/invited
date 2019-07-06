@@ -4,22 +4,22 @@ import PageTitle from '../components/PageTitle';
 
 export default () => (
   <>
-    <div className="white-blue">
+    <div className="white-blue" style={{ minHeight: '30vh' }}>
       <Container>
         <PageTitle>Hi, I'm Invited.</PageTitle>
         <p>I'm a simple web application for organising events.</p>
       </Container>
     </div>
-    <div className="yellow-orange">
+    <div className="yellow-orange" style={{ minHeight: '30vh' }}>
       <Container>
-        <PageTitle>'How does this work?' I hear you ask.</PageTitle>
+        <PageTitle>How does this work?</PageTitle>
         <p>
           Create an account. Create an event. Invite guests. Send invitations (by email). Guests get a link and can
           accept or decline the invitation. You can review attendees and send out any updates if required. Easy.
         </p>
       </Container>
     </div>
-    <div className="pink-black">
+    <div className="pink-black" style={{ minHeight: '30vh' }}>
       <Container>
         <PageTitle>P.S.</PageTitle>
         <p>

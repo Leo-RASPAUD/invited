@@ -32,7 +32,7 @@ export default ({
         <MdCheckBox className={styles['input-checked']} />
         <MdCheckBoxOutlineBlank className={styles['input-unchecked']} />
       </label>
-      {errors[name] && <Error errorMessage={errorMessage || `${label} is required`} />}
+      {errors[name] && <Error errorMessage={errorMessage || `${label} is required.`} />}
     </div>
   );
 };

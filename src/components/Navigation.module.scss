@@ -3,17 +3,17 @@
 .navigation {
   padding: $padding $padding $padding $padding;
 
-  @media (min-width: 768px) {
+  @media (min-width: $breakpoint) {
     padding: 0;
   }
 }
 
-.list {
+.navigation-list {
   list-style: none;
   margin: 0;
   padding: 0;
 
-  @media (min-width: 768px) {
+  @media (min-width: $breakpoint) {
     display: flex;
   }
 
@@ -21,8 +21,14 @@
     margin: 4px 0;
     padding: 0;
 
-    @media (min-width: 768px) {
+    @media (min-width: $breakpoint) {
       margin: 0 0 0 8px;
+    }
+  }
+
+  > li.navigation-signout {
+    @media (min-width: $breakpoint) {
+      margin: 0 0 0 auto;
     }
   }
 

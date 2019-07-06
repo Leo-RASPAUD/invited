@@ -30,7 +30,7 @@ export const reducer = (state, { payload, type }) => {
       return {
         ...state,
         errorType: errorTypes.createEvent,
-        errorMessage: 'Error while trying to create an event',
+        errorMessage: 'Error while trying to create an event.',
         errors: payload.errors,
       };
     }
@@ -38,7 +38,7 @@ export const reducer = (state, { payload, type }) => {
       return {
         ...state,
         errorType: errorTypes.getEvents,
-        errorMessage: 'Error while trying to get your events',
+        errorMessage: 'Error while trying to get your events.',
         errors: payload.errors,
       };
     }
@@ -46,7 +46,7 @@ export const reducer = (state, { payload, type }) => {
       return {
         ...state,
         errorType: errorTypes.getEvent,
-        errorMessage: 'Error while trying to get your event',
+        errorMessage: 'Error while trying to get your event.',
         errors: payload.errors,
       };
     }
@@ -54,7 +54,7 @@ export const reducer = (state, { payload, type }) => {
       return {
         ...state,
         errorType: errorTypes.addGuest,
-        errorMessage: 'Error while trying to add a guest',
+        errorMessage: 'Error while trying to add a guest.',
         errors: payload.errors,
       };
     }
@@ -62,7 +62,7 @@ export const reducer = (state, { payload, type }) => {
       return {
         ...state,
         errorType: errorTypes.deleteGuest,
-        errorMessage: 'Error while trying to delete a guest',
+        errorMessage: 'Error while trying to delete a guest.',
         errors: payload.errors,
       };
     }
@@ -70,7 +70,7 @@ export const reducer = (state, { payload, type }) => {
       return {
         ...state,
         errorType: errorTypes.decrypt,
-        errorMessage: 'Error while trying to get your event',
+        errorMessage: 'Error while trying to get your event.',
         errors: payload.errors,
       };
     }
@@ -78,7 +78,7 @@ export const reducer = (state, { payload, type }) => {
       return {
         ...state,
         errorType: errorTypes.updateGuestInvitation,
-        errorMessage: 'Error while trying to send your confirmation',
+        errorMessage: 'Error while trying to send your confirmation.',
         errors: payload.errors,
       };
     }
@@ -86,7 +86,7 @@ export const reducer = (state, { payload, type }) => {
       return {
         ...state,
         errorType: errorTypes.deleteEvent,
-        errorMessage: 'Error while trying to delete the event',
+        errorMessage: 'Error while trying to delete the event.',
         errors: payload.errors,
       };
     }
@@ -94,7 +94,7 @@ export const reducer = (state, { payload, type }) => {
       return {
         ...state,
         errorType: errorTypes.sendInvites,
-        errorMessage: 'Error while trying to send the invites',
+        errorMessage: 'Error while trying to send the invites.',
         errors: payload.errors,
       };
     }
@@ -102,7 +102,7 @@ export const reducer = (state, { payload, type }) => {
       return {
         ...state,
         errorType: errorTypes.getGuests,
-        errorMessage: 'Error while trying to get guests',
+        errorMessage: 'Error while trying to get guests.',
         errors: payload.errors,
       };
     }
