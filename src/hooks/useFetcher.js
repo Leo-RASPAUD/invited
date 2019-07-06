@@ -32,9 +32,9 @@ export default () => {
       if (isSubscribed) {
         actions
           .filter(action => !action.name.startsWith('error'))
-          .forEach(({ name = '', dispatch = '', field = null }) => {
+          .forEach(({ name = '', dispatch = '', field = null, customMessage = '' }) => {
             if (name) {
-              rest[dispatch]({ type: name, payload: field ? result[field] : result });
+              rest[dispatch]({ type: name, payload: field ? result[field] : result, customMessage });
             }
           });
         setLoading(false);

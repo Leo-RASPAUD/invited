@@ -9,6 +9,7 @@ import Button, { Buttons } from '../components/Button';
 import Tool from '../components/Tool';
 import Container from '../components/Container';
 import Tools from '../components/Tools';
+
 import { deleteEvent as deleteEventMutation } from '../mutations/eventMutations';
 
 import PageTitle from '../components/PageTitle';

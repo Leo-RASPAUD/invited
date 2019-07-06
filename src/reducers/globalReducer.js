@@ -1,3 +1,4 @@
+import uuid from 'uuid/v4';
 import errorTypes from '../constants/errorTypes';
 
 export const actions = {
@@ -12,11 +13,14 @@ export const actions = {
   errorDeleteEvent: 'errorDeleteEvent',
   errorSendInvites: 'errorSendInvites',
   errorGetGuests: 'errorGetGuests',
+
+  snackbarSendInvitesSuccess: 'snackbarSendInvitesSuccess',
+  closeSnackbarItem: 'closeSnackbarItem',
 };
 
 export const dispatchName = 'dispatchGlobal';
 
-export const reducer = (state, { payload, type }) => {
+export const reducer = (state, { payload, type, customMessage }) => {
   switch (type) {
     case actions.resetErrors: {
       return {
@@ -111,6 +115,18 @@ export const reducer = (state, { payload, type }) => {
         ...state,
         errors: payload.errors,
         errorMessage: 'Something went wrong!',
+      };
+    }
+    case (type.match(/snackbar/) || {}).input: {
+      return {
+        ...state,
+        snackbarItems: state.snackbarItems.concat({ message: customMessage, id: uuid() }),
+      };
+    }
+    case actions.closeSnackbarItem: {
+      return {
+        ...state,
+        snackbarItems: state.snackbarItems.filter(item => item.id !== payload),
       };
     }
     default: {
