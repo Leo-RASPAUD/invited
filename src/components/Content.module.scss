@@ -1,0 +1,9 @@
+@import '../variables.scss';
+
+.grid-item {
+  max-width: 100%;
+
+  @media (min-width: $breakpoint) {
+    max-width: 50%;
+  }
+}

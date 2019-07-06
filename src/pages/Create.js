@@ -6,8 +6,7 @@ import Button from '../components/Button';
 import Tool from '../components/Tool';
 import Tools from '../components/Tools';
 import Container from '../components/Container';
-import Grid from '../components/Grid';
-import GridItem from '../components/GridItem';
+import Content from '../components/Content';
 import Input from '../components/Input';
 import PageTitle from '../components/PageTitle';
 import { withRouter } from 'react-router';
@@ -35,59 +34,50 @@ const Create = ({ history }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Container>
         <PageTitle>Create an event</PageTitle>
-        <Grid>
-          <GridItem>
-            <Input
-              required
-              name="name"
-              label="What is the name of the event?"
-              type="text"
-              register={register}
-              errors={errors}
-            />
-            <Input
-              required
-              name="host"
-              label="Who is the host of the event?"
-              type="text"
-              register={register}
-              errors={errors}
-            />
-            <Input
-              required
-              name="place"
-              label="Where is the place the event will be hosted?"
-              type="text"
-              register={register}
-              errors={errors}
-            />
-            <Select label="What is the type of event?" register={register} errors={errors} name="type" required>
-              <option value="">Select</option>
-              {Object.keys(eventTypes).map(value => (
-                <option key={value} value={value}>
-                  {eventTypes[value]}
-                </option>
-              ))}
-            </Select>
-            <Input
-              required
-              name="time"
-              label="What time is the event?"
-              type="text"
-              register={register}
-              errors={errors}
-            />
-            <Input
-              required
-              name="date"
-              label="When will the event be held?"
-              type="text"
-              register={register}
-              errors={errors}
-            />
-            {errorMessage && <Error errorMessage={errorMessage} />}
-          </GridItem>
-        </Grid>
+        <Content>
+          <Input
+            required
+            name="name"
+            label="What is the name of the event?"
+            type="text"
+            register={register}
+            errors={errors}
+          />
+          <Input
+            required
+            name="host"
+            label="Who is the host of the event?"
+            type="text"
+            register={register}
+            errors={errors}
+          />
+          <Input
+            required
+            name="place"
+            label="Where is the place the event will be hosted?"
+            type="text"
+            register={register}
+            errors={errors}
+          />
+          <Select label="What is the type of event?" register={register} errors={errors} name="type" required>
+            <option value="">Select</option>
+            {Object.keys(eventTypes).map(value => (
+              <option key={value} value={value}>
+                {eventTypes[value]}
+              </option>
+            ))}
+          </Select>
+          <Input required name="time" label="What time is the event?" type="text" register={register} errors={errors} />
+          <Input
+            required
+            name="date"
+            label="When will the event be held?"
+            type="text"
+            register={register}
+            errors={errors}
+          />
+          {errorMessage && <Error errorMessage={errorMessage} />}
+        </Content>
         <p>
           <strong>Warning!</strong> The buttons that follow look very similar but do <strong>very</strong> different
           things. If you have difficulty reading proceed with <strong>caution</strong>.
