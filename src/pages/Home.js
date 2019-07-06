@@ -29,7 +29,7 @@ export default () => (
           Be patient. Be kind. Good things come to those who wait. Shouldn't be long until we are cracking some bottles
           at the invited <strong>launch party</strong>.
         </p>
-        <p>Although chances are you're not invited. ;)</p>
+        <p>Although chances are you're not invited.</p>
       </Container>
     </div>
   </>
