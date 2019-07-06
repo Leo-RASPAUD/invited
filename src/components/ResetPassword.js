@@ -21,7 +21,7 @@ const ResetPassword = ({ history, email, disabled, redirect }) => {
       setResetPassword(true);
       dispatchGlobal({
         type: actions.newSnackbarItem,
-        customMessage: 'A confirmation code has been sent to your email address',
+        customMessage: 'A confirmation code has been sent.',
       });
     } catch (error) {
       setError(error.message);

@@ -1,0 +1,9 @@
+.switch-wrapper {
+  position: relative;
+}
+
+.switch-wrapper > div {
+  min-height: calc(100vh - 135px);
+  position: absolute;
+  width: 100%;
+}

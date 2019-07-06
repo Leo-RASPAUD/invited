@@ -28,7 +28,7 @@ const Edit = ({ history, match }) => {
 
   const onSubmit = async data => {
     const copy = stringUtils.removeEmptyValues(data);
-    const isError = await fetcher({ ...editEvent, params: { ...copy, eventId } });
+    const isError = await fetcher({ ...editEvent, params: { ...copy } });
     if (!isError) {
       history.push('/app');
     }

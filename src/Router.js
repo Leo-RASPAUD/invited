@@ -1,5 +1,6 @@
 import React from 'react';
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { AnimatedSwitch } from 'react-router-transition';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Main from './components/Main';
@@ -19,8 +20,32 @@ import HubAuth from './components/HubAuth';
 import Profile from './pages/Profile';
 import PublicEvent from './pages/PublicEvent';
 import SignUp from './pages/SignUp';
+import spring from 'react-motion/lib/spring';
+
+import styles from './Router.module.scss';
 
 export default () => {
+  function glide(val) {
+    return spring(val, {
+      stiffness: 174,
+      damping: 19,
+    });
+  }
+
+  const pageTransitions = {
+    atEnter: {
+      offset: 200,
+      opacity: 0,
+    },
+    atLeave: {
+      offset: glide(-100),
+      opacity: 0,
+    },
+    atActive: {
+      offset: glide(0),
+      opacity: glide(1),
+    },
+  };
   return (
     <Router>
       <HubAuth />
@@ -33,7 +58,14 @@ export default () => {
         </DesktopNavigation>
       </Header>
       <Main>
-        <Switch>
+        <AnimatedSwitch
+          {...pageTransitions}
+          className={styles['switch-wrapper']}
+          mapStyles={styles => ({
+            opacity: 1,
+            transform: `translateX(${styles.offset}%)`,
+          })}
+        >
           <Route exact path="/" component={Home} />
           <Route exact path="/event/:encrypted" component={PublicEvent} />
           <Route exact path="/login" component={Login} />
@@ -46,7 +78,7 @@ export default () => {
           <PrivateRoute exact path="/app/event/:id" component={EventDetails} />
           <PrivateRoute exact path="/app/event/:id/edit" component={EditEvent} />
           <PrivateRoute exact path="/app/event/:id/guests" component={EventGuests} />
-        </Switch>
+        </AnimatedSwitch>
       </Main>
       <Footer />
     </Router>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import useForm from 'react-hook-form';
 import { decrypt } from '../queries/guestQueries';
 import { updateGuestInvitation } from '../mutations/guestMutations';
@@ -20,6 +20,7 @@ const PublicEvent = ({ location, match }) => {
   const encrypted = match.params.encrypted;
   const { loading, state, fetcher } = useFetcher();
   const { handleSubmit, register, errors } = useForm();
+  const [accepted, setAccepted] = useState(false);
 
   const {
     guest,
@@ -29,19 +30,25 @@ const PublicEvent = ({ location, match }) => {
     event: { type },
   } = state;
 
+  console.log(event);
   const isAccept = location.search.match(/accept=(.*)/) ? location.search.match(/accept=(.*)/)[1] === 'true' : false;
 
   const onSubmit = async data => {
     const copy = stringUtils.removeEmptyValues(data);
-    fetcher({
+    await fetcher({
       ...updateGuestInvitation,
       params: { ...guest, ...copy, accepted: data.accepted === 'on' ? true : false },
     });
+    setAccepted(true);
   };
 
   useEffect(() => {
     fetcher({ ...decrypt, params: { encrypted } });
   }, []); // eslint-disable-line
+
+  if (accepted) {
+    return <div>Thank you!</div>;
+  }
 
   return (
     <div>
