@@ -2,10 +2,10 @@
 
 .error {
   background: transparent;
-  padding: 8px;
-  margin: 8px 0px;
+  padding: $padding;
+  margin: $padding 0px;
   flex: 1;
-  border: 2px solid $error-color;
+  border: $border-width solid $error-color;
   display: flex;
   align-items: center;
   font-size: 20px;
@@ -15,11 +15,12 @@
   background: $error-color;
   border-radius: 10px;
   color: $black;
+  flex: 0 0 20px;
   font-size: inherit;
   font-weight: bold;
   height: 20px;
   line-height: 20px;
-  margin-right: 8px;
+  margin-right: $padding;
   text-align: center;
   width: 20px;
 }

@@ -8,8 +8,4 @@
   @media (min-width: 768px) {
     flex: 0 0 50%;
   }
-
-  @media (min-width: 1536px) {
-    flex: 0 0 percentage(1/3);
-  }
 }

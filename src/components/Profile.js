@@ -6,9 +6,7 @@ import Grid from './Grid';
 import GridItem from './GridItem';
 import useForm from 'react-hook-form';
 import PageTitle from './PageTitle';
-import Button from './Button';
-import Tool from './Tool';
-import Tools from './Tools';
+import Button, { Buttons } from './Button';
 import ResetPassword from './ResetPassword';
 import Error from './Error';
 import { Context } from '../AppContext';
@@ -55,8 +53,8 @@ export default ({ user }) => {
       <Container>
         <PageTitle>Change password</PageTitle>
       </Container>
-      <form className={styles['container']} onSubmit={handleSubmit(changePassword)}>
-        <Container>
+      <Container>
+        <form className={styles['container']} onSubmit={handleSubmit(changePassword)}>
           <Grid>
             <GridItem>
               <Input
@@ -77,30 +75,18 @@ export default ({ user }) => {
               />
             </GridItem>
           </Grid>
-        </Container>
-        {changePasswordError.length > 0 && (
-          <Container>
-            <Grid>
-              <GridItem>
-                <Error errorMessage={changePasswordError} />
-              </GridItem>
-            </Grid>
-          </Container>
-        )}
-        <Tools>
-          <Tool>
+          {changePasswordError.length > 0 && <Error errorMessage={changePasswordError} />}
+          <Buttons>
             <Button type="submit">Submit</Button>
-          </Tool>
-        </Tools>
-      </form>
+          </Buttons>
+        </form>
+      </Container>
       <div className="orange-yellow">
         <Container>
           <PageTitle>Forgot password</PageTitle>
+          <p>A confirmation code will be sent to your email address.</p>
+          <ResetPassword email={user.username} />
         </Container>
-        <Container>
-          <div>A confirmation code will be sent to your email address.</div>
-        </Container>
-        <ResetPassword email={user.email} />
       </div>
     </>
   );

@@ -2,13 +2,10 @@ import React, { useState, useContext } from 'react';
 import { Auth } from 'aws-amplify';
 import { withRouter } from 'react-router';
 import Input from './Input';
-import Container from './Container';
 import Grid from './Grid';
 import GridItem from './GridItem';
 import useForm from 'react-hook-form';
-import Button from './Button';
-import Tool from './Tool';
-import Tools from './Tools';
+import Button, { Buttons } from './Button';
 import Error from './Error';
 import { Context } from '../AppContext';
 import { actions } from '../reducers/globalReducer';
@@ -48,64 +45,48 @@ const ResetPassword = ({ history, email, disabled, redirect }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {isResetPassword && (
-        <Container>
-          <Grid>
-            <GridItem>
-              <Input
-                required={false}
-                name="confirmationCode"
-                label="Confirmation code"
-                type="text"
-                register={register}
-                errors={errors}
-              />
-              <Input
-                required={false}
-                name="newPassword"
-                label="New password"
-                type="password"
-                register={register}
-                errors={errors}
-              />
-            </GridItem>
-          </Grid>
-        </Container>
+        <Grid>
+          <GridItem>
+            <Input
+              required={false}
+              name="confirmationCode"
+              label="Confirmation code"
+              type="text"
+              register={register}
+              errors={errors}
+            />
+            <Input
+              required={false}
+              name="newPassword"
+              label="New password"
+              type="password"
+              register={register}
+              errors={errors}
+            />
+          </GridItem>
+        </Grid>
       )}
-      {error.length > 0 && (
-        <Container>
-          <Grid>
-            <GridItem>
-              <Error errorMessage={error} />
-            </GridItem>
-          </Grid>
-        </Container>
-      )}
-      <Tools>
+      {error.length > 0 && <Error errorMessage={error} />}
+      <Buttons>
         {!isResetPassword && (
-          <Tool>
-            <Button type="button" onClick={resetPassword} disabled={disabled}>
-              Reset password
-            </Button>
-          </Tool>
+          <Button type="button" onClick={resetPassword} disabled={disabled}>
+            Reset password
+          </Button>
         )}
         {isResetPassword && (
           <>
-            <Tool>
-              <Button
-                type="button"
-                onClick={() => {
-                  setResetPassword(false);
-                }}
-              >
-                Cancel
-              </Button>
-            </Tool>
-            <Tool>
-              <Button type="submit">Submit</Button>
-            </Tool>
+            <Button
+              type="button"
+              onClick={() => {
+                setResetPassword(false);
+              }}
+            >
+              Cancel
+            </Button>
+            <Button type="submit">Submit</Button>
           </>
         )}
-      </Tools>
+      </Buttons>
     </form>
   );
 };
