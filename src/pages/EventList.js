@@ -30,16 +30,14 @@ export default () => {
     <>
       <Container>
         <PageTitle>Events</PageTitle>
-      </Container>
-      <Tools>
-        <Tool>
-          <Button to="/app/new">New</Button>
-        </Tool>
-        <Tool>
-          <Search name="search" register={register} />
-        </Tool>
-      </Tools>
-      <Container>
+        <Tools>
+          <Tool>
+            <Button to="/app/new">New</Button>
+          </Tool>
+          <Tool>
+            <Search name="search" register={register} />
+          </Tool>
+        </Tools>
         {errorMessage && <Error errorMessage={errorMessage} />}
         {!loading ? (
           <Grid>

@@ -21,7 +21,7 @@ export default ({ firstName, lastName, email, id, accepted, emailSent }) => {
       <h3>
         {firstName} {lastName}
       </h3>
-      <div>{email}</div>
+      <p>{email}</p>
       <div>Email {emailSent ? 'sent' : 'not sent'}</div>
       <div className={styles['delete-button']}>
         <ButtonConfirm onConfirm={deleteItem}>Delete</ButtonConfirm>

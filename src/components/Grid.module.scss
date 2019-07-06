@@ -3,5 +3,5 @@
 .grid {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -$grid-gutter / 2;
+  margin: 0 (-$grid-gutter / 2);
 }

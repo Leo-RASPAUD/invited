@@ -31,10 +31,10 @@ $border-color: $active-color;
 $border-width: 2px;
 $box-shadow: none;
 $color: $black;
+$padding: 16px;
 $text-shadow: none;
 
 $breakpoint: 768px;
-$grid-gutter: 8px;
+$grid-gutter: $padding;
 $max-width: 1024px;
 
-$padding: 16px;

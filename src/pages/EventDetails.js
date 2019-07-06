@@ -46,14 +46,14 @@ const EventDetails = ({ history, location, match }) => {
       {errorType === errorTypes.getEvent && <Error errorMessage={errorMessage} />}
       {!loading && (!errorType || errorType !== errorTypes.getEvent) && (
         <>
-          <Tools>
-            <Tool>
-              <Button to={`/app`}>Back</Button>
-            </Tool>
-            <Tool>
-              <PageTitle>{name}</PageTitle>
-            </Tool>
-          </Tools>
+          <Container>
+            <PageTitle>{name}</PageTitle>
+            <Tools>
+              <Tool>
+                <Button to={`/app`}>Back</Button>
+              </Tool>
+            </Tools>
+          </Container>
           <div className="pink-black">
             <Container>
               <PageTitle>Details</PageTitle>

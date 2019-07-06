@@ -36,6 +36,8 @@ export default ({ user }) => {
   return (
     <>
       <Container>
+        <PageTitle>Profile</PageTitle>
+        <p>Emails can't be edited. Might be something we will do in future.</p>
         <Grid>
           <GridItem>
             <Input
@@ -50,37 +52,38 @@ export default ({ user }) => {
           </GridItem>
         </Grid>
       </Container>
-      <Container>
-        <PageTitle>Change password</PageTitle>
-      </Container>
-      <Container>
-        <form className={styles['container']} onSubmit={handleSubmit(changePassword)}>
-          <Grid>
-            <GridItem>
-              <Input
-                required
-                name="oldPassword"
-                label="Old password"
-                type="password"
-                register={register}
-                errors={errors}
-              />
-              <Input
-                required
-                name="newPassword"
-                label="New password"
-                type="password"
-                register={register}
-                errors={errors}
-              />
-            </GridItem>
-          </Grid>
-          {changePasswordError.length > 0 && <Error errorMessage={changePasswordError} />}
-          <Buttons>
-            <Button type="submit">Submit</Button>
-          </Buttons>
-        </form>
-      </Container>
+      <div className="white-teal">
+        <Container>
+          <PageTitle>Change password</PageTitle>
+          <p>Embarressing old password? Get a fancy new password right here.</p>
+          <form className={styles['container']} onSubmit={handleSubmit(changePassword)}>
+            <Grid>
+              <GridItem>
+                <Input
+                  required
+                  name="oldPassword"
+                  label="Old password"
+                  type="password"
+                  register={register}
+                  errors={errors}
+                />
+                <Input
+                  required
+                  name="newPassword"
+                  label="New password"
+                  type="password"
+                  register={register}
+                  errors={errors}
+                />
+              </GridItem>
+            </Grid>
+            {changePasswordError.length > 0 && <Error errorMessage={changePasswordError} />}
+            <Buttons>
+              <Button type="submit">Submit</Button>
+            </Buttons>
+          </form>
+        </Container>
+      </div>
       <div className="orange-yellow">
         <Container>
           <PageTitle>Forgot password</PageTitle>

@@ -35,8 +35,6 @@ const Create = ({ history }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Container>
         <PageTitle>Create an event</PageTitle>
-      </Container>
-      <Container>
         <Grid>
           <GridItem>
             <Input
@@ -90,21 +88,19 @@ const Create = ({ history }) => {
             {errorMessage && <Error errorMessage={errorMessage} />}
           </GridItem>
         </Grid>
-      </Container>
-      <Container>
         <p>
           <strong>Warning!</strong> The buttons that follow look very similar but do <strong>very</strong> different
           things. If you have difficulty reading proceed with <strong>caution</strong>.
         </p>
+        <Tools>
+          <Tool>
+            <Button type="submit">Create</Button>
+          </Tool>
+          <Tool>
+            <Button to="/app">Cancel</Button>
+          </Tool>
+        </Tools>
       </Container>
-      <Tools>
-        <Tool>
-          <Button type="submit">Create</Button>
-        </Tool>
-        <Tool>
-          <Button to="/app">Cancel</Button>
-        </Tool>
-      </Tools>
     </form>
   );
 };

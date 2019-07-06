@@ -37,38 +37,48 @@ export default ({ match }) => {
         <Error errorMessage={errorMessage} />
       )}
       {(!errorType || errorType !== errorTypes.getGuests) && (
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Tools>
-            <Tool>
-              <Button to={`/app/event/${eventId}`}>Back</Button>
-            </Tool>
-            <Tool>
-              <PageTitle>Add guest</PageTitle>
-            </Tool>
-          </Tools>
+        <>
           <Container>
-            <Grid>
-              <GridItem>
-                <Input required name="firstName" label="First name" type="text" register={register} errors={errors} />
-                <Input required name="lastName" label="Last name" type="text" register={register} errors={errors} />
-                <Input required name="email" label="Email" type="text" register={register} errors={errors} />
-                {errorType === errorTypes.addGuest && errorMessage && <Error errorMessage={errorMessage} />}
-              </GridItem>
-            </Grid>
+            <PageTitle>Manage guests</PageTitle>
+            <Tools>
+              <Tool>
+                <Button to={`/app/event/${eventId}`}>Back</Button>
+              </Tool>
+            </Tools>
           </Container>
-          <Tools>
-            <Tool>
-              <Button type="submit">Add guest</Button>
-            </Tool>
-          </Tools>
-        </form>
+          <div className="pink-black">
+            <Container>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <PageTitle>Add guest</PageTitle>
+                <Grid>
+                  <GridItem>
+                    <Input
+                      required
+                      name="firstName"
+                      label="First name"
+                      type="text"
+                      register={register}
+                      errors={errors}
+                    />
+                    <Input required name="lastName" label="Last name" type="text" register={register} errors={errors} />
+                    <Input required name="email" label="Email" type="text" register={register} errors={errors} />
+                    {errorType === errorTypes.addGuest && errorMessage && <Error errorMessage={errorMessage} />}
+                  </GridItem>
+                </Grid>
+                <Tools>
+                  <Tool>
+                    <Button type="submit">Add guest</Button>
+                  </Tool>
+                </Tools>
+              </form>
+            </Container>
+          </div>
+        </>
       )}
       {!loading && guests.length > 0 && (
         <>
           <Container>
             <PageTitle>Guests</PageTitle>
-          </Container>
-          <Container>
             <Grid>
               {guests.map(guest => {
                 return (
