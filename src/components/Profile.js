@@ -2,8 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Auth } from 'aws-amplify';
 import Input from './Input';
 import Container from './Container';
-import Grid from './Grid';
-import GridItem from './GridItem';
+import MaxWidth from './MaxWidth';
 import useForm from 'react-hook-form';
 import PageTitle from './PageTitle';
 import Button, { Buttons } from './Button';
@@ -38,45 +37,41 @@ export default ({ user }) => {
       <Container>
         <PageTitle>Profile</PageTitle>
         <p>Emails can't be edited. Might be something we will do in future.</p>
-        <Grid>
-          <GridItem>
-            <Input
-              required={false}
-              name="email"
-              label="Email"
-              type="text"
-              errors={errors}
-              disabled
-              defaultValue={user.email}
-            />
-          </GridItem>
-        </Grid>
+        <MaxWidth>
+          <Input
+            required={false}
+            name="email"
+            label="Email"
+            type="text"
+            errors={errors}
+            disabled
+            defaultValue={user.email}
+          />
+        </MaxWidth>
       </Container>
       <div className="white-teal">
         <Container>
           <PageTitle>Change password</PageTitle>
           <p>Embarressing old password? Get a fancy new password right here.</p>
           <form className={styles['container']} onSubmit={handleSubmit(changePassword)}>
-            <Grid>
-              <GridItem>
-                <Input
-                  required
-                  name="oldPassword"
-                  label="Old password"
-                  type="password"
-                  register={register}
-                  errors={errors}
-                />
-                <Input
-                  required
-                  name="newPassword"
-                  label="New password"
-                  type="password"
-                  register={register}
-                  errors={errors}
-                />
-              </GridItem>
-            </Grid>
+            <MaxWidth>
+              <Input
+                required
+                name="oldPassword"
+                label="Old password"
+                type="password"
+                register={register}
+                errors={errors}
+              />
+              <Input
+                required
+                name="newPassword"
+                label="New password"
+                type="password"
+                register={register}
+                errors={errors}
+              />
+            </MaxWidth>
             {changePasswordError.length > 0 && <Error errorMessage={changePasswordError} />}
             <Buttons>
               <Button type="submit">Submit</Button>

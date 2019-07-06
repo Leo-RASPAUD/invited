@@ -4,8 +4,7 @@ import useForm from 'react-hook-form';
 import { withRouter } from 'react-router-dom';
 import Button from '../components/Button';
 import Container from '../components/Container';
-import Grid from '../components/Grid';
-import GridItem from '../components/GridItem';
+import MaxWidth from '../components/MaxWidth';
 import Input from '../components/Input';
 import PageTitle from '../components/PageTitle';
 import Error from '../components/Error';
@@ -28,26 +27,18 @@ const Login = ({ history }) => {
   };
 
   return (
-    <>
+    <Container>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Container>
-          <PageTitle>Sign In</PageTitle>
-        </Container>
-        <Container>
-          <Grid>
-            <GridItem>
-              <Input required name="email" label="Email" type="text" register={register} errors={errors} />
-              <Input required name="password" label="Password" type="password" register={register} errors={errors} />
-            </GridItem>
-          </Grid>
-        </Container>
+        <PageTitle>Sign In</PageTitle>
+        <MaxWidth>
+          <Input required name="email" label="Email" type="text" register={register} errors={errors} />
+          <Input required name="password" label="Password" type="password" register={register} errors={errors} />
+        </MaxWidth>
         {error.length > 0 && (
           <Container>
-            <Grid>
-              <GridItem>
-                <Error errorMessage={error} />
-              </GridItem>
-            </Grid>
+            <MaxWidth>
+              <Error errorMessage={error} />
+            </MaxWidth>
           </Container>
         )}
         <Tools>
@@ -59,7 +50,7 @@ const Login = ({ history }) => {
               onClick={() => {
                 Auth.federatedSignIn({ provider: 'Google' });
               }}
-              style={{ padding: 1 }}
+              style={{ boxShadow: 'none', padding: 1 }}
             />
           </Tool>
         </Tools>
@@ -69,7 +60,7 @@ const Login = ({ history }) => {
           </Tool>
         </Tools>
       </form>
-    </>
+    </Container>
   );
 };
 

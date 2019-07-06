@@ -5,6 +5,7 @@ import Button from '../components/Button';
 import Container from '../components/Container';
 import Grid from '../components/Grid';
 import GridItem from '../components/GridItem';
+import MaxWidth from '../components/MaxWidth';
 import Input from '../components/Input';
 import Error from '../components/Error';
 import Guest from '../components/Guest';
@@ -50,21 +51,12 @@ export default ({ match }) => {
             <Container>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <PageTitle>Add guest</PageTitle>
-                <Grid>
-                  <GridItem>
-                    <Input
-                      required
-                      name="firstName"
-                      label="First name"
-                      type="text"
-                      register={register}
-                      errors={errors}
-                    />
-                    <Input required name="lastName" label="Last name" type="text" register={register} errors={errors} />
-                    <Input required name="email" label="Email" type="text" register={register} errors={errors} />
-                    {errorType === errorTypes.addGuest && errorMessage && <Error errorMessage={errorMessage} />}
-                  </GridItem>
-                </Grid>
+                <MaxWidth>
+                  <Input required name="firstName" label="First name" type="text" register={register} errors={errors} />
+                  <Input required name="lastName" label="Last name" type="text" register={register} errors={errors} />
+                  <Input required name="email" label="Email" type="text" register={register} errors={errors} />
+                  {errorType === errorTypes.addGuest && errorMessage && <Error errorMessage={errorMessage} />}
+                </MaxWidth>
                 <Tools>
                   <Tool>
                     <Button type="submit">Add guest</Button>

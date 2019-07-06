@@ -6,8 +6,7 @@ import Button from '../components/Button';
 import Tool from '../components/Tool';
 import Tools from '../components/Tools';
 import Container from '../components/Container';
-import Grid from '../components/Grid';
-import GridItem from '../components/GridItem';
+import MaxWidth from '../components/MaxWidth';
 import Input from '../components/Input';
 import { getEvent } from '../queries/eventQueries';
 import PageTitle from '../components/PageTitle';
@@ -45,88 +44,82 @@ const Edit = ({ history, match }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Container>
         <PageTitle>Edit an event</PageTitle>
-      </Container>
-      <Container>
-        <Grid>
-          <GridItem>
-            <Input
-              defaultValue={name}
-              required
-              name="name"
-              label="What is the name of the event?"
-              type="text"
-              register={register}
-              errors={errors}
-            />
-            <Input
-              required
-              defaultValue={host}
-              name="host"
-              label="Who is the host of the event?"
-              type="text"
-              register={register}
-              errors={errors}
-            />
-            <Input
-              defaultValue={place}
-              required
-              name="place"
-              label="Where is the place the event will be hosted?"
-              type="text"
-              register={register}
-              errors={errors}
-            />
-            <Select
-              label="What is the type of event?"
-              register={register}
-              errors={errors}
-              name="type"
-              required
-              defaultValue={type}
-            >
-              <option value="">Select</option>
-              {Object.keys(eventTypes).map(value => (
-                <option key={value} value={value}>
-                  {eventTypes[value]}
-                </option>
-              ))}
-            </Select>
-            <Input
-              required
-              defaultValue={time}
-              name="time"
-              label="What time is the event?"
-              type="text"
-              register={register}
-              errors={errors}
-            />
-            <Input
-              required
-              name="date"
-              defaultValue={date}
-              label="When will the event be held?"
-              type="text"
-              register={register}
-              errors={errors}
-            />
-            {errorMessage && <Error errorMessage={errorMessage} />}
-          </GridItem>
-        </Grid>
-      </Container>
-      <Container>
+        <MaxWidth>
+          <Input
+            defaultValue={name}
+            required
+            name="name"
+            label="What is the name of the event?"
+            type="text"
+            register={register}
+            errors={errors}
+          />
+          <Input
+            required
+            defaultValue={host}
+            name="host"
+            label="Who is the host of the event?"
+            type="text"
+            register={register}
+            errors={errors}
+          />
+          <Input
+            defaultValue={place}
+            required
+            name="place"
+            label="Where is the place the event will be hosted?"
+            type="text"
+            register={register}
+            errors={errors}
+          />
+          <Select
+            label="What is the type of event?"
+            register={register}
+            errors={errors}
+            name="type"
+            required
+            defaultValue={type}
+          >
+            <option value="">Select</option>
+            {Object.keys(eventTypes).map(value => (
+              <option key={value} value={value}>
+                {eventTypes[value]}
+              </option>
+            ))}
+          </Select>
+          <Input
+            required
+            defaultValue={time}
+            name="time"
+            label="What time is the event?"
+            type="text"
+            register={register}
+            errors={errors}
+          />
+          <Input
+            required
+            name="date"
+            defaultValue={date}
+            label="When will the event be held?"
+            type="text"
+            register={register}
+            errors={errors}
+          />
+          {errorMessage && <Error errorMessage={errorMessage} />}
+        </MaxWidth>
         <p>
           <strong>Warning!</strong> The buttons that follow look very similar but do <strong>very</strong> different
           things. If you have difficulty reading proceed with <strong>caution</strong>.
         </p>
+        <Tools>
+          <Tool>
+            <Button type="submit">Edit</Button>
+          </Tool>
+          <Tool>
+            <Button to="/app">Cancel</Button>
+          </Tool>
+        </Tools>
       </Container>
-      <Tools>
-        <Tool>
-          <Button type="submit">Edit</Button>
-        </Tool>
-        <Tool>
-          <Button to="/app">Cancel</Button>
-        </Tool>
-      </Tools>
     </form>
   );
 };

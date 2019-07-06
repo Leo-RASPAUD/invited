@@ -2,8 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Auth } from 'aws-amplify';
 import { withRouter } from 'react-router';
 import Input from './Input';
-import Grid from './Grid';
-import GridItem from './GridItem';
+import MaxWidth from './MaxWidth';
 import useForm from 'react-hook-form';
 import Button, { Buttons } from './Button';
 import Error from './Error';
@@ -45,26 +44,24 @@ const ResetPassword = ({ history, email, disabled, redirect }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {isResetPassword && (
-        <Grid>
-          <GridItem>
-            <Input
-              required={false}
-              name="confirmationCode"
-              label="Confirmation code"
-              type="text"
-              register={register}
-              errors={errors}
-            />
-            <Input
-              required={false}
-              name="newPassword"
-              label="New password"
-              type="password"
-              register={register}
-              errors={errors}
-            />
-          </GridItem>
-        </Grid>
+        <MaxWidth>
+          <Input
+            required={false}
+            name="confirmationCode"
+            label="Confirmation code"
+            type="text"
+            register={register}
+            errors={errors}
+          />
+          <Input
+            required={false}
+            name="newPassword"
+            label="New password"
+            type="password"
+            register={register}
+            errors={errors}
+          />
+        </MaxWidth>
       )}
       {error.length > 0 && <Error errorMessage={error} />}
       <Buttons>

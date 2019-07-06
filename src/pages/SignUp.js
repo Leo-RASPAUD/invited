@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import useForm from 'react-hook-form';
 import { withRouter } from 'react-router-dom';
 import Container from '../components/Container';
-import Grid from '../components/Grid';
-import GridItem from '../components/GridItem';
+import MaxWidth from '../components/MaxWidth';
 import Input from '../components/Input';
 import PageTitle from '../components/PageTitle';
 import Button from '../components/Button';
@@ -59,37 +58,24 @@ const SignUp = ({ history }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Container>
         <PageTitle>Sign Up</PageTitle>
-      </Container>
-      <Container>
         {!showConfirmation && (
-          <Grid>
-            <GridItem>
-              <Input required name="email" label="Email" type="email" register={register} errors={errors} />
-              <Input required name="password" label="Password" type="password" register={register} errors={errors} />
-            </GridItem>
-          </Grid>
+          <MaxWidth>
+            <Input required name="email" label="Email" type="email" register={register} errors={errors} />
+            <Input required name="password" label="Password" type="password" register={register} errors={errors} />
+          </MaxWidth>
         )}
         {showConfirmation && (
-          <Grid>
-            <GridItem>
-              <Input
-                required
-                name="authCode"
-                label="Confirmation code"
-                type="text"
-                register={register}
-                errors={errors}
-              />
-            </GridItem>
-          </Grid>
+          <MaxWidth>
+            <Input required name="authCode" label="Confirmation code" type="text" register={register} errors={errors} />
+          </MaxWidth>
         )}
+        <Tools>
+          <Tool>
+            {error.length > 0 && <Error errorMessage={error} />}
+            <Button type="submit">Sign up</Button>
+          </Tool>
+        </Tools>
       </Container>
-      <Tools>
-        <Tool>
-          {error.length > 0 && <Error errorMessage={error} />}
-          <Button type="submit">Sign up</Button>
-        </Tool>
-      </Tools>
     </form>
   );
 };

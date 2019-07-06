@@ -6,7 +6,7 @@ import Button from '../components/Button';
 import Tool from '../components/Tool';
 import Tools from '../components/Tools';
 import Container from '../components/Container';
-import Content from '../components/Content';
+import MaxWidth from '../components/MaxWidth';
 import Input from '../components/Input';
 import PageTitle from '../components/PageTitle';
 import { withRouter } from 'react-router';
@@ -34,7 +34,7 @@ const Create = ({ history }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Container>
         <PageTitle>Create an event</PageTitle>
-        <Content>
+        <MaxWidth>
           <Input
             required
             name="name"
@@ -77,7 +77,7 @@ const Create = ({ history }) => {
             errors={errors}
           />
           {errorMessage && <Error errorMessage={errorMessage} />}
-        </Content>
+        </MaxWidth>
         <p>
           <strong>Warning!</strong> The buttons that follow look very similar but do <strong>very</strong> different
           things. If you have difficulty reading proceed with <strong>caution</strong>.
