@@ -17,10 +17,11 @@
   display: flex;
   font-size: inherit;
   line-height: 20px;
-  padding: 6px;
+  padding: $padding - $border-width;
   position: relative;
   width: 100%;
   transition: border .3s ease-in-out;
+  user-select: none;
 }
 
 .input-checked {
@@ -29,20 +30,25 @@
   font-size: 20px;
   opacity: 0;
   position: absolute;
-  right: 6px;
-  top: 6px;
-  transition: opacity .3s ease-in-out;
+  right: $padding - $border-width;
+  top: $padding - $border-width;
+  transition: opacity .2s ease-in-out;
   z-index: 2;
+  height: 20px;
+  width: 20px;
 }
 
 .input-unchecked {
-  color: $border-color;
+  color: $action-border-color;
   display: block;
   font-size: 20px;
   position: absolute;
-  right: 6px;
-  top: 6px;
+  right: $padding - $border-width;
+  top: $padding - $border-width;
   z-index: 1;
+
+  height: 20px;
+  width: 20px;
 }
 
 .input-input {

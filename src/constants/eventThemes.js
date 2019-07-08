@@ -4,8 +4,8 @@ export default {
     backgroundColor: '#ff7a64',
   },
   drinks: {
-    color: '#ffef6b',
-    backgroundColor: '#ff7a64',
+    color: '#242430',
+    backgroundColor: '#ff8bb5',
   },
   party: {
     color: '#ff8bb5',

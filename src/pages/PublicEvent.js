@@ -11,10 +11,18 @@ import Error from '../components/Error';
 import errorTypes from '../constants/errorTypes';
 import Button from '../components/Button';
 import Container from '../components/Container';
-import Invitation from '../components/Invitation';
-import Grid from '../components/Grid';
-import GridItem from '../components/GridItem';
+import MaxWidth from '../components/MaxWidth';
 import PageTitle from '../components/PageTitle';
+
+import BackgroundFixed from '../components/BackgroundFixed';
+import Wedding from '../templates/Wedding';
+import Birthday from '../templates/Birthday';
+import Funeral from '../templates/Funeral';
+import Drinks from '../templates/Drinks';
+import Restaurant from '../templates/Restaurant';
+import Party from '../templates/Party';
+import eventThemes from '../constants/eventThemes';
+import eventTypes from '../constants/eventTypes';
 
 const PublicEvent = ({ location, match }) => {
   const encrypted = match.params.encrypted;
@@ -30,7 +38,6 @@ const PublicEvent = ({ location, match }) => {
     event: { type },
   } = state;
 
-  console.log(event);
   const isAccept = location.search.match(/accept=(.*)/) ? location.search.match(/accept=(.*)/)[1] === 'true' : false;
 
   const onSubmit = async data => {
@@ -50,37 +57,45 @@ const PublicEvent = ({ location, match }) => {
     return <div>Thank you!</div>;
   }
 
+  const styles = type
+    ? {
+        ...eventThemes[type],
+        minHeight: 'calc(100vh - 84px)',
+      }
+    : {
+        minHeight: 'calc(100vh - 84px)',
+      };
+
   return (
-    <div>
+    <div style={styles}>
       {errorType === errorTypes.decrypt && <Error errorMessage={errorMessage} />}
       {!loading && (!errorType || errorType !== errorTypes.decrypt) && (
-        <>
-          <Container>
-            <PageTitle>Accept</PageTitle>
-          </Container>
-          <Container>
-            <Grid>
-              <GridItem>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <Input required name="notes" label="Notes" type="text" register={register} errors={errors} />
-                  <InputCheckbox
-                    name="accepted"
-                    label="Accepted"
-                    type="checkbox"
-                    register={register}
-                    errors={errors}
-                    defaultChecked={isAccept}
-                  />
-                  {errorType === errorTypes.updateGuestInvitation && errorMessage && (
-                    <Error errorMessage={errorMessage} />
-                  )}
-                  <Button type="submit">Submit</Button>
-                </form>
-              </GridItem>
-            </Grid>
-          </Container>
-          <Invitation type={type} event={event} />
-        </>
+        <Container>
+          <BackgroundFixed image={'backgroundImage'}>
+            {eventTypes.wedding === eventTypes[type] && <Wedding {...event} />}
+            {eventTypes.birthday === eventTypes[type] && <Birthday {...event} />}
+            {eventTypes.funeral === eventTypes[type] && <Funeral {...event} />}
+            {eventTypes.drinks === eventTypes[type] && <Drinks {...event} />}
+            {eventTypes.restaurant === eventTypes[type] && <Restaurant {...event} />}
+            {eventTypes.party === eventTypes[type] && <Party {...event} />}
+          </BackgroundFixed>
+          <PageTitle>Accept</PageTitle>
+          <MaxWidth>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Input required name="notes" label="Notes" type="text" register={register} errors={errors} />
+              <InputCheckbox
+                name="accepted"
+                label="Accepted"
+                type="checkbox"
+                register={register}
+                errors={errors}
+                defaultChecked={isAccept}
+              />
+              {errorType === errorTypes.updateGuestInvitation && errorMessage && <Error errorMessage={errorMessage} />}
+              <Button type="submit">Submit</Button>
+            </form>
+          </MaxWidth>
+        </Container>
       )}
     </div>
   );

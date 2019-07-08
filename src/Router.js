@@ -49,14 +49,16 @@ export default () => {
   return (
     <Router>
       <HubAuth />
-      <Header>
-        <Sidebar>
-          <Navigation />
-        </Sidebar>
-        <DesktopNavigation>
-          <Navigation />
-        </DesktopNavigation>
-      </Header>
+      <div>
+        <Header>
+          <Sidebar>
+            <Navigation />
+          </Sidebar>
+          <DesktopNavigation>
+            <Navigation />
+          </DesktopNavigation>
+        </Header>
+      </div>
       <Main>
         <AnimatedSwitch
           {...pageTransitions}

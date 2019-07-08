@@ -1,5 +1,7 @@
+@import '../variables';
+
 .brand {
-  color: inherit;
+  color: $black;
   display: block;
   font-size: 24px;
   line-height: 52px;
@@ -7,6 +9,10 @@
   text-align: center;
   text-decoration: none;
   z-index: 1;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .brand-shape {

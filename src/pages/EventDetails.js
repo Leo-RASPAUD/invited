@@ -58,7 +58,7 @@ const EventDetails = ({ history, location, match }) => {
             <Container>
               <PageTitle>Details</PageTitle>
               <p>
-                {host} is having a {type} at {place} on {time}, {date}.
+                {host} is having {type !== 'drinks' && 'a'} {type} at {place}. {time}, {date}.
               </p>
               <Buttons>
                 <Button to={`${eventId}/edit`}>Edit</Button>
