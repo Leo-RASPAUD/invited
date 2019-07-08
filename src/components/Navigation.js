@@ -41,12 +41,12 @@ const NavigationComponent = ({ history, match }) => {
           <ul className={styles['navigation-list']}>
             <li>
               <NavLink activeStyle={activeStyle} to="/login">
-                Login
+                Log in
               </NavLink>
             </li>
             <li>
               <NavLink activeStyle={activeStyle} to="/signup">
-                Signup
+                Sign up
               </NavLink>
             </li>
             <li>

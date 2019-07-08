@@ -53,10 +53,6 @@ const PublicEvent = ({ location, match }) => {
     fetcher({ ...decrypt, params: { encrypted } });
   }, []); // eslint-disable-line
 
-  if (accepted) {
-    return <div>Thank you!</div>;
-  }
-
   const styles = type
     ? {
         ...eventThemes[type],
@@ -65,6 +61,17 @@ const PublicEvent = ({ location, match }) => {
     : {
         minHeight: 'calc(100vh - 84px)',
       };
+
+  if (accepted) {
+    return (
+      <div style={styles}>
+        <Container>
+          <PageTitle>Thank you!</PageTitle>
+          <p>Have a nice day.</p>
+        </Container>
+      </div>
+    );
+  }
 
   return (
     <div style={styles}>

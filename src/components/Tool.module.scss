@@ -1,5 +1,9 @@
 @import '../variables.scss';
 
 .tool {
-  margin: 0 8px 0 0;
+  margin: 0 $padding 0 0;
+}
+
+.tool:last-child {
+  margin: 0;
 }

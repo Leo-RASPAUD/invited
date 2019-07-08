@@ -57,24 +57,34 @@ const SignUp = ({ history }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Container>
-        <PageTitle>Sign Up</PageTitle>
-        {!showConfirmation && (
-          <MaxWidth>
-            <Input required name="email" label="Email" type="email" register={register} errors={errors} />
-            <Input required name="password" label="Password" type="password" register={register} errors={errors} />
-          </MaxWidth>
-        )}
-        {showConfirmation && (
-          <MaxWidth>
+        <MaxWidth>
+          <PageTitle>Sign up</PageTitle>
+          {!showConfirmation && (
+            <>
+              <Input required name="email" label="Email" type="email" register={register} errors={errors} />
+              <Input required name="password" label="Password" type="password" register={register} errors={errors} />
+            </>
+          )}
+          {showConfirmation && (
             <Input required name="authCode" label="Confirmation code" type="text" register={register} errors={errors} />
-          </MaxWidth>
-        )}
-        <Tools>
-          <Tool>
-            {error.length > 0 && <Error errorMessage={error} />}
-            <Button type="submit">Sign up</Button>
-          </Tool>
-        </Tools>
+          )}
+          <Tools>
+            <Tool>
+              {error.length > 0 && <Error errorMessage={error} />}
+              <Button type="submit">Sign up</Button>
+            </Tool>
+            <Tool>
+              <Button
+                onClick={() => {
+                  Auth.federatedSignIn({ provider: 'Google' });
+                }}
+                style={{ color: '#4285F4' }}
+              >
+                Sign up with Google
+              </Button>
+            </Tool>
+          </Tools>
+        </MaxWidth>
       </Container>
     </form>
   );

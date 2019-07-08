@@ -1,5 +1,6 @@
 import React from 'react';
 import getArrayRandomItem from '../utils/getArrayRandomItem';
+
 const styles = {
   a: {
     fontSize: 88,

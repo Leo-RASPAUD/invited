@@ -10,7 +10,7 @@ import PageTitle from '../components/PageTitle';
 import Error from '../components/Error';
 import Tool from '../components/Tool';
 import Tools from '../components/Tools';
-import GoogleButton from 'react-google-button';
+// import GoogleButton from 'react-google-button';
 
 const Login = ({ history }) => {
   const [error, setError] = useState('');
@@ -29,7 +29,7 @@ const Login = ({ history }) => {
   return (
     <Container>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <PageTitle>Sign In</PageTitle>
+        <PageTitle>Sign in</PageTitle>
         <MaxWidth>
           <Input required name="email" label="Email" type="text" register={register} errors={errors} />
           <Input required name="password" label="Password" type="password" register={register} errors={errors} />
@@ -46,12 +46,20 @@ const Login = ({ history }) => {
             <Button type="submit">Login</Button>
           </Tool>
           <Tool>
-            <GoogleButton
+            <Button
+              onClick={() => {
+                Auth.federatedSignIn({ provider: 'Google' });
+              }}
+              style={{ color: '#4285F4' }}
+            >
+              Sign in with Google
+            </Button>
+            {/*<GoogleButton
               onClick={() => {
                 Auth.federatedSignIn({ provider: 'Google' });
               }}
               style={{ boxShadow: 'none', padding: 1 }}
-            />
+            />*/}
           </Tool>
         </Tools>
         <Tools>
