@@ -14,9 +14,9 @@
   line-height: inherit;
   margin: 0;
   padding: $padding - 2;
+  text-align: center;
   text-decoration: none;
   text-transform: $action-text-transform;
-  width: 100%;
 }
 
 .buttons {
@@ -24,6 +24,7 @@
   margin: 0 -4px;
 
   > .button {
+    flex: 0 1 auto;
     margin: 0 4px;
   }
 }
