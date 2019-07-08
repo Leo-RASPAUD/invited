@@ -40,7 +40,7 @@ export default ({ match }) => {
       {(!errorType || errorType !== errorTypes.getGuests) && (
         <>
           <Container>
-            <PageTitle>Manage guests</PageTitle>
+            <PageTitle>Guests</PageTitle>
             <Tools>
               <Tool>
                 <Button to={`/app/event/${eventId}`}>Back</Button>

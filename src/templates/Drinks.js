@@ -42,10 +42,10 @@ export default ({ type, host, date, time, place }) => {
       <p style={styles.b}>
         with <strong>{host}</strong>
       </p>
-      <p style={styles.d}>
+      <p style={styles.c}>
         {date}, {time}
       </p>
-      <p style={styles.c}>{place}</p>
+      <p style={styles.d}>{place}</p>
       <p>{getArrayRandomItem(comments)}</p>
     </div>
   );

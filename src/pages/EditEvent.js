@@ -113,7 +113,7 @@ const Edit = ({ history, match }) => {
         </p>
         <Tools>
           <Tool>
-            <Button type="submit">Edit</Button>
+            <Button type="submit">Update</Button>
           </Tool>
           <Tool>
             <Button to="/app">Cancel</Button>

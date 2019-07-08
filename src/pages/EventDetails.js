@@ -77,7 +77,7 @@ const EventDetails = ({ history, location, match }) => {
                 </p>
               )}
               <Buttons>
-                <Button to={`${eventId}/guests`}>Manage guests</Button>
+                <Button to={`${eventId}/guests`}>Manage</Button>
                 <Button onClick={sendInvites}>Send invites</Button>
               </Buttons>
               {errorType === errorTypes.sendInvites && errorMessage && <Error errorMessage={errorMessage} />}
