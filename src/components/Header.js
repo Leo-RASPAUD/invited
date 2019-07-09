@@ -1,8 +1,16 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Brand from './Brand';
 import styles from './Header.module.scss';
 
-function Header({ children }) {
+function Header({
+  history: {
+    location: { pathname },
+  },
+  children,
+}) {
+  if (pathname.indexOf('/event/') > -1 && pathname.indexOf('/app') === -1) return null;
+
   return (
     <header className={styles['header']}>
       <Brand to="/">Invited</Brand>
@@ -11,4 +19,4 @@ function Header({ children }) {
   );
 }
 
-export default Header;
+export default withRouter(Header);

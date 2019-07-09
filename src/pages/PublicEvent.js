@@ -9,6 +9,7 @@ import Input from '../components/Input';
 import InputCheckbox from '../components/InputCheckbox';
 import Error from '../components/Error';
 import errorTypes from '../constants/errorTypes';
+import Brand from '../components/Brand';
 import Button from '../components/Button';
 import Container from '../components/Container';
 import MaxWidth from '../components/MaxWidth';
@@ -55,15 +56,22 @@ const PublicEvent = ({ location, match }) => {
   const styles = type
     ? {
         ...eventThemes[type],
-        minHeight: 'calc(100vh - 84px)',
+        boxSizing: 'border-box',
+        minHeight: '100vh',
+        padding: '84px 0 0',
+        position: 'relative',
       }
     : {
-        minHeight: 'calc(100vh - 84px)',
+        boxSizing: 'border-box',
+        minHeight: '100vh',
+        padding: '84px 0 0',
+        position: 'relative',
       };
 
   if (accepted) {
     return (
       <div style={styles}>
+        <Brand to="/">Invited</Brand>
         <Container>
           <PageTitle>Thank you!</PageTitle>
           <p>Have a nice day.</p>
@@ -74,6 +82,9 @@ const PublicEvent = ({ location, match }) => {
 
   return (
     <div style={styles}>
+      <Brand style={{ left: 16, position: 'absolute', top: 16 }} to="/">
+        Invited
+      </Brand>
       {errorType === errorTypes.decrypt && <Error errorMessage={errorMessage} />}
       {!loading && (!errorType || errorType !== errorTypes.decrypt) && (
         <Container>

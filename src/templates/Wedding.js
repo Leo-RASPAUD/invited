@@ -10,12 +10,12 @@ const styles = {
     fontSize: 64,
     fontWeight: 'bold',
     lineHeight: 1,
-    margin: '0 0 8px',
+    margin: '0 0 4px',
   },
   c: {
     fontSize: 32,
     lineHeight: '48px',
-    margin: '0 0 32px',
+    margin: '0 0 20px',
   },
   d: {
     fontSize: 18,
@@ -27,7 +27,7 @@ const styles = {
     fontSize: 18,
     fontWeight: 'bold',
     lineHeight: 1,
-    margin: '32px 0 8px',
+    margin: '28px 0 8px',
   },
 };
 

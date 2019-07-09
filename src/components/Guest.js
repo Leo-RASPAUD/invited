@@ -8,7 +8,6 @@ import {} from 'react-icons/md';
 
 export default ({ firstName, lastName, email, id, accepted, notes }) => {
   const { fetcher } = useFetcher();
-
   const deleteItem = () => {
     fetcher({ ...deleteGuest, params: { id } });
   };
@@ -23,7 +22,7 @@ export default ({ firstName, lastName, email, id, accepted, notes }) => {
         {firstName} {lastName}
       </h3>
       <div>{email}</div>
-      <p className={styles['notes']}>{notes}</p>
+      {notes && <p className={styles['notes']}>{notes}</p>}
       <div className={styles['delete-button']}>
         <ButtonConfirm onConfirm={deleteItem}>Delete</ButtonConfirm>
       </div>

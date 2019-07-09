@@ -5,7 +5,7 @@ const styles = {
     fontSize: 88,
     fontWeight: 'bold',
     lineHeight: 1,
-    margin: 0,
+    margin: '0 0 8px',
   },
   b: {
     fontSize: 32,

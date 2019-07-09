@@ -11,7 +11,7 @@ export default {
     color: '#ff8bb5',
     backgroundColor: '#242430',
   },
-  restaurant: {
+  dinner: {
     color: '#fbfbfa',
     backgroundColor: '#305555',
   },

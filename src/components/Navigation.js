@@ -22,8 +22,6 @@ const NavigationComponent = ({
     Auth.signOut({ global: true }).catch(err => console.log(err));
   };
 
-  if (pathname.indexOf('/event/') > -1 && pathname.indexOf('/app') === -1) return null;
-
   return (
     pathname !== '/googleSignIn' && (
       <div className={styles['navigation']}>
