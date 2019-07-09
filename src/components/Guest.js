@@ -4,8 +4,9 @@ import useFetcher from '../hooks/useFetcher';
 import { deleteGuest } from '../mutations/guestMutations';
 import styles from './Guest.module.scss';
 import classnames from 'classnames';
+import {} from 'react-icons/md';
 
-export default ({ firstName, lastName, email, id, accepted, emailSent }) => {
+export default ({ firstName, lastName, email, id, accepted, emailSent, notes }) => {
   const { fetcher } = useFetcher();
 
   const deleteItem = () => {
@@ -21,7 +22,8 @@ export default ({ firstName, lastName, email, id, accepted, emailSent }) => {
       <h3>
         {firstName} {lastName}
       </h3>
-      <p>{email}</p>
+      <div>{email}</div>
+      <p className={styles['notes']}>{notes}</p>
       <div>Email {emailSent ? 'sent' : 'not sent'}</div>
       <div className={styles['delete-button']}>
         <ButtonConfirm onConfirm={deleteItem}>Delete</ButtonConfirm>
