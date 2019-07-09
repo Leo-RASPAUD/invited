@@ -19,8 +19,4 @@ export default {
     color: '#fbfbfa',
     backgroundColor: '#4e6280',
   },
-  funeral: {
-    color: '#fbfbfa',
-    backgroundColor: '#242430',
-  },
 };

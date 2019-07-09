@@ -17,9 +17,8 @@ import PageTitle from '../components/PageTitle';
 import BackgroundFixed from '../components/BackgroundFixed';
 import Wedding from '../templates/Wedding';
 import Birthday from '../templates/Birthday';
-import Funeral from '../templates/Funeral';
 import Drinks from '../templates/Drinks';
-import Restaurant from '../templates/Restaurant';
+import Dinner from '../templates/Dinner';
 import Party from '../templates/Party';
 import eventThemes from '../constants/eventThemes';
 import eventTypes from '../constants/eventTypes';
@@ -81,9 +80,8 @@ const PublicEvent = ({ location, match }) => {
           <BackgroundFixed image={'backgroundImage'}>
             {eventTypes.wedding === eventTypes[type] && <Wedding {...event} />}
             {eventTypes.birthday === eventTypes[type] && <Birthday {...event} />}
-            {eventTypes.funeral === eventTypes[type] && <Funeral {...event} />}
             {eventTypes.drinks === eventTypes[type] && <Drinks {...event} />}
-            {eventTypes.restaurant === eventTypes[type] && <Restaurant {...event} />}
+            {eventTypes.dinner === eventTypes[type] && <Dinner {...event} />}
             {eventTypes.party === eventTypes[type] && <Party {...event} />}
           </BackgroundFixed>
           <PageTitle>Accept</PageTitle>

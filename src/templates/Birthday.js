@@ -25,7 +25,7 @@ const styles = {
   },
 };
 
-export default ({ type, host, date, time, place }) => {
+export default ({ date, host, place, time, type }) => {
   return (
     <div style={{ marginBottom: 56 }}>
       <p style={styles.a}>You're &mdash;</p>
