@@ -6,7 +6,7 @@ import styles from './Guest.module.scss';
 import classnames from 'classnames';
 import {} from 'react-icons/md';
 
-export default ({ firstName, lastName, email, id, accepted, emailSent, notes }) => {
+export default ({ firstName, lastName, email, id, accepted, notes }) => {
   const { fetcher } = useFetcher();
 
   const deleteItem = () => {
@@ -24,7 +24,6 @@ export default ({ firstName, lastName, email, id, accepted, emailSent, notes }) 
       </h3>
       <div>{email}</div>
       <p className={styles['notes']}>{notes}</p>
-      <div>Email {emailSent ? 'sent' : 'not sent'}</div>
       <div className={styles['delete-button']}>
         <ButtonConfirm onConfirm={deleteItem}>Delete</ButtonConfirm>
       </div>

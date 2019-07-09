@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getEvent, sendInvites as sendInvitesQuery } from '../queries/eventQueries';
 import useFetcher from '../hooks/useFetcher';
 import { withRouter } from 'react-router';
@@ -15,6 +15,7 @@ import { deleteEvent as deleteEventMutation } from '../mutations/eventMutations'
 import PageTitle from '../components/PageTitle';
 const EventDetails = ({ history, location, match }) => {
   const eventId = match.params.id;
+  const [sendingInvites, setSendingInvites] = useState(false);
   const { loading, state, fetcher } = useFetcher();
   const {
     event: { date, host, name, place, time, type },
@@ -30,11 +31,13 @@ const EventDetails = ({ history, location, match }) => {
     history.push(`/app`);
   };
 
-  const sendInvites = () => {
-    fetcher({
+  const sendInvites = async () => {
+    setSendingInvites(true);
+    await fetcher({
       ...sendInvitesQuery,
       params: { eventId, name, type, place, date, host, guests: JSON.stringify(guests) },
     });
+    setSendingInvites(false);
   };
 
   useEffect(() => {
@@ -78,7 +81,9 @@ const EventDetails = ({ history, location, match }) => {
               )}
               <Buttons>
                 <Button to={`${eventId}/guests`}>Manage</Button>
-                <Button onClick={sendInvites}>Send invites</Button>
+                <Button disabled={sendingInvites} onClick={sendInvites}>
+                  Send invites
+                </Button>
               </Buttons>
               {errorType === errorTypes.sendInvites && errorMessage && <Error errorMessage={errorMessage} />}
             </Container>
