@@ -89,7 +89,7 @@ const PublicEvent = ({ location, match }) => {
           <PageTitle>Accept</PageTitle>
           <MaxWidth>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <Input required name="notes" label="Notes" type="text" register={register} errors={errors} />
+              <Input name="notes" label="Notes" type="text" register={register} errors={errors} />
               <InputCheckbox
                 name="accepted"
                 label="Accepted"
