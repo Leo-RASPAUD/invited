@@ -2,24 +2,24 @@ import React from 'react';
 import getArrayRandomItem from '../utils/getArrayRandomItem';
 
 const styles = {
-  a: {
-    fontSize: 88,
+  name: {
+    fontSize: 64,
     fontWeight: 'bold',
     lineHeight: 1,
-    margin: 0,
+    margin: '0 0 32px',
   },
-  b: {
+  host: {
     fontSize: 32,
     lineHeight: 1,
     margin: '0 0 32px',
   },
-  c: {
+  dateTime: {
     fontSize: 18,
     fontWeight: 'bold',
     lineHeight: 1,
     margin: '8px 0',
   },
-  d: {
+  place: {
     fontSize: 18,
     fontWeight: 'bold',
     lineHeight: 1,
@@ -35,17 +35,17 @@ const comments = [
   'Any excuse will do.',
 ];
 
-export default ({ date, host, place, time, type }) => {
+export default ({ date, host, name, place, time, type }) => {
   return (
     <div style={{ marginBottom: 56 }}>
-      <h1 style={styles.a}>Drinks</h1>
-      <p style={styles.b}>
+      <h1 style={styles.name}>{name}</h1>
+      <p style={styles.host}>
         with <strong>{host}</strong>
       </p>
-      <p style={styles.c}>
+      <p style={styles.dateTime}>
         {date}, {time}
       </p>
-      <p style={styles.d}>{place}</p>
+      <p style={styles.place}>{place}</p>
       <p>{getArrayRandomItem(comments)}</p>
     </div>
   );
