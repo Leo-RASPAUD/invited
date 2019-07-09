@@ -11,14 +11,21 @@ const activeStyle = {
   border: '2px solid currentColor',
 };
 
-const NavigationComponent = ({ history, match }) => {
+const NavigationComponent = ({
+  history: {
+    location: { pathname },
+  },
+  match,
+}) => {
   const { isLoaded, user } = useContext(contextUser);
   const signOut = () => {
     Auth.signOut({ global: true }).catch(err => console.log(err));
   };
 
+  if (pathname.indexOf('/event/') > -1 && pathname.indexOf('/app') === -1) return null;
+
   return (
-    window.location.pathname !== '/googleSignIn' && (
+    pathname !== '/googleSignIn' && (
       <div className={styles['navigation']}>
         {isLoaded && user && (
           <ul className={styles['navigation-list']}>
