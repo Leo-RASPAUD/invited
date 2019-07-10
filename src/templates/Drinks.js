@@ -1,9 +1,8 @@
 import React from 'react';
-import getArrayRandomItem from '../utils/getArrayRandomItem';
 
 const styles = {
   name: {
-    fontSize: 64,
+    fontSize: 56,
     fontWeight: 'bold',
     lineHeight: 1,
     margin: '0 0 32px',
@@ -27,14 +26,6 @@ const styles = {
   },
 };
 
-const comments = [
-  'Because sometimes you need to be interesting.',
-  'Blah.',
-  'Because.',
-  'You will feel and look better.',
-  'Any excuse will do.',
-];
-
 export default ({ date, host, name, place, time, type }) => {
   return (
     <div style={{ marginBottom: 56 }}>
@@ -46,7 +37,6 @@ export default ({ date, host, name, place, time, type }) => {
         {date}, {time}
       </p>
       <p style={styles.place}>{place}</p>
-      <p>{getArrayRandomItem(comments)}</p>
     </div>
   );
 };
