@@ -84,10 +84,18 @@ const PublicEvent = ({ location, match }) => {
         position: 'relative',
       };
 
+  const brandStyles = {
+    left: 16,
+    position: 'absolute',
+    top: 16,
+  };
+
   if (accepted) {
     return (
       <div style={styles}>
-        <Brand to="/">Invited</Brand>
+        <Brand style={brandStyles} to="/">
+          Invited
+        </Brand>
         <Container>
           <PageTitle>Thank you!</PageTitle>
           <p>Have a nice day.</p>
@@ -98,7 +106,7 @@ const PublicEvent = ({ location, match }) => {
 
   return (
     <div style={styles}>
-      <Brand style={{ left: 16, position: 'absolute', top: 16 }} to="/">
+      <Brand style={brandStyles} to="/">
         Invited
       </Brand>
       {errorType === errorTypes.decrypt && <Error errorMessage={errorMessage} />}
@@ -111,7 +119,7 @@ const PublicEvent = ({ location, match }) => {
             {eventTypes.dinner === eventTypes[type] && <Dinner {...event} />}
             {eventTypes.party === eventTypes[type] && <Party {...event} />}
           </BackgroundFixed>
-          <PageTitle>Accept</PageTitle>
+          <PageTitle h={2}>Accept</PageTitle>
           <MaxWidth>
             <form onSubmit={handleSubmit(onSubmit)}>
               <Input name="notes" label="Notes" type="text" register={register} errors={errors} />
