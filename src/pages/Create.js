@@ -8,6 +8,7 @@ import Tools from '../components/Tools';
 import Container from '../components/Container';
 import MaxWidth from '../components/MaxWidth';
 import Input from '../components/Input';
+import TextArea from '../components/TextArea';
 import PageTitle from '../components/PageTitle';
 import { withRouter } from 'react-router';
 import Error from '../components/Error';
@@ -73,6 +74,14 @@ const Create = ({ history }) => {
             name="date"
             label="When will the event be held?"
             type="text"
+            register={register}
+            errors={errors}
+          />
+          <TextArea
+            required
+            name="details"
+            label="All the other information people need to know (go nuts)."
+            type="textarea"
             register={register}
             errors={errors}
           />

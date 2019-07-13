@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Input.module.scss';
+import styles from './TextArea.module.scss';
 import Error from './Error';
 
 export default ({
@@ -15,12 +15,12 @@ export default ({
   row = true,
 }) => {
   return (
-    <div className={styles['input']}>
-      <label className={styles['input-label']} htmlFor={name}>
+    <div className={styles['textarea']}>
+      <label className={styles['textarea-label']} htmlFor={name}>
         {label}
       </label>
-      <input
-        className={styles['input-input']}
+      <textarea
+        className={styles['textarea-textarea']}
         defaultValue={defaultValue}
         id={name}
         name={name}

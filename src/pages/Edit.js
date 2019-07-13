@@ -8,6 +8,7 @@ import Tools from '../components/Tools';
 import Container from '../components/Container';
 import MaxWidth from '../components/MaxWidth';
 import Input from '../components/Input';
+import TextArea from '../components/TextArea';
 import { getEvent } from '../queries/eventQueries';
 import PageTitle from '../components/PageTitle';
 import { withRouter } from 'react-router';
@@ -22,7 +23,7 @@ const Edit = ({ history, match }) => {
   const { state, loading, fetcher } = useFetcher();
 
   const {
-    event: { date, host, name, place, time, type },
+    event: { date, host, name, place, time, type, details },
     errorMessage,
   } = state;
 
@@ -102,6 +103,15 @@ const Edit = ({ history, match }) => {
             defaultValue={date}
             label="When will the event be held?"
             type="text"
+            register={register}
+            errors={errors}
+          />
+          <TextArea
+            required
+            name="details"
+            label="All the other information people need to know (go nuts)."
+            type="textarea"
+            defaultValue={details}
             register={register}
             errors={errors}
           />

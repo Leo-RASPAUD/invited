@@ -1,0 +1,42 @@
+@import '../variables.scss';
+
+.textarea {
+  // display: flex;
+  // flex-wrap: wrap;
+  margin: 0 0 $padding;
+}
+
+.textarea-label {
+  display: block;
+  // flex: 0 0 (1 / 3) * 100%;
+  padding: $padding / 2 0;
+}
+
+.textarea-textarea {
+  appearance: none;
+  background: $action-background;
+  border: none;
+  border-bottom: $border-width solid $action-border-color;
+  border-radius: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: inherit;
+  display: block;
+  // flex: 0 0 (2 / 3) * 100%;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: $padding $padding $padding - 2;
+  width: 100%;
+
+  &:disabled {
+    background: $disabled-background;
+    border-bottom: $border-width solid $disabled-border-color;
+    color: $disabled-color;
+    opacity: 1;
+  }
+
+  &:placeholder {
+    color: currentColor;
+  }
+}

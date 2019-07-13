@@ -10,6 +10,7 @@ export const baseEvent = `
     place
     time
     date
+    details
 `;
 export const event = `
     ${baseEvent}

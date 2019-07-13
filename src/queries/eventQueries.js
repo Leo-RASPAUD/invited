@@ -37,8 +37,8 @@ const sendInvites = {
       customMessage: 'Invites sent successfully',
     },
   ],
-  query: `query sendInvites( $eventId: String!, $name: String!, $type: String!, $place: String!, $date: String!, $host: String!, $guests: String!) {
-    sendInvites(eventId: $eventId, name: $name, type: $type, place: $place, date: $date, host: $host, guests: $guests)
+  query: `query sendInvites( $eventId: String!, $name: String!, $type: String!, $place: String!, $date: String!, $host: String!, $guests: String!, $details: String!) {
+    sendInvites(eventId: $eventId, name: $name, type: $type, place: $place, date: $date, host: $host, guests: $guests, details: $details)
 }`,
 };
 

@@ -5,7 +5,7 @@ import eventThemes from '../constants/eventThemes';
 
 import styles from './Event.module.scss';
 
-const Event = ({ id, name, loading, date, host, place, type }) => {
+const Event = ({ id, name, date, type }) => {
   const { backgroundColor = 'grey', backgroundImage, ...rest } = eventThemes[type.toLowerCase()];
   return (
     <Background color={backgroundColor} image={backgroundImage}>
