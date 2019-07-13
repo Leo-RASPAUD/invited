@@ -60,13 +60,19 @@ const EventDetails = ({ history, location, match }) => {
           </Container>
           <div className="pink-black">
             <Container>
-              <PageTitle>Details</PageTitle>
+              <PageTitle>Summary</PageTitle>
               <p>
                 {host} is having {type !== 'drinks' && 'a'} {type} at {place}. {time}, {date}.
               </p>
               <Buttons>
                 <Button to={`${eventId}/edit`}>Edit</Button>
               </Buttons>
+            </Container>
+          </div>
+          <div className="orange-yellow">
+            <Container>
+              <PageTitle>Details</PageTitle>
+              <p>{details}</p>
             </Container>
           </div>
           <div className="white-blue">
