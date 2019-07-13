@@ -39,17 +39,26 @@ export default () => {
           </Tool>
         </Tools>
         {errorMessage && <Error errorMessage={errorMessage} />}
-        {!loading ? (
-          <Grid>
-            {events
-              .filter(event => event.name.toLowerCase().startsWith(watchSearch.toLowerCase()))
-              .map(event => (
-                <GridItem key={event.id}>
-                  <Event {...event} />
-                </GridItem>
-              ))}
-          </Grid>
-        ) : null}
+        {!loading && (
+          <>
+            {events.length > 0 ? (
+              <Grid>
+                {events
+                  .filter(event => event.name.toLowerCase().startsWith(watchSearch.toLowerCase()))
+                  .map(event => (
+                    <GridItem key={event.id}>
+                      <Event {...event} />
+                    </GridItem>
+                  ))}
+              </Grid>
+            ) : (
+              <p>
+                <strong>Hmmmmm.</strong> Either you haven't added an event or you are really good at removing events
+                after they have been enjoyed. Either way you are doing good.
+              </p>
+            )}
+          </>
+        )}
       </Container>
     </>
   );
