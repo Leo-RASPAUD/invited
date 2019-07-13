@@ -1,0 +1,11 @@
+{
+    "version" : "2017-02-28",
+    "operation" : "Query",
+    "index" : "eventId-index",
+    "query" : {
+        "expression": "eventId = :eventId",
+        "expressionValues" : {
+            ":eventId": $util.dynamodb.toDynamoDBJson($ctx.source.id),
+        }
+    },
+}

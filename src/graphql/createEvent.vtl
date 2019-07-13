@@ -1,0 +1,17 @@
+
+{
+    "version" : "2017-02-28",
+    "operation" : "PutItem",
+    "key" : {
+    	"id" : $util.dynamodb.toDynamoDBJson($util.autoId())
+    },
+    "attributeValues" : {
+        "date": $util.dynamodb.toDynamoDBJson($ctx.arguments.date),
+        "host": $util.dynamodb.toDynamoDBJson($ctx.arguments.host),
+        "name": $util.dynamodb.toDynamoDBJson($ctx.arguments.name),
+        "place": $util.dynamodb.toDynamoDBJson($ctx.arguments.place),
+        "time": $util.dynamodb.toDynamoDBJson($ctx.arguments.time),
+        "type": $util.dynamodb.toDynamoDBJson($ctx.arguments.type),
+        "userId": $util.dynamodb.toDynamoDBJson($ctx.identity.sub)
+    }
+}

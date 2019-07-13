@@ -1,0 +1,29 @@
+#set( $expression = "SET" )
+#set( $expValues = {} )
+
+## NAME
+#if( !$util.isNullOrEmpty(${context.arguments.notes}) )
+    #set( $expression = "${expression} notes = :notes" )
+    $!{expValues.put(":notes", { "S" : "${context.arguments.notes}" })}
+#end
+
+## DESCRIPTION
+#if( !$util.isNullOrEmpty(${context.arguments.accepted}) ) 
+    #if( ${expression} != "SET" ) 
+        #set( $expression = "${expression}," )
+    #end
+    #set( $expression = "${expression} accepted = :accepted" )
+    $!{expValues.put(":accepted", { "S" : "${context.arguments.accepted}" })}
+#end
+
+{
+    "version" : "2017-02-28",
+    "operation" : "UpdateItem",
+    "key" : {
+        "id" : { "S" : "${context.arguments.id}" }
+    },
+    "update" : {
+        "expression" : "${expression}",
+        "expressionValues": $util.toJson($expValues)
+    }
+}

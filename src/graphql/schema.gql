@@ -1,0 +1,74 @@
+type DataDeleteResult @aws_cognito_user_pools {
+  deleteEvent: String
+}
+
+type Decrypted @aws_iam @aws_cognito_user_pools {
+  event: Event
+  guest: Guest
+}
+
+type DeleteResult @aws_cognito_user_pools {
+  data: DataDeleteResult
+}
+
+type Event @aws_iam @aws_cognito_user_pools {
+  name: String!
+  id: String!
+  userId: String!
+  type: String!
+  host: String!
+  place: String!
+  time: String!
+  date: String!
+  guests: [Guest]
+}
+
+type Guest @aws_iam @aws_cognito_user_pools {
+  firstName: String
+  lastName: String
+  email: String
+  id: String
+  eventId: String
+  encrypted: String
+  accepted: Boolean
+  emailSent: Boolean
+  notes: String
+}
+
+type Mutation @aws_cognito_user_pools @aws_iam {
+  addGuest(eventId: String!, firstName: String!, lastName: String!, email: String!): Guest
+  createEvent(name: String!, type: String!, host: String!, place: String!, time: String!, date: String!): Event
+  editEvent(
+    name: String!
+    type: String!
+    host: String!
+    place: String!
+    time: String!
+    date: String!
+    eventId: String!
+  ): Event
+  deleteEvent(id: String!): String
+  deleteGuest(id: String!): String
+  updateGuestInvitation(id: String!, notes: String, accepted: Boolean): Guest
+}
+
+type Query {
+  getEvents: [Event]
+  getEvent(id: String!): Event
+  getGuests(eventId: String!): [Guest]
+  sendInvites(
+    host: String!
+    name: String!
+    date: String!
+    place: String!
+    type: String!
+    guests: String!
+    eventId: String!
+  ): Boolean @aws_iam @aws_cognito_user_pools
+  decrypt(encrypted: String!): Decrypted @aws_iam @aws_cognito_user_pools
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
