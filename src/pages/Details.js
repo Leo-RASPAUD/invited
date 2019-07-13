@@ -32,7 +32,6 @@ const EventDetails = ({ history, location, match }) => {
   };
 
   const sendInvites = async () => {
-    console.log(time);
     setSendingInvites(true);
     await fetcher({
       ...sendInvitesQuery,
