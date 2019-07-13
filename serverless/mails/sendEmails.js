@@ -35,7 +35,7 @@ const constants = require('../constants/constants');
 //   }
 // };
 
-module.exports.handler = async ({ host, eventId, name, place, date, time, guests }) => {
+module.exports.handler = async ({ host, eventId, name, place, date, time, guests, details, type }) => {
   const parsedGuests = JSON.parse(guests);
   const key = await getSecretValue({
     secretName: constants.SECRET_NAME,
@@ -60,6 +60,8 @@ module.exports.handler = async ({ host, eventId, name, place, date, time, guests
       place,
       date,
       time,
+      type,
+      details,
     },
   }));
 

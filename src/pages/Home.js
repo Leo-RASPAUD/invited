@@ -10,7 +10,7 @@ export default () => (
         <PageTitle>Hi, I'm Invited.</PageTitle>
         <p>I'm a simple web application for organising events.</p>
         <Buttons>
-          <Button to={'/signup'}>Get</Button>
+          <Button to={'/signup'}>Get started</Button>
         </Buttons>
       </Container>
     </div>

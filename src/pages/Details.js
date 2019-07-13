@@ -18,7 +18,7 @@ const EventDetails = ({ history, location, match }) => {
   const [sendingInvites, setSendingInvites] = useState(false);
   const { loading, state, fetcher } = useFetcher();
   const {
-    event: { date, host, name, place, time, type },
+    event: { date, host, name, place, time, type, details },
     guests = [],
     errorMessage,
     errorType,
@@ -32,10 +32,11 @@ const EventDetails = ({ history, location, match }) => {
   };
 
   const sendInvites = async () => {
+    console.log(time);
     setSendingInvites(true);
     await fetcher({
       ...sendInvitesQuery,
-      params: { eventId, name, type, place, date, host, guests: JSON.stringify(guests) },
+      params: { eventId, name, type, place, date, host, time, guests: JSON.stringify(guests), details },
     });
     setSendingInvites(false);
   };
