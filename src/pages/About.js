@@ -18,10 +18,10 @@ const titles = [
   'The bents',
   'Things that have a curve',
   'Straight',
-  'undeviating',
-  'linear',
-  'direct',
-  'uncurving',
+  'Undeviating',
+  'Linear',
+  'Direct',
+  'Uncurving',
 ];
 
 export default () => (
