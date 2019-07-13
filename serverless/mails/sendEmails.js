@@ -49,7 +49,7 @@ module.exports.handler = async ({ host, eventId, name, place, date, time, guests
 
   const emails = guestWithEmailsToSend.map(guest => ({
     to: guest.email,
-    from: 'admin@invited.events',
+    from: `${guest.firstName.replace(/[^a-zA-Z]/g, '')}@invited.events`,
     templateId: constants.NEW_INVITE_EMAIL,
     dynamic_template_data: {
       firstName: guest.firstName,

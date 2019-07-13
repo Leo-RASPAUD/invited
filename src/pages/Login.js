@@ -30,22 +30,6 @@ const Login = ({ history }) => {
     <Container>
       <form onSubmit={handleSubmit(onSubmit)}>
         <PageTitle>Sign in</PageTitle>
-        <p>
-          Do <strong>Google</strong>.
-        </p>
-        <Tools>
-          <Tool>
-            <GoogleButton
-              onClick={() => {
-                Auth.federatedSignIn({ provider: 'Google' });
-              }}
-              style={{ boxShadow: 'none', padding: 1 }}
-            />
-          </Tool>
-        </Tools>
-        <p>
-          Cool like <strong>Gary</strong>? Emails all the way.
-        </p>
         <MaxWidth>
           <Input required name="email" label="Email" type="text" register={register} errors={errors} />
           <Input required name="password" label="Password" type="password" register={register} errors={errors} />
@@ -62,6 +46,23 @@ const Login = ({ history }) => {
             <Button type="submit">Login</Button>
           </Tool>
         </Tools>
+
+        <p>
+          <strong>Or</strong> sign in with <strong>Google</strong>.
+        </p>
+        <Tools>
+          <Tool>
+            <GoogleButton
+              onClick={() => {
+                Auth.federatedSignIn({ provider: 'Google' });
+              }}
+              style={{ boxShadow: 'none', padding: 1 }}
+            />
+          </Tool>
+        </Tools>
+        <p>
+          Can't login, that's <strong>okay</strong>.
+        </p>
         <Tools>
           <Tool>
             <Button to={'/forgotPassword'}>Forgot password</Button>

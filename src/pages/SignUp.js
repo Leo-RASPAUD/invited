@@ -60,26 +60,9 @@ const SignUp = ({ history }) => {
       <Container>
         <MaxWidth>
           <PageTitle>Sign up</PageTitle>
-          <p>
-            Short on time? <br />
-            You can sign up with <strong>Google</strong>.
-          </p>
-          <Tools>
-            <Tool>
-              <GoogleButton
-                onClick={() => {
-                  Auth.federatedSignIn({ provider: 'Google' });
-                }}
-                style={{ boxShadow: 'none', padding: 1 }}
-              />
-            </Tool>
-          </Tools>
+
           {!showConfirmation && (
             <>
-              <p>
-                Here is email sign up <strong>Gary</strong>. Leo fails to understand why you not auth with Google. You
-                be you.
-              </p>
               <Input required name="email" label="Email" type="email" register={register} errors={errors} />
               <Input required name="password" label="Password" type="password" register={register} errors={errors} />
             </>
@@ -91,6 +74,20 @@ const SignUp = ({ history }) => {
             <Tool>
               {error.length > 0 && <Error errorMessage={error} />}
               <Button type="submit">Sign up</Button>
+            </Tool>
+          </Tools>
+          <p>
+            <strong>Short on time? </strong>
+            You can sign up with <strong>Google</strong>.
+          </p>
+          <Tools>
+            <Tool>
+              <GoogleButton
+                onClick={() => {
+                  Auth.federatedSignIn({ provider: 'Google' });
+                }}
+                style={{ boxShadow: 'none', padding: 1 }}
+              />
             </Tool>
           </Tools>
         </MaxWidth>
