@@ -8,9 +8,9 @@ import Sidebar from './components/Sidebar';
 import DesktopNavigation from './components/DesktopNavigation';
 import Create from './pages/Create';
 import Edit from './pages/Edit';
-import EventDetails from './pages/EventDetails';
-import EventGuests from './pages/EventGuests';
-import EventList from './pages/EventList';
+import Details from './pages/Details';
+import Guests from './pages/Guests';
+import List from './pages/List';
 import ForgotPassword from './pages/ForgotPassword';
 import About from './pages/About';
 import Home from './pages/Home';
@@ -75,12 +75,12 @@ export default () => {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/googleSignIn" render={() => null} />
           <Route exact path="/forgotPassword" component={ForgotPassword} />
-          <PrivateRoute exact path="/my/events" component={EventList} />
+          <PrivateRoute exact path="/my/events" component={List} />
           <PrivateRoute exact path="/my/new-event" component={Create} />
           <PrivateRoute exact path="/my/profile" component={Profile} />
-          <PrivateRoute exact path="/my/event/:id" component={EventDetails} />
+          <PrivateRoute exact path="/my/event/:id" component={Details} />
           <PrivateRoute exact path="/my/event/:id/edit" component={Edit} />
-          <PrivateRoute exact path="/my/event/:id/guests" component={EventGuests} />
+          <PrivateRoute exact path="/my/event/:id/guests" component={Guests} />
         </AnimatedSwitch>
       </Main>
     </Router>
