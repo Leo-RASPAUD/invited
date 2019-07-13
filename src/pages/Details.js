@@ -60,7 +60,7 @@ const EventDetails = ({ history, location, match }) => {
           </Container>
           <div className="pink-black">
             <Container>
-              <PageTitle>Summary</PageTitle>
+              <PageTitle h={2}>Summary</PageTitle>
               <p>
                 {host} is having {type !== 'drinks' && 'a'} {type} at {place}. {time}, {date}.
               </p>
@@ -71,13 +71,13 @@ const EventDetails = ({ history, location, match }) => {
           </div>
           <div className="orange-yellow">
             <Container>
-              <PageTitle>Details</PageTitle>
+              <PageTitle h={2}>Details</PageTitle>
               <p>{details}</p>
             </Container>
           </div>
           <div className="white-blue">
             <Container>
-              <PageTitle>Guests</PageTitle>
+              <PageTitle h={2}>Guests</PageTitle>
               {acceptedCount === 0 && (
                 <p>No one has accepted yet. Either you haven't hit send or you aren't very popular.</p>
               )}
@@ -97,7 +97,7 @@ const EventDetails = ({ history, location, match }) => {
           </div>
           <div>
             <Container>
-              <PageTitle>Delete event</PageTitle>
+              <PageTitle h={2}>Delete event</PageTitle>
               <p>The shows over folks, time to wrap it up.</p>
               <Buttons>
                 <ButtonConfirm onConfirm={() => deleteEvent(eventId)}>Delete</ButtonConfirm>
