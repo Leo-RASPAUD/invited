@@ -14,7 +14,6 @@ export default ({
   disabled = false,
 }) => {
   const regexLabel = label.replace(/[^\w\d]/g, '');
-  console.log(regexLabel);
   return (
     <div className={styles['input']}>
       <input
