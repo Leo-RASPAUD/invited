@@ -13,10 +13,10 @@ const titles = [
   'The Bending',
   'The bends',
   'Bent',
-  'Bent',
   'Bents',
   'The bent',
   'The bents',
+  'Things that have a curve',
 ];
 
 export default () => (
