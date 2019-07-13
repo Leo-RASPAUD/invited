@@ -53,8 +53,12 @@
   }
 
   > li > button {
-    background: $orange;
+    background: $yellow;
     text-align: left;
     width: 100%;
+
+    @media (min-width: $breakpoint) {
+      background: $orange;
+    }
   }
 }

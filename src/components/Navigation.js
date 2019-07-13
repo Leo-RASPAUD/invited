@@ -8,6 +8,7 @@ import contextUser from '../UserContext';
 import styles from './Navigation.module.scss';
 
 const activeStyle = {
+  background: 'white',
   border: '2px solid currentColor',
 };
 
