@@ -37,6 +37,11 @@ const NavigationComponent = ({
                 Profile
               </NavLink>
             </li>
+            <li>
+              <NavLink activeStyle={activeStyle} exact to="/about">
+                About
+              </NavLink>
+            </li>
             <li className={styles['navigation-signout']}>
               <Button onClick={signOut}>Signout</Button>
             </li>
