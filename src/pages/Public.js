@@ -117,8 +117,16 @@ const PublicEvent = ({ location, match }) => {
               <Input name="notes" label="Notes" type="text" register={register} errors={errors} />
               <InputCheckbox
                 name="accepted"
-                label="Accepted"
-                type="checkbox"
+                label="I'm going"
+                type="radio"
+                register={register}
+                errors={errors}
+                defaultChecked={isAccept}
+              />
+              <InputCheckbox
+                name="accepted"
+                label="Sorry I can't"
+                type="radio"
                 register={register}
                 errors={errors}
                 defaultChecked={isAccept}
