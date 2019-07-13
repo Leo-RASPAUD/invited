@@ -32,7 +32,7 @@ export default () => {
         <PageTitle>Events</PageTitle>
         <Tools>
           <Tool>
-            <Button to="/app/new">New</Button>
+            <Button to="/my/new-event">New</Button>
           </Tool>
           <Tool>
             <Search name="search" register={register} />

@@ -9,7 +9,7 @@ function Header({
   },
   children,
 }) {
-  if (pathname.indexOf('/event/') > -1 && pathname.indexOf('/app') === -1) return null;
+  if (pathname.indexOf('/event/') > -1 && pathname.indexOf('/my/events') === -1) return null;
 
   return (
     <header className={styles['header']}>

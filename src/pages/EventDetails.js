@@ -28,7 +28,7 @@ const EventDetails = ({ history, location, match }) => {
 
   const deleteEvent = async id => {
     await fetcher({ ...deleteEventMutation, params: { id } });
-    history.push(`/app`);
+    history.push(`/my/events`);
   };
 
   const sendInvites = async () => {
@@ -53,7 +53,7 @@ const EventDetails = ({ history, location, match }) => {
             <PageTitle>{name}</PageTitle>
             <Tools>
               <Tool>
-                <Button to={`/app`}>Back</Button>
+                <Button to={`/my/events`}>Back</Button>
               </Tool>
             </Tools>
           </Container>

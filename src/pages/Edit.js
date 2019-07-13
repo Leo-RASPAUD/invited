@@ -31,7 +31,7 @@ const Edit = ({ history, match }) => {
     const copy = stringUtils.removeEmptyValues(data);
     const isError = await fetcher({ ...editEvent, params: { ...copy, eventId } });
     if (!isError) {
-      history.push('/app');
+      history.push('/my/events');
     }
   };
 
@@ -126,7 +126,7 @@ const Edit = ({ history, match }) => {
             <Button type="submit">Update</Button>
           </Tool>
           <Tool>
-            <Button to="/app">Cancel</Button>
+            <Button to="/my/events">Cancel</Button>
           </Tool>
         </Tools>
       </Container>

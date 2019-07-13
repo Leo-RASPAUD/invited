@@ -27,7 +27,7 @@ const Create = ({ history }) => {
     const copy = stringUtils.removeEmptyValues(data);
     const isError = await fetcher({ ...createEvent, params: copy });
     if (!isError) {
-      history.push('/app');
+      history.push('/my/events');
     }
   };
 
@@ -96,7 +96,7 @@ const Create = ({ history }) => {
             <Button type="submit">Create</Button>
           </Tool>
           <Tool>
-            <Button to="/app">Cancel</Button>
+            <Button to="/my/events">Cancel</Button>
           </Tool>
         </Tools>
       </Container>

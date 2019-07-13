@@ -15,7 +15,7 @@ const Event = ({ id, name, date, type }) => {
           <p className={styles['event-detail']}>{date}</p>
         </div>
         <Buttons>
-          <Button to={`/app/event/${id}`}>View</Button>
+          <Button to={`/my/event/${id}`}>View</Button>
         </Buttons>
       </div>
     </Background>

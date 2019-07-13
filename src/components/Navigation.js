@@ -28,12 +28,12 @@ const NavigationComponent = ({
         {isLoaded && user && (
           <ul className={styles['navigation-list']}>
             <li>
-              <NavLink activeStyle={activeStyle} exact to="/app">
+              <NavLink activeStyle={activeStyle} exact to="/my/events">
                 Events
               </NavLink>
             </li>
             <li>
-              <NavLink activeStyle={activeStyle} exact to="/app/profile">
+              <NavLink activeStyle={activeStyle} exact to="/my/profile">
                 Profile
               </NavLink>
             </li>

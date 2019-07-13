@@ -43,7 +43,7 @@ export default ({ match }) => {
             <PageTitle>Guests</PageTitle>
             <Tools>
               <Tool>
-                <Button to={`/app/event/${eventId}`}>Back</Button>
+                <Button to={`/my/event/${eventId}`}>Back</Button>
               </Tool>
             </Tools>
           </Container>

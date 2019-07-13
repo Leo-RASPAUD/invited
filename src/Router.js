@@ -75,12 +75,12 @@ export default () => {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/googleSignIn" render={() => null} />
           <Route exact path="/forgotPassword" component={ForgotPassword} />
-          <PrivateRoute exact path="/app" component={EventList} />
-          <PrivateRoute exact path="/app/new" component={Create} />
-          <PrivateRoute exact path="/app/profile" component={Profile} />
-          <PrivateRoute exact path="/app/event/:id" component={EventDetails} />
-          <PrivateRoute exact path="/app/event/:id/edit" component={Edit} />
-          <PrivateRoute exact path="/app/event/:id/guests" component={EventGuests} />
+          <PrivateRoute exact path="/my/events" component={EventList} />
+          <PrivateRoute exact path="/my/new-event" component={Create} />
+          <PrivateRoute exact path="/my/profile" component={Profile} />
+          <PrivateRoute exact path="/my/event/:id" component={EventDetails} />
+          <PrivateRoute exact path="/my/event/:id/edit" component={Edit} />
+          <PrivateRoute exact path="/my/event/:id/guests" component={EventGuests} />
         </AnimatedSwitch>
       </Main>
     </Router>
