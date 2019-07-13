@@ -11,12 +11,12 @@ const activeStyle = {
   border: '2px solid currentColor',
 };
 
-const NavigationComponent = ({
-  history: {
-    location: { pathname },
-  },
-  match,
-}) => {
+const NavigationComponent = props => {
+  const {
+    history: {
+      location: { pathname },
+    },
+  } = props;
   const { isLoaded, user } = useContext(contextUser);
   const signOut = () => {
     Auth.signOut({ global: true }).catch(err => console.log(err));

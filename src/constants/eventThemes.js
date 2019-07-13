@@ -15,6 +15,10 @@ export default {
     color: '#fbfbfa',
     backgroundColor: '#305555',
   },
+  lunch: {
+    color: '#fbfbfa',
+    backgroundColor: '#305555',
+  },
   wedding: {
     color: '#fbfbfa',
     backgroundColor: '#4e6280',
