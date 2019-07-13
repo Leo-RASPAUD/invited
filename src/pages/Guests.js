@@ -67,19 +67,28 @@ export default ({ match }) => {
           </div>
         </>
       )}
-      {!loading && guests.length > 0 && (
+      {!loading && (
         <>
           <Container>
-            <PageTitle>Guests</PageTitle>
-            <Grid>
-              {guests.map(guest => {
-                return (
-                  <GridItem key={guest.id}>
-                    <Guest {...guest} />
-                  </GridItem>
-                );
-              })}
-            </Grid>
+            <PageTitle>Guest list</PageTitle>
+            <>
+              {guests.length > 0 ? (
+                <Grid>
+                  {guests.map(guest => {
+                    return (
+                      <GridItem key={guest.id}>
+                        <Guest {...guest} />
+                      </GridItem>
+                    );
+                  })}
+                </Grid>
+              ) : (
+                <p>
+                  Guests go here. Not sure why you would need an invitation for a party for one. Although some of the
+                  best parties are self parties.
+                </p>
+              )}
+            </>
           </Container>
         </>
       )}

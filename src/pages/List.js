@@ -53,8 +53,8 @@ export default () => {
               </Grid>
             ) : (
               <p>
-                <strong>Hmmmmm.</strong> Either you haven't added an event or you are really good at removing events
-                after they have been enjoyed. Either way you are doing good.
+                <strong>Hmmmmm.</strong> Either you haven't added an event or you are really good at removing them.
+                Either way you are doing good.
               </p>
             )}
           </>
