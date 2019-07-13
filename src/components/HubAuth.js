@@ -18,9 +18,9 @@ const HubAuth = ({ history }) => {
 
     if (['signIn', 'cognitoHostedUI'].includes(event)) {
       await updateCurrentUser(data);
-
       history.push('/app');
     }
+
     if (event === 'signOut') {
       await updateCurrentUser(null);
       history.push('/');

@@ -1,5 +1,9 @@
 @import './variables';
 
+body {
+  overflow-y: scroll;
+}
+
 .orange-yellow {
   color: $orange;
   background: $yellow;

@@ -3,5 +3,6 @@ export default {
   drinks: 'Drinks',
   party: 'Party',
   dinner: 'Dinner',
+  lunch: 'Lunch',
   wedding: 'Wedding',
 };

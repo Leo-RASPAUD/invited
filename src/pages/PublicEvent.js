@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useForm from 'react-hook-form';
+import { Auth } from 'aws-amplify';
 import { decrypt } from '../queries/guestQueries';
 import { updateGuestInvitation } from '../mutations/guestMutations';
 import useFetcher from '../hooks/useFetcher';
@@ -14,7 +15,6 @@ import Button from '../components/Button';
 import Container from '../components/Container';
 import MaxWidth from '../components/MaxWidth';
 import PageTitle from '../components/PageTitle';
-
 import BackgroundFixed from '../components/BackgroundFixed';
 import Wedding from '../templates/Wedding';
 import Birthday from '../templates/Birthday';
@@ -49,8 +49,24 @@ const PublicEvent = ({ location, match }) => {
     setAccepted(true);
   };
 
+  const loadData = async () => {
+    let user;
+    try {
+      user = await Auth.currentAuthenticatedUser();
+    } catch (error) {
+      // Non authenticated
+    }
+    const authMode = user ? 'AMAZON_COGNITO_USER_POOLS' : 'AWS_IAM';
+    const query = {
+      ...decrypt,
+      authMode,
+    };
+    // authMode: 'AMAZON_COGNITO_USER_POOLS',
+    fetcher({ ...query, params: { encrypted } });
+  };
+
   useEffect(() => {
-    fetcher({ ...decrypt, params: { encrypted } });
+    loadData();
   }, []); // eslint-disable-line
 
   const styles = type

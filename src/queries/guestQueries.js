@@ -4,7 +4,6 @@ import { actions as globalErrors, dispatchName as dispatchGlobal } from '../redu
 import { actions, dispatchName as dispatch } from '../reducers/guestsReducer';
 
 const decrypt = {
-  authMode: 'AWS_IAM',
   name: actions.decrypt,
   actions: [{ name: actions.decrypt, dispatch }, { name: globalErrors.errorDecrypt, dispatch: dispatchGlobal }],
   query: `query decrypt($encrypted: String!) {
