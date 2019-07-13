@@ -18,7 +18,7 @@ import Login from './pages/Login';
 import PrivateRoute from './components/PrivateRoute';
 import HubAuth from './components/HubAuth';
 import Profile from './pages/Profile';
-import PublicEvent from './pages/PublicEvent';
+import Public from './pages/Public';
 import SignUp from './pages/SignUp';
 import spring from 'react-motion/lib/spring';
 
@@ -70,7 +70,7 @@ export default () => {
         >
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/event/:encrypted" component={PublicEvent} />
+          <Route exact path="/event/:encrypted" component={Public} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/googleSignIn" render={() => null} />
