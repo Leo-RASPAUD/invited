@@ -24,7 +24,7 @@ import Party from '../templates/Party';
 import eventThemes from '../constants/eventThemes';
 import eventTypes from '../constants/eventTypes';
 
-const PublicEvent = ({ location, match }) => {
+const Public = ({ location, match }) => {
   const encrypted = match.params.encrypted;
   const { loading, state, fetcher } = useFetcher();
   const { handleSubmit, register, errors } = useForm();
@@ -76,12 +76,14 @@ const PublicEvent = ({ location, match }) => {
         minHeight: '100vh',
         padding: '84px 0 0',
         position: 'relative',
+        transition: 'background .2s ease-in-out',
       }
     : {
         boxSizing: 'border-box',
         minHeight: '100vh',
         padding: '84px 0 0',
         position: 'relative',
+        transition: 'background .2s ease-in-out',
       };
 
   const brandStyles = {
@@ -89,20 +91,6 @@ const PublicEvent = ({ location, match }) => {
     position: 'absolute',
     top: 16,
   };
-
-  if (accepted) {
-    return (
-      <div style={styles}>
-        <Brand style={brandStyles} to="/">
-          Invited
-        </Brand>
-        <Container>
-          <PageTitle>Thank you!</PageTitle>
-          <p>Have a nice day.</p>
-        </Container>
-      </div>
-    );
-  }
 
   return (
     <div style={styles}>
@@ -119,34 +107,45 @@ const PublicEvent = ({ location, match }) => {
             {eventTypes.dinner === eventTypes[type] && <Dinner {...event} />}
             {eventTypes.party === eventTypes[type] && <Party {...event} />}
           </BackgroundFixed>
-          <PageTitle h={2}>Accept</PageTitle>
-          <MaxWidth>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Input name="notes" label="Notes" type="text" register={register} errors={errors} />
-              <InputCheckbox
-                name="accepted"
-                label="I'm going"
-                type="radio"
-                register={register}
-                errors={errors}
-                defaultChecked={isAccept}
-              />
-              <InputCheckbox
-                name="accepted"
-                label="Sorry I can't"
-                type="radio"
-                register={register}
-                errors={errors}
-                defaultChecked={isAccept}
-              />
-              {errorType === errorTypes.updateGuestInvitation && errorMessage && <Error errorMessage={errorMessage} />}
-              <Button type="submit">Submit</Button>
-            </form>
-          </MaxWidth>
+          {!accepted ? (
+            <>
+              <PageTitle h={2}>Accept</PageTitle>
+              <MaxWidth>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <Input name="notes" label="Notes" type="text" register={register} errors={errors} />
+                  <InputCheckbox
+                    name="accepted"
+                    label="I'm going"
+                    type="radio"
+                    register={register}
+                    errors={errors}
+                    defaultChecked={isAccept}
+                  />
+                  <InputCheckbox
+                    name="accepted"
+                    label="Sorry I can't"
+                    type="radio"
+                    register={register}
+                    errors={errors}
+                    defaultChecked={!isAccept}
+                  />
+                  {errorType === errorTypes.updateGuestInvitation && errorMessage && (
+                    <Error errorMessage={errorMessage} />
+                  )}
+                  <Button type="submit">Submit</Button>
+                </form>
+              </MaxWidth>
+            </>
+          ) : (
+            <>
+              <PageTitle>Thank you!</PageTitle>
+              <p>Have a nice day.</p>
+            </>
+          )}
         </Container>
       )}
     </div>
   );
 };
 
-export default withRouter(PublicEvent);
+export default withRouter(Public);

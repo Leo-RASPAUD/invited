@@ -32,9 +32,15 @@ export default ({
         <svg className={styles['input-checked']} viewBox="0 0 20 20">
           <path fill="transparent" stroke="currentColor" strokeWidth={2} d="M6,10.5 L9,13 L14,6.5" />
         </svg>
-        <svg className={styles['input-unchecked']} viewBox="0 0 20 20">
-          <path fill="transparent" stroke="currentColor" strokeWidth={2} d="M1,1 L19,1 L19,19 L 1,19z" />
-        </svg>
+        {type === 'radio' ? (
+          <svg className={styles['input-unchecked']} viewBox="0 0 20 20">
+            <circle fill="transparent" stroke="currentColor" strokeWidth={2} cx="10" cy="10" r="9" />
+          </svg>
+        ) : (
+          <svg className={styles['input-unchecked']} viewBox="0 0 20 20">
+            <path fill="transparent" stroke="currentColor" strokeWidth={2} d="M1,1 L19,1 L19,19 L 1,19z" />
+          </svg>
+        )}
       </label>
       {errors[name] && <Error errorMessage={errorMessage || `${label} is required.`} />}
     </div>
