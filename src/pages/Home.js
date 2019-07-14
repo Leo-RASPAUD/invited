@@ -10,7 +10,7 @@ export default () => (
         <PageTitle>Hi, I'm Invited.</PageTitle>
         <p>I'm a simple web application for organising events.</p>
         <Buttons>
-          <Button to={'/signup'}>Sign</Button>
+          <Button to={'/signup'}>Sign up</Button>
         </Buttons>
       </Container>
     </div>
@@ -18,8 +18,8 @@ export default () => (
       <Container>
         <PageTitle>How does this work?</PageTitle>
         <p>
-          Create an account. Create an event. Invite guests. Send invitations (by email). Guests get a link and can
-          accept or decline the invitation. You can review attendees and send out any updates if required. Easy.
+          Create an account. Create an event. Invite guests. Send invitations. Guests get a link and can accept or
+          decline the invitation. Review attendees. Easy.
         </p>
       </Container>
     </div>
@@ -27,13 +27,8 @@ export default () => (
       <Container>
         <PageTitle>P.S.</PageTitle>
         <p>
-          We are currently in <strong>alpha</strong> so things may change, break or not work as expected.
+          We are currently in <strong>beta</strong> so things may change, break or not work as expected.
         </p>
-        <p>
-          Be patient. Be kind. Good things come to those who wait. Shouldn't be long until we are cracking some bottles
-          at the invited <strong>launch party</strong>.
-        </p>
-        <p>Although chances are you're not invited.</p>
       </Container>
     </div>
   </>
