@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Birthday.module.scss';
 
-export default ({ date, host, name, place, time, type }) => {
+export default ({ date, details, host, name, place, time, type }) => {
   return (
     <div style={{ marginBottom: 56 }}>
       <h1 className={styles['name']}>{name}</h1>
@@ -12,6 +12,7 @@ export default ({ date, host, name, place, time, type }) => {
         {date}, {time}
       </p>
       <p className={styles['place']}>{place}</p>
+      {details && <p className={styles['details']}>{details}</p>}
     </div>
   );
 };
