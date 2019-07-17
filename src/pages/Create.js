@@ -38,6 +38,7 @@ const Create = ({ history }) => {
         <MaxWidth>
           <Input
             required
+            guidance="My birthday party, Celebration drinks, Garth's wedding..."
             name="name"
             label="What is the name of the event?"
             type="text"
@@ -47,6 +48,7 @@ const Create = ({ history }) => {
           <Input
             required
             name="host"
+            guidance="Leo, The bends, The office hotel..."
             label="Who is the host of the event?"
             type="text"
             register={register}
@@ -55,6 +57,7 @@ const Create = ({ history }) => {
           <Input
             required
             name="place"
+            guidance="Somewhere, Sydney, Opera House..."
             label="Where is the place the event will be hosted?"
             type="text"
             register={register}
@@ -72,6 +75,7 @@ const Create = ({ history }) => {
           <Input
             required
             name="date"
+            guidance="Today, 12 O'clock, Lunch time..."
             label="When will the event be held?"
             type="text"
             register={register}
