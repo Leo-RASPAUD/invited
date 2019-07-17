@@ -7,6 +7,7 @@ export const actions = {
   getEventLoading: 'getEventLoading',
   sendInvites: 'sendInvites',
   editEvent: 'editEvent',
+  contactUs: 'contactUs',
 };
 
 export const dispatchName = 'dispatchEvents';

@@ -42,4 +42,19 @@ const sendInvites = {
 }`,
 };
 
-export { getEvents, getEvent, sendInvites };
+const contactUs = {
+  name: actions.contactUs,
+  actions: [
+    { name: globalActions.errorContactUs, dispatch: dispatchGlobal },
+    {
+      name: globalActions.newSnackbarItem,
+      dispatch: dispatchGlobal,
+      customMessage: 'Email sent successfully',
+    },
+  ],
+  query: `query contactUs($content: String!) {
+    contactUs(content: $content)
+}`,
+};
+
+export { getEvents, getEvent, sendInvites, contactUs };

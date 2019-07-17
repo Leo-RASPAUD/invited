@@ -10,4 +10,5 @@ export default {
   sendInvites: 'sendInvites',
   getGuests: 'getGuests',
   editEvent: 'editEvent',
+  contactUs: 'contactUs',
 };

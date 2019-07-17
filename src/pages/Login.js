@@ -14,16 +14,19 @@ import GoogleButton from 'react-google-button';
 
 const Login = ({ history }) => {
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const { handleSubmit, register, errors } = useForm();
 
   const onSubmit = async ({ email, password }) => {
+    setLoading(true);
     try {
       await Auth.signIn(email, password);
     } catch (error) {
       console.log(error);
       setError(error.message);
     }
+    setLoading(false);
   };
 
   return (
@@ -43,7 +46,9 @@ const Login = ({ history }) => {
         )}
         <Tools>
           <Tool>
-            <Button type="submit">Login</Button>
+            <Button type="submit" disabled={loading}>
+              Login
+            </Button>
           </Tool>
         </Tools>
 

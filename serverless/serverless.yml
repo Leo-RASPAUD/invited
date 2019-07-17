@@ -25,3 +25,5 @@ functions:
     handler: crypto/decrypt.handler
   sendEmails:
     handler: mails/sendEmails.handler
+  contactUs:
+    handler: mails/contactUs.handler

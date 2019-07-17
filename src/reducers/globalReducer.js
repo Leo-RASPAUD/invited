@@ -14,6 +14,7 @@ export const actions = {
   errorDeleteEvent: 'errorDeleteEvent',
   errorSendInvites: 'errorSendInvites',
   errorGetGuests: 'errorGetGuests',
+  errorContactUs: 'errorContactUs',
 
   newSnackbarItem: 'newSnackbarItem',
   closeSnackbarItem: 'closeSnackbarItem',
@@ -100,6 +101,14 @@ export const reducer = (state, { payload, type, customMessage }) => {
         ...state,
         errorType: errorTypes.sendInvites,
         errorMessage: 'Error while trying to send the invites.',
+        errors: payload.errors,
+      };
+    }
+    case actions.errorContactUs: {
+      return {
+        ...state,
+        errorType: errorTypes.contactUs,
+        errorMessage: 'Error while trying to send the email.',
         errors: payload.errors,
       };
     }
