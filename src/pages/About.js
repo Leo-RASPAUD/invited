@@ -10,6 +10,9 @@ import getArrayRandomItem from '../utils/getArrayRandomItem';
 import Error from '../components/Error';
 import { contactUs } from '../queries/eventQueries';
 
+// import { Context } from '../AppContext';
+// import { actions } from '../reducers/stylesReducer';
+
 const titles = [
   'Bend',
   'Bended',
@@ -56,6 +59,13 @@ export default () => {
     await fetcher(query);
     setSending(false);
   };
+
+  // useEffect(() => {
+  //   dispatchStyles({ type: actions.updateStyles, payload: { background: '#ff7a64', color: '#ffef6b' } })
+  //   return () => {
+  //     dispatchStyles({ type: actions.updateStyles, payload: {} })
+  //   }
+  // }, []); // eslint-disable-line
 
   return (
     <>
