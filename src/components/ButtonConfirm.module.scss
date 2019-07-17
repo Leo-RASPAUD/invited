@@ -32,7 +32,7 @@
 .confirmation {
   display: flex;
   left: 0;
-  position: absolute; 
+  position: absolute;
   right: 0;
   top: 0;
 }
@@ -41,16 +41,14 @@
   display: none;
 }
 
-
 .confirm {
   @extend %button;
   background: $blue;
   border: $border-width solid $active-color;
-  border-right: $border-width / 2 solid $active-color;
+  border-left: $border-width / 2 solid $active-color;
   flex: 1;
   padding: ($padding / 2) - 2 0;
   width: 43px;
-
 
   > svg {
     display: block;
@@ -63,7 +61,7 @@
   @extend %button;
   background: $orange;
   border: $border-width solid $active-color;
-  border-left: $border-width / 2 solid $active-color;
+  border-right: $border-width / 2 solid $active-color;
   flex: 1;
   padding: ($padding / 2) - 2 0;
   width: 43px;

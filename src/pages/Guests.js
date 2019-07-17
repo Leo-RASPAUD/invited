@@ -23,9 +23,10 @@ export default ({ match }) => {
   const { handleSubmit, register, errors } = useForm();
   const { guests = [], errorMessage, errorType } = state;
 
-  const onSubmit = async data => {
+  const onSubmit = async (data, event) => {
     const copy = stringUtils.removeEmptyValues(data);
     await fetcher({ ...addGuest, params: { ...copy, eventId } });
+    event.target.reset();
   };
 
   useEffect(() => {

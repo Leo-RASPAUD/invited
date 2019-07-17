@@ -35,6 +35,11 @@ const Create = ({ history }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Container>
         <PageTitle>Create an event</PageTitle>
+        <Tools>
+          <Tool>
+            <Button to={`/my/events`}>Back</Button>
+          </Tool>
+        </Tools>
         <MaxWidth>
           <Input
             required
@@ -82,7 +87,6 @@ const Create = ({ history }) => {
             errors={errors}
           />
           <TextArea
-            required
             name="details"
             label="All the other information people need to know (go nuts)."
             type="textarea"
@@ -100,12 +104,11 @@ const Create = ({ history }) => {
             <Button type="submit">Create</Button>
           </Tool>
           <Tool>
-            <Button to="/my/events">Cancel</Button>
+            <Button to={`/my/events`}>Cancel</Button>
           </Tool>
         </Tools>
       </Container>
     </form>
   );
 };
-
 export default withRouter(Create);

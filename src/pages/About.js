@@ -106,15 +106,13 @@ export default () => {
             <TextArea
               required
               name="content"
-              label="Any feedback is welcome, improvements, suggestions, features (go nuts)."
+              label="Any feedback is welcome, improvements, suggestions or features."
               type="textarea"
               register={register}
               errors={errors}
             />
             {errorMessage && <Error errorMessage={errorMessage} />}
-            <Button type="submit" disabled={sending}>
-              Contact us
-            </Button>
+            <Button disabled={sending}>Contact us</Button>
           </form>
         </Container>
       </div>

@@ -8,10 +8,11 @@
   border: $border-width solid $error-color;
   display: flex;
   align-items: center;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .error-icon {
+  display: block;
   background: $error-color;
   border-radius: 10px;
   color: $black;

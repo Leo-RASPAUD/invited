@@ -33,7 +33,7 @@ export default ({
           required,
         })}
       />
-      {errors[name] && <Error errorMessage={errorMessage || `${label} is required.`} />}
+      {errors[name] && <Error errorMessage="This is required." />}
     </div>
   );
 };
