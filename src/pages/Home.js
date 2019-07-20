@@ -7,18 +7,27 @@ import List from '../components/List';
 import party from '../graphics/party.svg';
 import phone from '../graphics/phone.svg';
 
-const imgStyles = {
-  height: 'auto',
-  maxWidth: '100%',
-};
-
 export default () => (
   <>
     <div className="white-blue" style={{ minHeight: '30vh' }}>
       <Container>
         <PageTitle>Hi, I'm Invited.</PageTitle>
         <Paragraph>I'm a simple web application for organising events.</Paragraph>
-        <img alt="phone" src={phone} style={imgStyles} />
+        <div
+          style={{
+            maxWidth: 480,
+            width: '100%',
+          }}
+        >
+          <div
+            style={{
+              backgroundImage: `url(${phone})`,
+              backgroundSize: 'cover',
+              paddingTop: '100%',
+              width: '100%',
+            }}
+          />
+        </div>
       </Container>
     </div>
     <div className="yellow-teal" style={{ minHeight: '30vh' }}>
@@ -43,7 +52,21 @@ export default () => (
         <Paragraph>
           We are <strong>live</strong>.
         </Paragraph>
-        <img alt="party" src={party} style={imgStyles} />
+        <div
+          style={{
+            maxWidth: 480,
+            width: '100%',
+          }}
+        >
+          <div
+            style={{
+              backgroundImage: `url(${party})`,
+              backgroundSize: 'cover',
+              paddingTop: '100%',
+              width: '100%',
+            }}
+          />
+        </div>
       </Container>
     </div>
   </>
