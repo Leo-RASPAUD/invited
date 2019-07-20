@@ -5,4 +5,8 @@
   font-weight: bold;
   line-height: 1;
   margin: 0  0 $padding / 2;
+
+  @media(min-width: $breakpoint) {
+    font-size: 72px;
+  }
 }

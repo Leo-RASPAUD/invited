@@ -26,12 +26,6 @@ const titles = [
   'Bents',
   'The bent',
   'The bents',
-  'Things that have a curve',
-  'Straight',
-  'Undeviating',
-  'Linear',
-  'Direct',
-  'Uncurving',
 ];
 
 export default () => {

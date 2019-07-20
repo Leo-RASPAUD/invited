@@ -49,7 +49,7 @@ export default () => {
   return (
     <Router>
       <HubAuth />
-      <>
+      <div>
         <Header>
           <Sidebar>
             <Navigation />
@@ -58,7 +58,7 @@ export default () => {
             <Navigation />
           </DesktopNavigation>
         </Header>
-      </>
+      </div>
       <Main>
         <AnimatedSwitch
           {...pageTransitions}

@@ -1,0 +1,41 @@
+@import '../variables';
+
+.list {
+  font-size: 16px;
+  line-height: 20px;
+  list-style: none;
+  margin: $padding 0;
+  padding: 0;
+
+  @media(min-width: $breakpoint) {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+.list-item {
+  padding: 10px 0 10px 40px;
+  position: relative;
+
+  @media(min-width: $breakpoint) {
+    padding: 0 0 0 40px;
+  }
+}
+
+$size: 32px;
+
+.list-item-number {
+  background: $yellow;
+  border-radius: 50%;
+  color: $orange;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: bold;
+  height: $size;
+  left: 0;
+  line-height: $size;
+  position: absolute;
+  text-align: center;
+  top: 4px;
+  width: $size;
+}

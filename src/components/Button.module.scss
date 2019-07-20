@@ -17,7 +17,7 @@
   text-align: center;
   text-decoration: none;
   text-transform: $action-text-transform;
-  transition: all 0.25s ease-in-out;
+  transition: border 0.25s ease-in-out, color 0.25s ease-in-out;
 
   &:disabled {
     color: $disabled-color;

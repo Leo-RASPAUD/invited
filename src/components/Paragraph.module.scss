@@ -1,0 +1,12 @@
+@import '../variables';
+
+.paragraph {
+  font-size: 16px;
+  line-height: 20px;
+  margin: $padding 0;
+
+  @media(min-width: $breakpoint) {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}

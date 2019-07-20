@@ -1,8 +1,14 @@
+@import '../variables';
+
 .name {
   font-size: 56px;
   font-weight: bold;
   line-height: 1;
   margin: 0 0 32px;
+
+  @media(min-width: $breakpoint) {
+    font-size: 72px;
+  }
 }
 
 .host {
