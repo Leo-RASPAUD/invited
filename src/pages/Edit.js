@@ -44,7 +44,7 @@ const Edit = ({ history, match }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Container>
-        <PageTitle>Edit an event</PageTitle>
+        <PageTitle>Edit</PageTitle>
         <MaxWidth>
           <Input
             defaultValue={name}

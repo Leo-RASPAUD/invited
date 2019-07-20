@@ -43,7 +43,7 @@ const Create = ({ history }) => {
         <MaxWidth>
           <Input
             required
-            guidance="My birthday party, Celebration drinks, Garth's wedding..."
+            guidance="Sunny afternoon, Celebration drinks, A wedding in November"
             name="name"
             label="What is the name of the event?"
             type="text"
@@ -53,7 +53,7 @@ const Create = ({ history }) => {
           <Input
             required
             name="host"
-            guidance="Leo, The bends, The office hotel..."
+            guidance="Leo, Family and friends, The office hotel"
             label="Who is the host of the event?"
             type="text"
             register={register}
@@ -62,7 +62,7 @@ const Create = ({ history }) => {
           <Input
             required
             name="place"
-            guidance="Somewhere, Sydney, Opera House..."
+            guidance="Our place, Sydney, Opera bar"
             label="Where is the place the event will be hosted?"
             type="text"
             register={register}
@@ -76,11 +76,19 @@ const Create = ({ history }) => {
               </option>
             ))}
           </Select>
-          <Input required name="time" label="What time is the event?" type="text" register={register} errors={errors} />
+          <Input
+            required
+            name="time"
+            label="What time is the event?"
+            guidance="2pm, 12 O'clock, Lunch time"
+            type="text"
+            register={register}
+            errors={errors}
+          />
           <Input
             required
             name="date"
-            guidance="Today, 12 O'clock, Lunch time..."
+            guidance="9/7/2019, 09/07, July 9, 9th of July 2019"
             label="When will the event be held?"
             type="text"
             register={register}
@@ -89,12 +97,17 @@ const Create = ({ history }) => {
           <TextArea
             name="details"
             label="All the other information people need to know (go nuts)."
+            guidance="Today, 12 O'clock, Lunch time"
             type="textarea"
             register={register}
             errors={errors}
           />
           {errorMessage && <Error errorMessage={errorMessage} />}
         </MaxWidth>
+        <p>
+          Invitations have a notes section for attendees to provide any well&mdash; notes. If you need any information
+          like dietary requirements et cetera, perhaps prompt them to enter that in the notes when they accept.{' '}
+        </p>
         <p>
           <strong>Warning!</strong> The buttons that follow look very similar but do <strong>very</strong> different
           things. If you have difficulty reading proceed with <strong>caution</strong>.

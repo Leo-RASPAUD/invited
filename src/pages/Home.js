@@ -32,7 +32,7 @@ export default () => (
       <Container>
         <PageTitle>P.S.</PageTitle>
         <Paragraph>
-          We are currently in <strong>beta</strong> so things may change, break or not work as expected.
+          We are <strong>live</strong>.
         </Paragraph>
       </Container>
     </div>
