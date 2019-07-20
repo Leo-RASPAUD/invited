@@ -7,9 +7,9 @@
   margin: $padding 0;
   padding: 0;
 
-  @media(min-width: $breakpoint) {
-    font-size: 32px;
-    line-height: 40px;
+  @media (min-width: $breakpoint) {
+    font-size: 24px;
+    line-height: 32px;
   }
 }
 
@@ -17,8 +17,8 @@
   padding: 10px 0 10px 40px;
   position: relative;
 
-  @media(min-width: $breakpoint) {
-    padding: 0 0 0 40px;
+  @media (min-width: $breakpoint) {
+    padding: 8px 0 8px 40px;
   }
 }
 
@@ -38,4 +38,8 @@ $size: 32px;
   text-align: center;
   top: 4px;
   width: $size;
+
+  @media (min-width: $breakpoint) {
+    top: 8px;
+  }
 }
