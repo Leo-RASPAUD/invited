@@ -33,8 +33,13 @@
   display: block;
   font-size: inherit;
   line-height: inherit;
+  color: $action-color;
   margin: 0;
   padding: $padding $padding $padding - 2;
-  transition: color .15s ease-in-out;
+  transition: color 0.15s ease-in-out;
   width: 100%;
+
+  > option {
+    color: $black;
+  }
 }

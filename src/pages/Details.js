@@ -24,7 +24,11 @@ const EventDetails = ({ history, location, match }) => {
     errorType,
   } = state;
 
-  const acceptedCount = guests.filter(guest => guest.accepted).length;
+  const acceptedCount = guests
+    .filter(guest => guest.accepted)
+    .reduce((a, b) => {
+      return +a + +(b.participants || 1);
+    }, 0);
 
   const deleteEvent = async id => {
     await fetcher({ ...deleteEventMutation, params: { id } });

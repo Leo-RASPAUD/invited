@@ -27,8 +27,8 @@ const updateGuestInvitation = {
     { name: actions.updateGuestInvitation, dispatch },
     { name: globalErrors.errorUpdateGuestInvitation, dispatch: dispatchGlobal },
   ],
-  query: `mutation updateGuestInvitation($id: String!, $notes: String, $accepted: Boolean!) {
-    updateGuestInvitation(id: $id, notes: $notes, accepted: $accepted) {
+  query: `mutation updateGuestInvitation($id: String!, $notes: String, $accepted: Boolean!, $participants: String!, ) {
+    updateGuestInvitation(id: $id, notes: $notes, accepted: $accepted, participants: $participants) {
       ${guest}
     }
 }`,

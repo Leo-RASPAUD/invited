@@ -23,6 +23,7 @@ import Dinner from '../templates/Dinner';
 import Party from '../templates/Party';
 import eventThemes from '../constants/eventThemes';
 import eventTypes from '../constants/eventTypes';
+import Select from '../components/Select';
 
 const Public = ({ location, match }) => {
   const encrypted = match.params.encrypted;
@@ -129,6 +130,21 @@ const Public = ({ location, match }) => {
                     errors={errors}
                     defaultChecked={!isAccept}
                   />
+                  <Select
+                    label="How many people coming?"
+                    register={register}
+                    errors={errors}
+                    name="participants"
+                    required
+                    defaultValue={1}
+                  >
+                    <option value="">Select</option>
+                    {Array.from(new Array(10), (_, index) => index).map(index => (
+                      <option key={index} value={index}>
+                        {index}
+                      </option>
+                    ))}
+                  </Select>
                   {errorType === errorTypes.updateGuestInvitation && errorMessage && (
                     <Error errorMessage={errorMessage} />
                   )}
