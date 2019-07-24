@@ -8,6 +8,7 @@ import PageTitle from '../components/PageTitle';
 import TextArea from '../components/TextArea';
 import getArrayRandomItem from '../utils/getArrayRandomItem';
 import Error from '../components/Error';
+import Input from '../components/Input';
 import { contactUs } from '../queries/eventQueries';
 
 // import { Context } from '../AppContext';
@@ -29,7 +30,7 @@ const titles = [
 ];
 
 export default () => {
-  const { handleSubmit, register, errors } = useForm();
+  const { handleSubmit, register, errors, reset } = useForm();
   const [sending, setSending] = useState(false);
   const {
     fetcher,
@@ -52,6 +53,7 @@ export default () => {
     };
     await fetcher(query);
     setSending(false);
+    reset();
   };
 
   // useEffect(() => {
@@ -97,6 +99,7 @@ export default () => {
         <Container>
           <PageTitle>Feedback</PageTitle>
           <form onSubmit={handleSubmit(onSubmit)}>
+            <Input required name="from" label="From" type="text" register={register} errors={errors} />
             <TextArea
               required
               name="content"

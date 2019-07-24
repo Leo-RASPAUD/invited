@@ -52,8 +52,8 @@ const contactUs = {
       customMessage: 'Email sent successfully',
     },
   ],
-  query: `query contactUs($content: String!) {
-    contactUs(content: $content)
+  query: `query contactUs($content: String!, $from: String!) {
+    contactUs(content: $content, from: $from)
 }`,
 };
 
