@@ -27,6 +27,7 @@ import Select from '../components/Select';
 
 const Public = ({ location, match }) => {
   const encrypted = match.params.encrypted;
+  console.log(encrypted);
   const { loading, state, fetcher } = useFetcher();
   const { handleSubmit, register, errors } = useForm();
   const [accepted, setAccepted] = useState(false);
@@ -43,9 +44,20 @@ const Public = ({ location, match }) => {
 
   const onSubmit = async data => {
     const copy = stringUtils.removeEmptyValues(data);
-    await fetcher({
+    let user;
+    try {
+      user = await Auth.currentAuthenticatedUser();
+    } catch (error) {
+      // Non authenticated
+    }
+    const authMode = user ? 'AMAZON_COGNITO_USER_POOLS' : 'AWS_IAM';
+    const query = {
       ...updateGuestInvitation,
-      params: { ...guest, ...copy, accepted: data.accepted === 'on' ? true : false },
+      authMode,
+    };
+    await fetcher({
+      ...query,
+      params: { ...guest, ...copy, accepted: data.accepted === 'on' ? true : false, encrypted },
     });
     setAccepted(true);
   };
@@ -62,7 +74,6 @@ const Public = ({ location, match }) => {
       ...decrypt,
       authMode,
     };
-    // authMode: 'AMAZON_COGNITO_USER_POOLS',
     fetcher({ ...query, params: { encrypted } });
   };
 
