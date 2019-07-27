@@ -22,7 +22,7 @@ export default ({ firstName, lastName, email, id, accepted, notes }) => {
         {firstName} {lastName}
       </h3>
       <div>{email}</div>
-      {notes && <p className={styles['notes']}>{notes}</p>}
+      <p className={styles['notes']}>{notes ? notes : '_'}</p>
       <div className={styles['delete-button']}>
         <ButtonConfirm onConfirm={deleteItem}>Delete</ButtonConfirm>
       </div>
