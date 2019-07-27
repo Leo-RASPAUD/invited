@@ -25,8 +25,8 @@ function Sidebar({ children }) {
 
   return (
     <div className={styles['container']}>
-      <button aria-label="Menu" onClick={() => setCollapse(!collapse)} className={styles['button']}>
-        <span className={styles['burger']} />
+      <button onClick={() => setCollapse(!collapse)} className={styles['button']}>
+        Menu
       </button>
       <div
         className={`${styles['collapse']} ${collapse ? styles['is-out'] : styles['is-in']}`}

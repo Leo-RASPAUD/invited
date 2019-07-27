@@ -23,6 +23,10 @@
   border-radius: 0;
   display: block;
   padding: $padding;
+
+  font-size: inherit;
+  font-weight: $action-font-weight;
+  line-height: inherit;
 }
 
 .collapse {
