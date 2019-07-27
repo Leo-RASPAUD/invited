@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../components/Button';
 import Container from '../components/Container';
 import PageTitle from '../components/PageTitle';
 import Paragraph from '../components/Paragraph';
@@ -28,6 +29,7 @@ export default () => (
             }}
           />
         </div>
+        <Button to="/signup">Register</Button>
       </Container>
     </div>
     <div className="yellow-teal" style={{ minHeight: '30vh' }}>
@@ -39,11 +41,12 @@ export default () => (
             'Create an event.',
             'Invite guests.',
             'Send invitations.',
-            'Guests get a link and can accept or decline the invitation.',
+            'Guests get a link.',
+            'Guests accept or decline.',
             'Review attendees.',
-            'Easy.',
           ]}
         </List>
+        <Button>Get started</Button>
       </Container>
     </div>
     <div className="pink-black" style={{ minHeight: '30vh' }}>
@@ -67,6 +70,7 @@ export default () => (
             }}
           />
         </div>
+        <Button to="/about">About us</Button>
       </Container>
     </div>
   </>

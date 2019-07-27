@@ -60,11 +60,18 @@ const SignUp = ({ history }) => {
       <Container>
         <MaxWidth>
           <PageTitle>Sign up</PageTitle>
-
           {!showConfirmation && (
             <>
               <Input required name="email" label="Email" type="email" register={register} errors={errors} />
-              <Input required name="password" label="Password" type="password" register={register} errors={errors} />
+              <Input
+                guidance="Password between 8 and 20 characters. Must contain at least one lowercase letter, one uppercase letter, and one numeric digit."
+                required
+                name="password"
+                label="Password"
+                type="password"
+                register={register}
+                errors={errors}
+              />
             </>
           )}
           {showConfirmation && (

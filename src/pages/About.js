@@ -14,6 +14,8 @@ import { contactUs } from '../queries/eventQueries';
 // import { Context } from '../AppContext';
 // import { actions } from '../reducers/stylesReducer';
 
+import conversation from '../graphics/conversation.svg';
+
 const titles = [
   'Bend',
   'Bended',
@@ -111,6 +113,21 @@ export default () => {
             {errorMessage && <Error errorMessage={errorMessage} />}
             <Button disabled={sending}>Contact us</Button>
           </form>
+          <div
+            style={{
+              maxWidth: 480,
+              width: '100%',
+            }}
+          >
+            <div
+              style={{
+                backgroundImage: `url(${conversation})`,
+                backgroundSize: 'cover',
+                paddingTop: '100%',
+                width: '100%',
+              }}
+            />
+          </div>
         </Container>
       </div>
     </>
