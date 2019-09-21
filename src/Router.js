@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Redirect } from 'react-router-dom';
 import { AnimatedSwitch } from 'react-router-transition';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
@@ -81,6 +81,7 @@ export default () => {
           <PrivateRoute exact path="/my/event/:id" component={Details} />
           <PrivateRoute exact path="/my/event/:id/edit" component={Edit} />
           <PrivateRoute exact path="/my/event/:id/guests" component={Guests} />
+          <Redirect to="/my/events" />
         </AnimatedSwitch>
       </Main>
     </Router>
