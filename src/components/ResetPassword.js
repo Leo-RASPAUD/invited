@@ -9,7 +9,7 @@ import Error from './Error';
 import { Context } from '../AppContext';
 import { actions } from '../reducers/globalReducer';
 
-const ResetPassword = ({ history, email, disabled, redirect }) => {
+const ResetPassword = ({ history, username, disabled, redirect }) => {
   const { dispatchGlobal } = useContext(Context);
   const [isResetPassword, setResetPassword] = useState(false);
   const [error, setError] = useState('');
@@ -17,7 +17,7 @@ const ResetPassword = ({ history, email, disabled, redirect }) => {
 
   const resetPassword = async () => {
     try {
-      await Auth.forgotPassword(email);
+      await Auth.forgotPassword(username);
       setResetPassword(true);
       dispatchGlobal({
         type: actions.newSnackbarItem,
@@ -30,7 +30,7 @@ const ResetPassword = ({ history, email, disabled, redirect }) => {
 
   const onSubmit = async ({ confirmationCode, newPassword }) => {
     try {
-      await Auth.forgotPasswordSubmit(email, confirmationCode, newPassword);
+      await Auth.forgotPasswordSubmit(username, confirmationCode, newPassword);
       setResetPassword(false);
       setError('');
       if (redirect) {
