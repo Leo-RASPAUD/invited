@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Lunch.module.scss';
+import styles from './Party.module.scss';
 
 export default ({ date, details, host, name, place, time, type }) => {
   return (

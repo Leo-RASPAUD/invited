@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Birthday.module.scss';
+import styles from './Dinner.module.scss';
 
 export default ({ date, details, host, name, place, time, type }) => {
   return (

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import styles from './Birthday.module.scss';
+import styles from './Wedding.module.scss';
 
 export default ({ date, details, host, name, place, time, type }) => {
   return (
-    <div style={{ marginBottom: 56 }}>
+    <div style={{ marginBottom: 32 }}>
       <h1 className={styles['name']}>{name}</h1>
       <p className={styles['host']}>
         <strong>{host}</strong>
