@@ -1,3 +1,4 @@
+import reducerState from './reducerState';
 import uuid from 'uuid/v4';
 import errorTypes from '../constants/errorTypes';
 
@@ -15,6 +16,7 @@ export const actions = {
   errorSendInvites: 'errorSendInvites',
   errorGetGuests: 'errorGetGuests',
   errorContactUs: 'errorContactUs',
+  errorResendInvite: 'errorResendInvite',
 
   newSnackbarItem: 'newSnackbarItem',
   closeSnackbarItem: 'closeSnackbarItem',
@@ -22,7 +24,7 @@ export const actions = {
 
 export const dispatchName = 'dispatchGlobal';
 
-export const reducer = (state, { payload, type, customMessage }) => {
+export const reducerSwitch = (state, { payload, type, customMessage }) => {
   switch (type) {
     case actions.resetErrors: {
       return {
@@ -128,6 +130,14 @@ export const reducer = (state, { payload, type, customMessage }) => {
         errors: payload.errors,
       };
     }
+    case actions.errorResendInvite: {
+      return {
+        ...state,
+        errorType: errorTypes.errorResendInvite,
+        errorMessage: 'Error while resending the invite.',
+        errors: payload.errors,
+      };
+    }
     case 'error': {
       return {
         ...state,
@@ -151,4 +161,8 @@ export const reducer = (state, { payload, type, customMessage }) => {
       return state;
     }
   }
+};
+
+export const reducer = (state, params) => {
+  return reducerState(state, params, reducerSwitch);
 };

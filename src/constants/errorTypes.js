@@ -11,4 +11,5 @@ export default {
   getGuests: 'getGuests',
   editEvent: 'editEvent',
   contactUs: 'contactUs',
+  errorResendInvite: 'errorResendInvite',
 };
