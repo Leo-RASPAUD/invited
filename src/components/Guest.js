@@ -2,6 +2,7 @@ import React from 'react';
 import ButtonConfirm from './ButtonConfirm';
 import useFetcher from '../hooks/useFetcher';
 import { deleteGuest } from '../mutations/guestMutations';
+import { resendInvite } from '../queries/guestQueries';
 import styles from './Guest.module.scss';
 import classnames from 'classnames';
 import {} from 'react-icons/md';
@@ -31,6 +32,7 @@ export default props => {
       <p className={styles['notes']}>{notes ? notes : '_'}</p>
       <div className={styles['delete-button']}>
         <ButtonConfirm onConfirm={deleteItem}>Delete</ButtonConfirm>
+        <ButtonConfirm onConfirm={resendInvite}>Resend</ButtonConfirm>
       </div>
     </div>
   );
