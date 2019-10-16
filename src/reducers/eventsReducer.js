@@ -1,3 +1,5 @@
+import reducerState from './reducerState';
+
 export const actions = {
   deleteEvent: 'deleteEvent',
   updateEvents: 'updateEvents',
@@ -12,7 +14,7 @@ export const actions = {
 
 export const dispatchName = 'dispatchEvents';
 
-export const reducer = (state, { payload, type }) => {
+const reducerSwitch = (state, { payload, type }) => {
   switch (type) {
     case actions.deleteEvent: {
       return {
@@ -48,4 +50,8 @@ export const reducer = (state, { payload, type }) => {
       return state;
     }
   }
+};
+
+export const reducer = (state, { payload, type }) => {
+  return reducerState(state, { payload, type }, reducerSwitch);
 };

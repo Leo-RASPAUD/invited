@@ -13,10 +13,27 @@ import './App.scss';
 import Snackbar from './components/Snackbar';
 
 const App = props => {
-  const [stateStyles, dispatchStyles] = useReducer(stylesReducer, initialStateStyles);
-  const [stateEvents, dispatchEvents] = useReducer(eventsReducer, initialStateEvents);
-  const [stateGuests, dispatchGuests] = useReducer(guestReducer, initialStateGuests);
-  const [stateGlobal, dispatchGlobal] = useReducer(globalReducer, initialStateGlobal);
+  const initialSessionStorage = JSON.parse(window.sessionStorage.getItem('invited-state'));
+  const initialStyles = initialSessionStorage.styles || initialStateStyles;
+  const initialEvents = {
+    events: initialSessionStorage.events || initialStateEvents.events,
+    event: initialSessionStorage.event || initialStateEvents.event,
+  };
+  const initialGuests = {
+    guests: initialSessionStorage.guests || initialStateGuests.guests,
+    guest: initialSessionStorage.guest || initialStateGuests.guest,
+  };
+  const initialGlobal = {
+    errors: initialSessionStorage.errors || initialStateGlobal.errors,
+    errorMessage: initialSessionStorage.errorMessage || initialStateGlobal.errorMessage,
+    errorType: initialSessionStorage.errorType || initialStateGlobal.errorType,
+    snackbarItems: initialSessionStorage.snackbarItems || initialStateGlobal.snackbarItems,
+  };
+
+  const [stateStyles, dispatchStyles] = useReducer(stylesReducer, initialStyles);
+  const [stateEvents, dispatchEvents] = useReducer(eventsReducer, initialEvents);
+  const [stateGuests, dispatchGuests] = useReducer(guestReducer, initialGuests);
+  const [stateGlobal, dispatchGlobal] = useReducer(globalReducer, initialGlobal);
   const [appState, setAppState] = useState({
     user: {},
     isLoaded: false,

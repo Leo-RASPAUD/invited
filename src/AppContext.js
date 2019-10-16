@@ -25,5 +25,5 @@ export const initialStateGlobal = {
 };
 
 export const Context = React.createContext({
-  state: { ...initialStateGuests, initialStateEvents, ...initialStateGlobal, ...initialStateStyles },
+  state: { ...initialStateGuests, ...initialStateEvents, ...initialStateGlobal, ...initialStateStyles },
 });

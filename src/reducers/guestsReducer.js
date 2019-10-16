@@ -1,5 +1,8 @@
+import reducerState from './reducerState';
+
 export const actions = {
   addGuest: 'addGuest',
+  resendInvite: 'resendInvite',
   updateGuests: 'updateGuests',
   deleteGuest: 'deleteGuest',
   decrypt: 'decrypt',
@@ -9,7 +12,7 @@ export const actions = {
 
 export const dispatchName = 'dispatchGuests';
 
-export const reducer = (state, { payload, type }) => {
+export const reducerSwitch = (state, { payload, type }) => {
   switch (type) {
     case actions.updateGuests: {
       return {
@@ -67,4 +70,8 @@ export const reducer = (state, { payload, type }) => {
       return state;
     }
   }
+};
+
+export const reducer = (state, { payload, type }) => {
+  return reducerState(state, { payload, type }, reducerSwitch);
 };
