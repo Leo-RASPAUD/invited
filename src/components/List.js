@@ -6,7 +6,7 @@ export default ({ children = [] }) => {
   return (
     <ul className={styles['list']}>
       {children.map((item, index) => (
-        <li index={uuid()} className={styles['list-item']}>
+        <li index={uuid()} key={index} className={styles['list-item']}>
           <span className={styles['list-item-number']} role="presentation">
             {index + 1}
           </span>

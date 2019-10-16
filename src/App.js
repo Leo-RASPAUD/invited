@@ -13,7 +13,7 @@ import './App.scss';
 import Snackbar from './components/Snackbar';
 
 const App = props => {
-  const initialSessionStorage = JSON.parse(window.sessionStorage.getItem('invited-state') || {});
+  const initialSessionStorage = JSON.parse(window.sessionStorage.getItem('invited-state')) || {};
   const initialStyles = initialSessionStorage.styles || initialStateStyles;
   const initialEvents = {
     events: initialSessionStorage.events || initialStateEvents.events,
