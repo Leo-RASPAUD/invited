@@ -7,30 +7,48 @@
   margin: 0 0 16px;
   padding: 14px;
   position: relative;
-
-  > h3 {
-    font-weight: 500;
-    margin: 0;
-  }
 }
 
-.container-accepted {
+.accepted {
   background: $green;
 }
 
-.container-refused {
+.refused {
   background: $orange;
 }
 
-.delete-button {
+.name {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  margin: 0;
+}
+
+.email {
+  font-size: 12px;
+  font-style: italic;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.participants {
+  display: block;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0;
   position: absolute;
-  top: 8px;
-  right: 8px;
+  right: 14px;
+  top: 14px;
 }
 
 .notes {
-  font-size: 11px;
+  font-size: 12px;
   font-style: italic;
-  font-weight: bold;
-  margin: 8px 0 0;
+  margin: 8px 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  width: 134px;
 }

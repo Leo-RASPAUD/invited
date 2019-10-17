@@ -43,20 +43,21 @@ export default props => {
 
   return (
     <div
-      className={classnames(
-        styles['container'],
-        accepted !== null && (accepted ? styles['container-accepted'] : styles['container-refused']),
-      )}
+      className={classnames(styles['container'], accepted !== null && (accepted ? styles.accepted : styles.refused))}
     >
-      <h3>
+      <h3 className={styles.name}>
         {firstName} {lastName}
       </h3>
-      <div>{email}</div>
-      <p className={styles['notes']}>{participants ? getParticipantsText(participants) : '_'}</p>
-      <p className={styles['notes']}>{notes ? notes : '_'}</p>
-      <div className={styles['delete-button']}>
-        <ButtonConfirm onConfirm={deleteItem}>Delete</ButtonConfirm>
-        <ButtonConfirm onConfirm={resendInviteAction}>Resend</ButtonConfirm>
+      <p className={styles.email}>{email}</p>
+      <p className={styles.participants}>{participants ? getParticipantsText(participants) : '_'}</p>
+      <p className={styles.notes}>{notes ? notes : '_'}</p>
+      <div className={styles.actions}>
+        <ButtonConfirm condensed onConfirm={deleteItem}>
+          Delete
+        </ButtonConfirm>
+        <ButtonConfirm condensed onConfirm={resendInviteAction}>
+          Resend
+        </ButtonConfirm>
       </div>
     </div>
   );

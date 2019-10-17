@@ -72,3 +72,29 @@
     margin: 0 auto;
   }
 }
+
+.condensed {
+  .button {
+    font-size: 12px;
+    padding: 4px 0;
+    min-width: 62px;
+  }
+
+  .confirm {
+    padding: 0;
+    width: 29px;
+
+    > svg {
+      font-size: 28px
+    }
+  }
+
+  .cancel {
+    padding: 0;
+    width: 29px;
+
+    > svg {
+      font-size: 28px
+    }
+  }
+}
